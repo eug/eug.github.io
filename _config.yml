@@ -1,12 +1,10 @@
 ---
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
-
 permalink: pretty
 
 title: "Harmonic Labyrinth"
 tagline: "Easy to enter, difficult to escape"
-#Reporting lovely stories between me and a text-editor
 
 description: "Eugênio's Blog"
 
@@ -16,9 +14,7 @@ baseurl: "/"
 
 author:
   name: Eugênio
-  url: https://twitter.com/eugf_
-
-
+  url: "https://github.com/eug"
 
 cover: "/assets/images/escher_labyrinth.jpg"
 
@@ -28,20 +24,17 @@ version: 2.1.0
 
 mathjax: true
 
-disqus: eugfcl
+disqus:
+  shortname: "eug-github-io"
 
 analytics:
   id: "UA-88666454-1"
-
 
 social:
   email: eugfcl@gmail.com
   github: https://github.com/eug
   linkedin: https://br.linkedin.com/in/eugfc
   twitter: https://twitter.com/eugf_
-
-github:
-  repo: 
 
 gems:
 - jekyll-admin

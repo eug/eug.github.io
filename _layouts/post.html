@@ -38,10 +38,12 @@
         </a>
       </div>
     </div>
+
     {% if jekyll.environment == "production" %}
       {% if site.analytics.id %}
         {% include analytics.html %}
       {% endif %}
     {% endif %}
+    
   </body>
 </html>
