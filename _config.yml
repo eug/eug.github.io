@@ -1,6 +1,6 @@
 ---
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 
 title: "Harmonic Labyrinth"
