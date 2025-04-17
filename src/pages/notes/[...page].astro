@@ -10,7 +10,8 @@ import { Icon } from "astro-icon/components";
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_NOTES_PER_PAGE = 10;
 	const allNotes = await getCollection("note");
-	return paginate(allNotes.sort(collectionDateSort), { pageSize: MAX_NOTES_PER_PAGE });
+	const pageSize = MAX_NOTES_PER_PAGE;
+	return paginate(allNotes.sort(collectionDateSort), { pageSize });
 }) satisfies GetStaticPaths;
 
 interface Props {
@@ -20,25 +21,26 @@ interface Props {
 
 const { page } = Astro.props;
 
+const metaDescription = "Read my collection of notes";
+const metaTitle = "Notes";
 const meta = {
-	description: "Read my collection of notes",
-	title: "Notes",
+	description: metaDescription,
+	title: metaTitle,
 };
 
-const paginationProps = {
-	...(page.url.prev && {
-		prevUrl: {
-			text: "← Previous Page",
-			url: page.url.prev,
-		},
-	}),
-	...(page.url.next && {
-		nextUrl: {
-			text: "Next Page →",
-			url: page.url.next,
-		},
-	}),
-};
+const paginationProps = {};
+if (page.url.prev) {
+	paginationProps.prevUrl = {
+		text: "← Previous Page",
+		url: page.url.prev,
+	};
+}
+if (page.url.next) {
+	paginationProps.nextUrl = {
+		text: "Next Page →",
+		url: page.url.next,
+	};
+}
 ---
 
 <PageLayout meta={meta}>
