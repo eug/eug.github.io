@@ -1,5 +1,3 @@
-
-
 Astro Cactus is a simple opinionated starter built with [Astro](https://astro.build). Use it to create an easy-to-use blog or website.
 
 ## Table Of Contents
@@ -159,6 +157,20 @@ You may be asked to included a snippet inside the **HEAD** tag of your website w
 ## Deploy
 
 [Astro docs](https://docs.astro.build/en/guides/deploy/) has a great section and breakdown of how to deploy your own Astro site on various platforms and their idiosyncrasies.
+
+### GitHub Pages
+
+This project is configured for GitHub Pages deployment. To deploy:
+
+1. Push your changes to GitHub
+2. Go to your repository settings on GitHub
+3. Navigate to Pages section 
+4. Select "GitHub Actions" as the source
+5. Your site will automatically deploy on pushes to the main branch
+
+The configuration is in `.github/workflows/deploy.yml` and will use the GitHub Actions to build and deploy your site.
+
+By default, your site will deploy to `https://username.github.io/eug.github.io/`. If you want to use a custom domain, add a `CUSTOM_DOMAIN` environment variable in your repository secrets.
 
 By default the site will be built (see [Commands](#commands) section above) to a `/dist` directory.
 
