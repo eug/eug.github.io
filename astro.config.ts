@@ -21,9 +21,14 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 
+// GitHub Pages config
+const GITHUB_PAGES_URL = process.env.GITHUB_PAGES_URL || "https://eugfc.github.io";
+const GITHUB_PAGES_REPO = process.env.GITHUB_PAGES_REPO || "/eug.github.io";
+
 // https://astro.build/config
 export default defineConfig({
-	site: siteConfig.url,
+	site: process.env.CUSTOM_DOMAIN ? siteConfig.url : GITHUB_PAGES_URL,
+	base: process.env.CUSTOM_DOMAIN ? "/" : GITHUB_PAGES_REPO,
 	image: {
 		domains: ["webmention.io"],
 	},
