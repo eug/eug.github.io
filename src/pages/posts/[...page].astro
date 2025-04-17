@@ -36,7 +36,18 @@ const meta = {
 	title: metaTitle,
 };
 
-const paginationProps = {};
+interface PaginationProps {
+	prevUrl?: {
+		text: string;
+		url: string;
+	};
+	nextUrl?: {
+		text: string;
+		url: string;
+	};
+}
+
+const paginationProps: PaginationProps = {};
 if (page.url.prev) {
 	paginationProps.prevUrl = {
 		text: "← Previous Page",
