@@ -39,7 +39,7 @@ jobs:
           # the publish_branch is typically 'main' or 'master' and publish_dir is './output' (or your build output).
           # For a project page (e.g., <username>.github.io/<repository-name>),
           # the publish_branch is typically 'gh-pages'.
-          publish_branch: main  # Deploy to main branch for user/org pages
+          publish_branch: gh-pages  # Deploy to gh-pages branch
           force_orphan: true    # Ensure clean deployment
           # user_name: 'github-actions[bot]' # Optional: Custom committer name
           # user_email: 'github-actions[bot]@users.noreply.github.com' # Optional: Custom committer email
