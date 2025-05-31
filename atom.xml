@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Euge's blog</title>
+  <link href="https://eug.github.io/atom.xml" rel="self"/>
+  <link href="https://eug.github.io/"/>
+  <updated>2023-10-26T00:00:00Z</updated>
+  <id>https://eug.github.io/</id>
+  <author>
+    <name>Eugenio Cabral</name>
+  </author>
+
+  
+  <entry>
+    <title>Exploring Python Decorators: A Practical Guide</title>
+    <link href="https://eug.github.io/posts/exploring-python-decorators.html"/>
+    <id>https://eug.github.io/posts/exploring-python-decorators.html</id>
+    <updated>2023-10-26T00:00:00Z</updated>
+    <content type="html">&lt;hr /&gt;
+&lt;h2&gt;Introduction to Python Decorators&lt;/h2&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>My First Post</title>
+    <link href="https://eug.github.io/posts/example-post.html"/>
+    <id>https://eug.github.io/posts/example-post.html</id>
+    <updated>2024-05-30T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;This is the content of my first blog post.&lt;/p&gt;
+</content>
+  </entry>
+  
+</feed> 

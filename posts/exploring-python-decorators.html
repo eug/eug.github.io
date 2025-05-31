@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euge's blog - Exploring Python Decorators: A Practical Guide</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="../rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="../atom.xml">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">Euge's blog</a></h1>
+        <nav>
+            <a href="../index.html">[Home]</a>
+            <a href="../about.html">[About]</a >
+        </nav>
+    </header>
+    <main>
+        
+    <article class="post">
+        <h2>Exploring Python Decorators: A Practical Guide</h2>
+        
+            <p class="subtitle">Understanding how decorators can simplify your Python code and make it more readable.</p>
+        
+        <p class="meta">
+            Published on 2023-10-26
+            
+                | Tags: 
+                
+                    <span class="tag">python</span>, 
+                
+                    <span class="tag">programming</span>, 
+                
+                    <span class="tag">decorators</span>, 
+                
+                    <span class="tag">code-quality</span>
+                
+            
+        </p>
+        <div class="content">
+            <hr />
+<h2>Introduction to Python Decorators</h2>
+<p>Python decorators are a powerful and expressive feature that allows you to modify or enhance functions and methods in a clean and readable way. They are a form of metaprogramming, where a part of the program tries to modify another part of the program at compile time. Essentially, a decorator is a function that takes another function as an argument (the decorated function) and returns a new function, usually an augmented version of the input function.</p>
+<p>If you've ever seen an <code>@</code> symbol followed by a name right before a function definition in Python, you've encountered a decorator!</p>
+<h2>Why Use Decorators?</h2>
+<p>Decorators can be used for a variety of purposes, such as:</p>
+<ul>
+<li><strong>Logging:</strong> Adding logging calls before and after function execution.</li>
+<li><strong>Access control and authorization:</strong> Checking if a user has permission to execute a function.</li>
+<li><strong>Instrumentation and timing:</strong> Measuring the execution time of a function.</li>
+<li><strong>Caching:</strong> Storing the results of expensive function calls and returning the cached result if the same inputs occur again.</li>
+<li><strong>Rate limiting:</strong> Restricting the number of times a function can be called within a certain time period.</li>
+<li><strong>Simplifying boilerplate code:</strong> Abstracting away repetitive setup or teardown code.</li>
+</ul>
+<h2>A Simple Decorator Example</h2>
+<p>Let's start with a very basic example to understand the syntax and flow.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening before the function is called.&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something is happening after the function is called.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@my_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+
+<span class="n">say_hello</span><span class="p">()</span>
+</code></pre></div>
+
+<p>In this example:
+1.  <code>my_decorator</code> is a function that takes another function <code>func</code> as its argument.
+2.  Inside <code>my_decorator</code>, we define a nested function <code>wrapper</code>. This function "wraps" the original <code>func</code>.
+3.  The <code>wrapper</code> function can execute code before and after calling the original <code>func</code>.
+4.  <code>my_decorator</code> returns the <code>wrapper</code> function.
+5.  The <code>@my_decorator</code> syntax above <code>say_hello</code> is syntactic sugar for <code>say_hello = my_decorator(say_hello)</code>.</p>
+<p>When <code>say_hello()</code> is called, it's actually the <code>wrapper</code> function (returned by <code>my_decorator</code>) that gets executed.</p>
+<h2>Decorators with Arguments</h2>
+<p>Sometimes, the decorated function itself needs to accept arguments. Our decorator needs to be able to handle these. We can use <code>*args</code> and <code>**kwargs</code> in the wrapper function to pass along any arguments.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">do_twice</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper_do_twice</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper_do_twice</span>
+
+<span class="nd">@do_twice</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">)</span> <span class="c1"># Output: Hello World (twice)</span>
+</code></pre></div>
+
+<h2>Decorators That Accept Arguments</h2>
+<p>What if you want your decorator itself to take arguments? For this, you need an extra layer of nesting: a function that returns a decorator.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator_repeat</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper_repeat</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">wrapper_repeat</span>
+    <span class="k">return</span> <span class="n">decorator_repeat</span>
+
+<span class="nd">@repeat</span><span class="p">(</span><span class="n">num_times</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_whee</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whee!&quot;</span><span class="p">)</span>
+
+<span class="n">say_whee</span><span class="p">()</span> <span class="c1"># Output: Whee! (three times)</span>
+</code></pre></div>
+
+<p>Here, <code>repeat(num_times=3)</code> is called first. It returns <code>decorator_repeat</code>, which then acts as the decorator for <code>say_whee</code>.</p>
+<h2>Conclusion</h2>
+<p>Python decorators are a versatile tool that can significantly enhance your code's functionality and readability when used appropriately. They help in reducing boilerplate, promoting code reuse, and separating concerns. While they might seem a bit magical at first, understanding their underlying mechanics—functions taking functions as arguments and returning new functions—unlocks their true potential.</p>
+<p>Start simple, experiment with them, and you'll soon find many places in your code where decorators can make a positive impact! </p>
+        </div>
+    </article>
+
+    </main>
+    <footer>
+        <p>
+            <a href="../robots.txt">[robots.txt]</a>
+            <a href="../llms.txt">[llms.txt]</a>
+            <a href="../sitemap.xml">[sitemap.xml]</a>
+            <a href="../rss.xml">[rss.xml]</a>
+            <a href="../atom.xml">[atom.xml]</a>
+            <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+            
+            <a href="https://www.linkedin.com/in/eug" target="_blank">[LinkedIn]</a>
+            
+            
+            <a href="https://github.com/eug" target="_blank">[GitHub]</a>
+            
+        </p>
+        <p>&copy; 2025 Euge's blog</p>
+    </footer>
+</body>
+</html> 

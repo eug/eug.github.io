@@ -1,0 +1,19 @@
+# Euge's blog
+
+A cool blog about interesting things.
+
+Author Email: eugfcl@gmail.com
+Site URL: https://eug.github.io
+
+## About
+
+About Me
+I'm a Computer Scientist, still navigating the tech sea by the compass of the forgotten <a href="https://phrack.org/issues/7/3">Hacker Manifesto</a>. These days, you'll find me surfing the AI wave, trying to build something economically viable.
+About this site
+I vibe-coded this static website from scratch in Python. My main goal was to create a simple, LLM-friendly way to write and read blog posts. I found other options a bit bloated and not quite what I was looking for, so I decided to make my own - feel free to fork it! Now, I can vibe-code and vibe-blog in a safe place!
+This blog is where I share my ideas, experiments, and document some of my experiences. Do you want to interact with me? Drop me an <a href="mailto:eugenio.cabral@gmail.com">email</a>!
+
+## Posts
+
+[Exploring Python Decorators: A Practical Guide](https://eug.github.io/posts/exploring-python-decorators.html): Understanding how decorators can simplify your Python code and make it more readable.
+[My First Post](https://eug.github.io/posts/example-post.html): A subtitle for my first post

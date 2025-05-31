@@ -1,0 +1,150 @@
+/* General styles */
+body {
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #000000; /* Black background */
+    color: #DDDDDD; /* New primary text color */
+    line-height: 1.6;
+}
+
+a {
+    color: #FFFF00; /* Yellow links */
+    text-decoration: none;
+    position: relative; /* Needed for pseudo-element positioning if we were to use absolute */
+    padding-left: 0; /* Ensure no default padding interferes */
+    padding-right: 0;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition */
+}
+
+a:hover {
+    background-color: #3a3a3a; /* Light gray background */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Header */
+header {
+    border-bottom: 1px solid #DDD; /* New border color */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+header h1 a {
+    color: #1beb9e; /* New header text color */
+    text-decoration: none;
+}
+
+nav a {
+    margin-left: 15px;
+    padding: 2px 0px; /* Add some padding so background hover is not too tight if no text is selected */
+}
+
+nav a:hover {
+    /* nav-specific hover styles if different from general 'a:hover' */
+}
+
+/* Main content */
+main {
+    margin-bottom: 20px;
+}
+
+.post h2 {
+    margin-top: 0;
+    color: #FFFFFF; /* White post titles */
+}
+
+.post .subtitle {
+    color: #AAAAAA; /* Grey subtitle */
+    font-style: italic;
+    margin-bottom: 0px; /* Reduce space after subtitle */
+}
+
+.post .meta {
+    color: #888888; /* Darker grey for meta */
+    font-size: 0.8em; /* Smaller font for meta */
+    margin-bottom: 0px; /* Reduce space after meta */
+}
+
+.post .meta .tag {
+    background-color: #333333; /* Dark grey tag background */
+    color: #1beb9e; /* New tag text color */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+/* Post list on index page */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #555555; /* Dashed border for separation */
+    padding-bottom: 10px;
+}
+
+.post-list h3 a {
+    color: #FFFFFF; /* White post titles on index */
+}
+
+/* Styling for index page post list with hex numbers */
+.index-page-list li {
+    border-bottom: none; /* Remove dashed border for this specific list if desired */
+    padding-bottom: 5px; /* Adjust spacing */
+    margin-bottom: 5px; /* Adjust spacing */
+}
+
+.index-page-list .hex-number {
+    color: #AAAAAA; /* Grey for hex numbers */
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.index-page-list a {
+    color: #FFFFFF; /* Ensure title links are white */
+}
+
+/* Code blocks */
+pre {
+    background-color: #111111; /* Very dark grey for code background */
+    border: 1px solid #333333;
+    padding: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling for long code lines */
+    color: #DDDDDD; /* Light grey code text */
+}
+
+code {
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+/* Syntax highlighting styles (basic example, Pygments will add more specific ones) */
+.codehilite .k { color: #1beb9e; font-weight: bold; } /* Keyword - New Green */
+.codehilite .s1, .codehilite .s2 { color: #dddd25; } /* String - Yellow */
+.codehilite .c1 { color: #888888; font-style: italic; } /* Comment - Grey */
+.codehilite .nb { color: #00FFFF; } /* Name.Builtin - Cyan */
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #888888;
+}
+
+footer p {
+    font-size: 0.8em; /* Smaller font for footer paragraphs */
+}
+
+/* Specific adjustments for nav links if needed, to ensure brackets are spaced nicely */
+.index-page-list a:hover::before, 
+.index-page-list a:hover::after {
+    /* content: ''; Disable for hex list if needed, but current structure is <span>0xHEX</span> <a>Title</a> */
+} 
