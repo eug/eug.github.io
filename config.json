@@ -1,0 +1,11 @@
+{
+  "author_name": "Eugenio Cabral",
+  "author_email": "eugfcl@gmail.com",
+  "blog_name": "Euge's blog",
+  "blog_description": "A cool blog about interesting things.",
+  "posts_per_page": 100,
+  "site_url": "https://eug.github.io",
+  "syndication": "both",
+  "linkedin_url": "https://www.linkedin.com/in/eug",
+  "github_url": "https://github.com/eug"
+} 

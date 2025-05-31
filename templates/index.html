@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <ul class="post-list index-page-list">
+        {% for post in posts %}
+            <li>
+                <span class="hex-number">0x{{ "%X"|format(post.metadata.created_at.timestamp()|int) }}</span> <a href="posts/{{ post.slug }}.html">[{{ post.metadata.title }}]</a>
+            </li>
+        {% else %}
+            <li>No posts yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %} 
