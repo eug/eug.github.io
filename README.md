@@ -7,7 +7,7 @@ This is a simple vibe-coding friendly static blog generator written in Python.
 The blog uses a Python script (`main.py`) to generate static HTML files from Markdown posts.
 - Posts are stored in the `posts/` directory as Markdown files.
 - Templates for the HTML pages are located in the `templates/` directory.
-- The static HTML files are generated in the `output/` directory.
+- The static HTML files are generated in the `dist/` directory.
 - Static assets (CSS, JS, images) are served from the `static/` directory.
 - Configuration for the blog (like site title) is in `config.json`.
 
@@ -49,7 +49,7 @@ To generate a new static version of the blog:
     ```bash
     python main.py
     ```
-3.  The generated static files will be available in the `output/` directory. You can then deploy these files to any static web hosting service.
+3.  The generated static files will be available in the `dist/` directory. You can then deploy these files to any static web hosting service.
 
 ## Configuration
 
@@ -63,10 +63,10 @@ The blog is composed of the following main components:
 -   **`main.py`**: The core Python script responsible for:
     -   Parsing Markdown files from the `posts/` directory.
     -   Loading HTML templates from the `templates/` directory.
-    -   Generating static HTML pages for posts, the index page, and an about page into the `output/` directory.
+    -   Generating static HTML pages for posts, the index page, and an about page into the `dist/` directory.
     -   Handling blog configuration from `config.json`.
     -   Generating sitemap (`sitemap.xml`), `robots.txt`, RSS/Atom feeds (`rss.xml`, `atom.xml`), and LLM-specific text files (`llms.txt`, `llms-ctx-full.txt`).
-    -   Copying static assets (CSS, JS, images) from `static/` to `output/static/`.
+    -   Copying static assets (CSS, JS, images) from `static/` to `dist/static/`.
 -   **`posts/`**: This directory contains your blog posts written in Markdown format.
     -   Each `.md` file represents a single blog post.
     -   Frontmatter (metadata like title, date, tags) is included at the top of each Markdown file.
@@ -76,10 +76,10 @@ The blog is composed of the following main components:
     -   `post.html`: Template for individual blog post pages.
     -   `about.html`: Template for the "About" page.
     -   `atom.xml` / `rss.xml`: Templates for generating syndication feeds.
--   **`output/`**: This is where the generated static website is stored. The contents of this directory can be deployed to any static web hosting service.
-    -   `output/posts/`: Contains the generated HTML files for individual posts.
-    -   `output/static/`: Contains copied static assets.
--   **`static/`**: This directory is for your static assets like CSS stylesheets, JavaScript files, and images. These files are copied directly to the `output/static/` directory during generation.
+-   **`dist/`**: This is where the generated static website is stored. The contents of this directory can be deployed to any static web hosting service.
+    -   `dist/posts/`: Contains the generated HTML files for individual posts.
+    -   `dist/static/`: Contains copied static assets.
+-   **`static/`**: This directory is for your static assets like CSS stylesheets, JavaScript files, and images. These files are copied directly to the `dist/static/` directory during generation.
 -   **`config.json`**: A JSON file for configuring blog-wide settings such as the site title, site URL, blog description, author email, and syndication preferences.
 -   **`requirements.txt`**: Lists the Python dependencies required to run the blog generator (e.g., Markdown, Jinja2).
 
@@ -94,7 +94,7 @@ The blog's functionality can be extended by modifying the `main.py` script and/o
 3.  **Modify `main.py`**:
     -   Add logic to parse any new data sources.
     -   Add a new function or modify the `main()` function to render your new template with the necessary context.
-    -   Ensure the generated page is saved to the `output/` directory.
+    -   Ensure the generated page is saved to the `dist/` directory.
 
 ### Customizing Existing Pages
 
@@ -111,7 +111,7 @@ The blog's functionality can be extended by modifying the `main.py` script and/o
 
 ### Changing Static Asset Handling
 
--   To add new CSS, JavaScript, or images, place them in the `static/` directory. They will be automatically copied to `output/static/`.
+-   To add new CSS, JavaScript, or images, place them in the `static/` directory. They will be automatically copied to `dist/static/`.
 -   Link to new CSS or JS files in your HTML templates as needed (e.g., in the `<head>` section or before the closing `</body>` tag).
 
 ### Modifying Generation Logic
@@ -119,4 +119,4 @@ The blog's functionality can be extended by modifying the `main.py` script and/o
 -   The `main()` function in `main.py` orchestrates the entire generation process. You can modify this function to change the order of operations, add new steps, or remove existing ones.
 -   Helper functions like `generate_sitemap`, `generate_robots_txt`, `generate_syndication`, and `generate_llmstxt` can be customized to alter the content or format of these generated files.
 
-Remember to regenerate the blog by running `python main.py` after making any changes to see them reflected in the `output/` directory. 
+Remember to regenerate the blog by running `python main.py` after making any changes to see them reflected in the `dist/` directory. 
