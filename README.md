@@ -119,4 +119,7 @@ The blog's functionality can be extended by modifying the `main.py` script and/o
 -   The `main()` function in `main.py` orchestrates the entire generation process. You can modify this function to change the order of operations, add new steps, or remove existing ones.
 -   Helper functions like `generate_sitemap`, `generate_robots_txt`, `generate_syndication`, and `generate_llmstxt` can be customized to alter the content or format of these generated files.
 
-Remember to regenerate the blog by running `python main.py` after making any changes to see them reflected in the `dist/` directory. 
+Remember to regenerate the blog by running `python main.py` after making any changes to see them reflected in the `dist/` directory.
+
+## Deployment
+This site is automatically deployed to GitHub Pages using GitHub Actions. The site is built and deployed to the `gh-pages` branch. 
