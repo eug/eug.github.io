@@ -1,6 +1,6 @@
 ---
 title: Vibe-code your own SSG
-subtitle: "Stop wrestling with frameworks. Build your own lean static site generator."
+subtitle: Stop wrestling with frameworks. Vibe code your own lean static site generator.
 tags: [vibe-code, ssg, python, minimalist, DIY]
 created_at: 2025-06-01
 ---
@@ -78,29 +78,29 @@ Once you have the basics, these aren't hard to add and make your site a better w
 *   `robots.txt`: Tells search engine crawlers what they can and cannot index.
 *   `sitemap.xml`: Helps search engines discover all the pages on your site.
 *   `CNAME` (if using a custom domain with services like GitHub Pages): A file containing just your custom domain name.
-*   `llms.txt` (optional, emerging): If you want to give instructions to AI web crawlers.
+*   `llms.txt` (optional, emerging): If you want to serve your site as context for LLMs.
 
 ## Bonus: Kickstart with an LLM
 
 Feeling lazy or just want a quick starting point? Modern LLMs are surprisingly good at bootstrapping simple scripts. Try a prompt like this (tailor it to your preferences):
 
-```
-Create a simple static site generator in Python. It should:
-1. Read all `.md` files from a `posts` directory.
-2. Parse YAML frontmatter (title, date) from each file.
-3. Convert Markdown content to HTML.
-4. Use Jinja2 templates from a `templates` directory: `base.html` and `post.html`.
-5. `base.html` should define blocks for `title` and `content`. It should link to a `style.css` file.
-6. `post.html` should extend `base.html` and display the post title and content.
-7. Generate an `index.html` in a `dist` directory, listing titles and links to all posts, sorted by date (newest first).
-8. Generate individual HTML files for each post in the `dist` directory (e.g., `dist/my-post-slug.html`).
-9. Copy an `assets` directory (which should contain the `style.css`) to `dist/assets`.
-10. The `style.css` should implement a clean, minimalist, responsive design with a dark theme. Use a sans-serif font for readability.
+>Create a simple static site generator in Python. It should:
+>
+>1. Read all `.md` files from a `posts` directory.
+>2. Parse YAML frontmatter (title, date) from each file.
+>3. Convert Markdown content to HTML.
+>4. Use Jinja2 templates from a `templates` directory: `base.html` and `post.html`.
+>5. `base.html` should define blocks for `title` and `content`. It should link to a `style.css` file.
+>6. `post.html` should extend `base.html` and display the post title and content.
+>7. Generate an `index.html` in a `dist` directory, listing titles and links to all posts, sorted by date (newest first).
+>8. Generate individual HTML files for each post in the `dist` directory (e.g., `dist/my-post-slug.html`).
+>9. Copy an `assets` directory (which should contain the `style.css`) to `dist/assets`.
+>10. The `style.css` should implement a clean, minimalist, responsive design with a dark theme. Use a sans-serif font for readability.
+>
+>Provide the Python script, example minimal `base.html` and `post.html` templates, and a basic `style.css`.
 
-Provide the Python script, example minimal `base.html` and `post.html` templates, and a basic `style.css`.
-```
 
-**Pro tip:** This works even better with AI IDEs like Cursor, Windsurf, or Cline rather than standalone LLMs. These tools can actually create the entire file structure for you automatically – the Python script, template files, CSS, even a sample blog post to test with. No copy-pasting required.
+>**Pro tip:** This works even better with AI IDEs like Cursor, Windsurf, or Cline rather than standalone LLMs. These tools can actually create the entire file structure for you automatically – the Python script, template files, CSS, even a sample blog post to test with. No copy-pasting required.
 
 It may not give you a production-ready SSG, but it's a fantastic V0.0.1. You can then iterate, refactor, and add features as you see fit, truly making it your own.
 
