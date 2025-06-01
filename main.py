@@ -223,6 +223,7 @@ def main():
     config = load_config()
     site_title = config.get("blog_name", "My Blog") # Use blog_name from config
     author_email = config.get("author_email", "your_email@example.com") # Add author_email to config or use default
+    site_url = config.get("site_url", "") # Get site_url from config
 
     # Create output directory if it doesn't exist
     if os.path.exists(OUTPUT_DIR):
@@ -256,6 +257,7 @@ def main():
             "current_year": current_year,
             "author_email": author_email,
             "config": config,
+            "site_url": site_url,
             "static_css_path": "../static/style.css",
             "static_rss_path": "../rss.xml",
             "static_atom_path": "../atom.xml"
@@ -271,6 +273,7 @@ def main():
         "current_year": current_year,
         "author_email": author_email,
         "config": config,
+        "site_url": site_url,
         "static_css_path": "static/style.css",
         "static_rss_path": "rss.xml",
         "static_atom_path": "atom.xml"
@@ -294,6 +297,7 @@ def main():
         "current_year": current_year,
         "author_email": author_email,
         "config": config,
+        "site_url": site_url,
         "static_css_path": "static/style.css",
         "static_rss_path": "rss.xml",
         "static_atom_path": "atom.xml"
