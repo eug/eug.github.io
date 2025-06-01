@@ -73,13 +73,22 @@ def render_template(template_name, context, env):
 def load_config():
     try:
         with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
+            config = json.load(f)
+            
+        # Validate theme configuration
+        valid_themes = ["light", "dark"]
+        theme = config.get("theme", "dark")
+        if theme not in valid_themes:
+            print(f"Warning: Invalid theme '{theme}' in config.json. Using 'dark' as default.")
+            config["theme"] = "dark"
+            
+        return config
     except FileNotFoundError:
         print(f"Error: {CONFIG_FILE} not found. Please create it.")
-        return {}
+        return {"theme": "dark"}  # Add default theme
     except json.JSONDecodeError:
         print(f"Error: Could not decode {CONFIG_FILE}. Check its format.")
-        return {}
+        return {"theme": "dark"}  # Add default theme
 
 def generate_sitemap(posts, config):
     site_url = config.get("site_url", "")
@@ -230,12 +239,30 @@ def generate_llmstxt(posts, config, about_content_md):
         f.write(llms_ctx_full_content)
     print(f"llms-ctx-full.txt generated at {llms_ctx_full_txt_path}")
 
+def create_template_context(config, **kwargs):
+    """Create a common template context with theme and other shared variables."""
+    theme = config.get("theme", "dark")
+    
+    # Determine CSS paths based on context (post pages vs main pages)
+    is_post_page = 'post' in kwargs
+    css_base_path = "../static/css/" if is_post_page else "static/css/"
+    
+    context = {
+        "config": config,
+        "theme": theme,
+        "site_title": config.get("blog_name", "My Blog"),
+        "author_email": config.get("author_email", "your_email@example.com"),
+        "site_url": config.get("site_url", ""),
+        "current_year": datetime.now().year,
+        "static_base_css_path": f"{css_base_path}base.css",
+        "static_theme_css_path": f"{css_base_path}{theme}.css",
+    }
+    context.update(kwargs)
+    return context
+
 def main():
     # Load configuration
     config = load_config()
-    site_title = config.get("blog_name", "My Blog") # Use blog_name from config
-    author_email = config.get("author_email", "your_email@example.com") # Add author_email to config or use default
-    site_url = config.get("site_url", "") # Get site_url from config
 
     # Create output directory if it doesn't exist
     if os.path.exists(OUTPUT_DIR):
@@ -249,9 +276,6 @@ def main():
 
     # Setup Jinja2 environment
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-
-    # Get current year for footer
-    current_year = datetime.now().year
 
     # Parse posts
     posts = []
@@ -267,37 +291,27 @@ def main():
 
     # Generate post pages
     for post in posts:
-        post_html = render_template("post.html", {
-            "post": post, 
-            "site_title": site_title, 
-            "current_year": current_year,
-            "author_email": author_email,
-            "config": config,
-            "site_url": site_url,
-            "static_css_path": "../static/style.css",
-            "static_rss_path": "../rss.xml",
-            "static_atom_path": "../atom.xml"
-        }, env)
+        context = create_template_context(config,
+            post=post,
+            static_rss_path="../rss.xml",
+            static_atom_path="../atom.xml"
+        )
+        post_html = render_template("post.html", context, env)
         output_path = os.path.join(OUTPUT_DIR, "posts", f"{post['slug']}.html")
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(post_html)
 
     # Generate index page
-    index_html = render_template("index.html", {
-        "posts": posts, 
-        "site_title": site_title, 
-        "current_year": current_year,
-        "author_email": author_email,
-        "config": config,
-        "site_url": site_url,
-        "static_css_path": "static/style.css",
-        "static_rss_path": "rss.xml",
-        "static_atom_path": "atom.xml"
-    }, env)
+    context = create_template_context(config,
+        posts=posts,
+        static_rss_path="rss.xml",
+        static_atom_path="atom.xml"
+    )
+    index_html = render_template("index.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html)
 
-    # Generate about page (assuming it might use site_title too)
+    # Generate about page
     about_content = "" # Placeholder if about.md doesn't exist
     about_metadata = {} 
     if os.path.exists(os.path.join(POSTS_DIR, "about.md")):
@@ -305,33 +319,23 @@ def main():
         about_content = about_data["html_content"]
         about_metadata = about_data["metadata"]
     
-    about_page_title = about_metadata.get("title", site_title) # Use title from about.md if present
-    about_html = render_template("about.html", {
-        "site_title": site_title, 
-        "page_title": about_page_title, 
-        "content": about_content, 
-        "current_year": current_year,
-        "author_email": author_email,
-        "config": config,
-        "site_url": site_url,
-        "static_css_path": "static/style.css",
-        "static_rss_path": "rss.xml",
-        "static_atom_path": "atom.xml"
-    }, env)
+    about_page_title = about_metadata.get("title", config.get("blog_name", "My Blog"))
+    context = create_template_context(config,
+        page_title=about_page_title,
+        content=about_content,
+        static_rss_path="rss.xml",
+        static_atom_path="atom.xml"
+    )
+    about_html = render_template("about.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "about.html"), "w", encoding="utf-8") as f:
         f.write(about_html)
 
     # Generate bookmarks page
-    bookmarks_html = render_template("bookmarks.html", {
-        "site_title": site_title,
-        "current_year": current_year,
-        "author_email": author_email,
-        "config": config,
-        "site_url": site_url,
-        "static_css_path": "static/style.css",
-        "static_rss_path": "rss.xml",
-        "static_atom_path": "atom.xml"
-    }, env)
+    context = create_template_context(config,
+        static_rss_path="rss.xml",
+        static_atom_path="atom.xml"
+    )
+    bookmarks_html = render_template("bookmarks.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "bookmarks.html"), "w", encoding="utf-8") as f:
         f.write(bookmarks_html)
 

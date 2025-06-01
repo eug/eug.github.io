@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ static_css_path }}">
+    <link rel="stylesheet" href="{{ static_base_css_path }}">
+    <link rel="stylesheet" href="{{ static_theme_css_path }}">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ static_rss_path }}">
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ static_atom_path }}">
     <style>
@@ -25,7 +26,7 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="{{ theme }}">
     <header>
         <h1>
             <svg class="glider-icon" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg">
