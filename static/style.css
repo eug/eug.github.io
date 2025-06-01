@@ -125,19 +125,23 @@ pre {
     border-radius: 4px;
 }
 
+/* Inline code (not inside pre blocks) */
 code {
-    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-    background-color: #2a2a2a;
-    color: #00AAAA;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.9em;
-    border: 1px solid #333333;
+    font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace !important;
+    background-color: #2a2a2a !important;
+    color: #c28005 !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-size: 0.9em !important;
+    border: 1px solid #333333 !important;
 }
 
+/* Code inside pre blocks (for syntax highlighting) */
 pre code {
-    background-color: transparent;
-    padding: 0;
+    background-color: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    color: inherit !important;
 }
 
 /* Comprehensive Pygments syntax highlighting styles */
@@ -187,7 +191,7 @@ pre code {
 .codehilite .kn { color: #00AA00; font-weight: bold }
 .codehilite .kp { color: #00AA00 }
 .codehilite .kr { color: #00AA00; font-weight: bold }
-.codehilite .kt { color: #00AAAA; font-weight: bold }
+.codehilite .kt { color: #C28005; font-weight: bold }
 
 /* Literal */
 .codehilite .ld { color: #AA5500 }
@@ -201,7 +205,7 @@ pre code {
 
 /* Name */
 .codehilite .na { color: #1E90FF }
-.codehilite .nb { color: #00AAAA }
+.codehilite .nb { color: #C28005 }
 .codehilite .nc { color: #00AAFF; font-weight: bold }
 .codehilite .no { color: #AA0000 }
 .codehilite .nd { color: #AA5500 }
@@ -246,7 +250,7 @@ pre code {
 .codehilite .s { color: #FFA500 } /* Attribute values */
 
 /* Python-specific */
-.codehilite .bp { color: #00AAAA } /* Built-in pseudo */
+.codehilite .bp { color: #C28005 } /* Built-in pseudo */
 .codehilite .fm { color: #00AA00 } /* Function magic */
 
 /* JavaScript/CSS specific */

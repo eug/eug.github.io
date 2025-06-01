@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') if request else site_url + '/static/style.css' }}">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ url_for('static', filename='rss.xml') if request else site_url + '/rss.xml' }}">
-    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ url_for('static', filename='atom.xml') if request else site_url + '/atom.xml' }}">
+    <link rel="stylesheet" href="{{ static_css_path }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ static_rss_path }}">
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ static_atom_path }}">
     <style>
         header h1 {
             display: flex;
@@ -103,12 +103,12 @@
                     </rect>
                 </g>
             </svg>
-            <a href="{{ url_for('index') if request else site_url + '/index.html' }}">{{ site_title }}</a>
+            <a href="{{ site_url }}/index.html">{{ site_title }}</a>
         </h1>
         <nav>
-            <a href="{{ url_for('index') if request else site_url + '/index.html' }}">[Home]</a>
-            <a href="{{ url_for('bookmarks') if request else site_url + '/bookmarks.html' }}">[Bookmarks]</a>
-            <a href="{{ url_for('about') if request else site_url + '/about.html' }}">[About]</a >
+            <a href="{{ site_url }}/index.html">[Home]</a>
+            <a href="{{ site_url }}/bookmarks.html">[Bookmarks]</a>
+            <a href="{{ site_url }}/about.html">[About]</a >
         </nav>
     </header>
     <main>
@@ -116,11 +116,11 @@
     </main>
     <footer>
         <p>
-            <a href="{{ url_for('static', filename='robots.txt') if request else site_url + '/robots.txt' }}">[robots.txt]</a>
-            <a href="{{ url_for('static', filename='llms.txt') if request else site_url + '/llms.txt' }}">[llms.txt]</a>
-            <a href="{{ url_for('static', filename='sitemap.xml') if request else site_url + '/sitemap.xml' }}">[sitemap.xml]</a>
-            <a href="{{ url_for('static', filename='rss.xml') if request else site_url + '/rss.xml' }}">[rss.xml]</a>
-            <a href="{{ url_for('static', filename='atom.xml') if request else site_url + '/atom.xml' }}">[atom.xml]</a>
+            <a href="{{ site_url }}/robots.txt">[robots.txt]</a>
+            <a href="{{ site_url }}/llms.txt">[llms.txt]</a>
+            <a href="{{ site_url }}/sitemap.xml">[sitemap.xml]</a>
+            <a href="{{ site_url }}/rss.xml">[rss.xml]</a>
+            <a href="{{ site_url }}/atom.xml">[atom.xml]</a>
             <a href="mailto:{{ author_email }}">[mailto]</a>
             {% if config.linkedin_url %}
             <a href="{{ config.linkedin_url }}" target="_blank">[LinkedIn]</a>
