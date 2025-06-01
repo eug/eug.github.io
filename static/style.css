@@ -122,17 +122,133 @@ pre {
     padding: 10px;
     overflow-x: auto; /* Allow horizontal scrolling for long code lines */
     color: #DDDDDD; /* Light grey code text */
+    border-radius: 4px;
 }
 
 code {
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+    background-color: #1a1a1a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
 }
 
-/* Syntax highlighting styles (basic example, Pygments will add more specific ones) */
-.codehilite .k { color: #008000; font-weight: bold; } /* Keyword - New Green */
-.codehilite .s1, .codehilite .s2 { color: #7e7e15; } /* String - Yellow */
-.codehilite .c1 { color: #888888; font-style: italic; } /* Comment - Grey */
-.codehilite .nb { color: #019797; } /* Name.Builtin - Cyan */
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Comprehensive Pygments syntax highlighting styles */
+.codehilite { background: #111111; border-radius: 4px; }
+.codehilite pre { margin: 0; }
+
+/* Error */
+.codehilite .err { color: #FF0000; background-color: #FFAAAA }
+
+/* Keyword */
+.codehilite .k { color: #00AA00; font-weight: bold }
+
+/* Literal */
+.codehilite .l { color: #AA5500 }
+
+/* Name */
+.codehilite .n { color: #DDDDDD }
+
+/* Operator */
+.codehilite .o { color: #AAAAAA }
+
+/* Punctuation */
+.codehilite .p { color: #AAAAAA }
+
+/* Comment */
+.codehilite .c { color: #888888; font-style: italic }
+.codehilite .cm { color: #888888; font-style: italic }
+.codehilite .cp { color: #888888; font-style: italic }
+.codehilite .c1 { color: #888888; font-style: italic }
+.codehilite .cs { color: #888888; font-style: italic }
+
+/* Generic */
+.codehilite .gd { color: #FF0000 }
+.codehilite .ge { font-style: italic }
+.codehilite .gr { color: #FF0000 }
+.codehilite .gh { color: #FFFFFF; font-weight: bold }
+.codehilite .gi { color: #00FF00 }
+.codehilite .go { color: #888888 }
+.codehilite .gp { color: #555555 }
+.codehilite .gs { font-weight: bold }
+.codehilite .gu { color: #AAAAAA; font-weight: bold }
+.codehilite .gt { color: #FF0000 }
+
+/* Keyword */
+.codehilite .kc { color: #00AA00; font-weight: bold }
+.codehilite .kd { color: #00AA00; font-weight: bold }
+.codehilite .kn { color: #00AA00; font-weight: bold }
+.codehilite .kp { color: #00AA00 }
+.codehilite .kr { color: #00AA00; font-weight: bold }
+.codehilite .kt { color: #00AAAA; font-weight: bold }
+
+/* Literal */
+.codehilite .ld { color: #AA5500 }
+
+/* Number */
+.codehilite .m { color: #AA5500 }
+.codehilite .mf { color: #AA5500 }
+.codehilite .mh { color: #AA5500 }
+.codehilite .mi { color: #AA5500 }
+.codehilite .mo { color: #AA5500 }
+
+/* Name */
+.codehilite .na { color: #1E90FF }
+.codehilite .nb { color: #00AAAA }
+.codehilite .nc { color: #00AAFF; font-weight: bold }
+.codehilite .no { color: #AA0000 }
+.codehilite .nd { color: #AA5500 }
+.codehilite .ni { color: #999999; font-weight: bold }
+.codehilite .ne { color: #CC0000; font-weight: bold }
+.codehilite .nf { color: #00AA00 }
+.codehilite .nl { color: #999999 }
+.codehilite .nn { color: #00AAFF; font-weight: bold }
+.codehilite .nt { color: #1E90FF; font-weight: bold }
+.codehilite .nv { color: #AA0000 }
+
+/* Operator */
+.codehilite .ow { color: #00AA00; font-weight: bold }
+
+/* String */
+.codehilite .s { color: #AA5500 }
+.codehilite .sa { color: #AA5500 }
+.codehilite .sb { color: #AA5500 }
+.codehilite .sc { color: #AA5500 }
+.codehilite .sd { color: #AA5500 }
+.codehilite .s2 { color: #AA5500 }
+.codehilite .se { color: #AA5500 }
+.codehilite .sh { color: #AA5500 }
+.codehilite .si { color: #AA5500 }
+.codehilite .sx { color: #AA5500 }
+.codehilite .sr { color: #AA5500 }
+.codehilite .s1 { color: #AA5500 }
+.codehilite .ss { color: #AA0000 }
+
+/* Variable */
+.codehilite .vc { color: #AA0000 }
+.codehilite .vg { color: #AA0000 }
+.codehilite .vi { color: #AA0000 }
+
+/* Whitespace */
+.codehilite .w { color: #BBBBBB }
+
+/* Language-specific improvements */
+/* HTML/XML tags */
+.codehilite .nt { color: #1E90FF; font-weight: bold } /* Tag names */
+.codehilite .na { color: #32CD32 } /* Attribute names */
+.codehilite .s { color: #FFA500 } /* Attribute values */
+
+/* Python-specific */
+.codehilite .bp { color: #00AAAA } /* Built-in pseudo */
+.codehilite .fm { color: #00AA00 } /* Function magic */
+
+/* JavaScript/CSS specific */
+.codehilite .nx { color: #DDDDDD } /* Name other */
 
 /* Footer */
 footer {

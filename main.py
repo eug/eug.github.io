@@ -16,7 +16,19 @@ def parse_markdown_file(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
     
-    md = markdown.Markdown(extensions=["meta", "fenced_code", "codehilite"])
+    # Configure markdown with better codehilite settings
+    md = markdown.Markdown(extensions=[
+        "meta", 
+        "fenced_code", 
+        "codehilite"
+    ], extension_configs={
+        'codehilite': {
+            'css_class': 'codehilite',
+            'use_pygments': True,
+            'noclasses': False,
+            'guess_lang': True
+        }
+    })
     html_content = md.convert(content)
     metadata = md.Meta
 
