@@ -146,3 +146,46 @@ footer {
 footer p {
     font-size: 0.8em; /* Smaller font for footer paragraphs */
 }
+
+.bookmarks-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+.bookmarks-header h2 {
+    margin: 0;
+}
+.add-button {
+    color: #0000e3;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s, background-color 0.2s;
+}
+.add-button:hover {
+    color: #175be3;
+    background-color: #313131;
+    text-decoration: underline;
+}
+.bookmarks-list {
+    list-style: disc;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 800px;
+}
+.bookmarks-list li {
+    margin: 5px 0;
+}
+.bookmarks-list a {
+    color: #0000e3;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 1px;
+    transition: background-color 0.2s;
+}
+.bookmarks-list a:hover {
+    color: #3071f3;
+    background-color: #313131; /* Light gray background */
+    text-decoration: underline;
+}

@@ -107,6 +107,7 @@
         </h1>
         <nav>
             <a href="{{ url_for('index') if request else site_url + '/index.html' }}">[Home]</a>
+            <a href="{{ url_for('bookmarks') if request else site_url + '/bookmarks.html' }}">[Bookmarks]</a>
             <a href="{{ url_for('about') if request else site_url + '/about.html' }}">[About]</a >
         </nav>
     </header>

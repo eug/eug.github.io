@@ -309,6 +309,20 @@ def main():
     with open(os.path.join(OUTPUT_DIR, "about.html"), "w", encoding="utf-8") as f:
         f.write(about_html)
 
+    # Generate bookmarks page
+    bookmarks_html = render_template("bookmarks.html", {
+        "site_title": site_title,
+        "current_year": current_year,
+        "author_email": author_email,
+        "config": config,
+        "site_url": site_url,
+        "static_css_path": "static/style.css",
+        "static_rss_path": "rss.xml",
+        "static_atom_path": "atom.xml"
+    }, env)
+    with open(os.path.join(OUTPUT_DIR, "bookmarks.html"), "w", encoding="utf-8") as f:
+        f.write(bookmarks_html)
+
     # Generate syndication feeds (RSS and/or Atom)
     generate_syndication(posts, config, env)
 
