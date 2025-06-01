@@ -4,13 +4,13 @@ body {
     margin: 0 auto;
     padding: 20px;
     max-width: 800px;
-    background-color: #000000; /* Black background */
+    background-color: #0f0f0f; /* Black background */
     color: #DDDDDD; /* New primary text color */
     line-height: 1.6;
 }
 
 a {
-    color: #FFFF00; /* Yellow links */
+    color: #7e7e15;
     text-decoration: none;
     position: relative; /* Needed for pseudo-element positioning if we were to use absolute */
     padding-left: 0; /* Ensure no default padding interferes */
@@ -19,7 +19,7 @@ a {
 }
 
 a:hover {
-    background-color: #3a3a3a; /* Light gray background */
+    background-color: #313131; /* Light gray background */
     text-decoration: none; /* Remove underline */
 }
 
@@ -31,8 +31,12 @@ header {
 }
 
 header h1 a {
-    color: #1beb9e; /* New header text color */
+    color: #008000;
     text-decoration: none;
+}
+
+header h1 a:hover {
+    color: #00FF00;
 }
 
 nav a {
@@ -40,8 +44,8 @@ nav a {
     padding: 2px 0px; /* Add some padding so background hover is not too tight if no text is selected */
 }
 
-nav a:hover {
-    /* nav-specific hover styles if different from general 'a:hover' */
+a:hover {
+    color: #eaff00;
 }
 
 /* Main content */
@@ -68,7 +72,7 @@ main {
 
 .post .meta .tag {
     background-color: #333333; /* Dark grey tag background */
-    color: #1beb9e; /* New tag text color */
+    color: #008000;
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.8em;
@@ -125,10 +129,10 @@ code {
 }
 
 /* Syntax highlighting styles (basic example, Pygments will add more specific ones) */
-.codehilite .k { color: #1beb9e; font-weight: bold; } /* Keyword - New Green */
-.codehilite .s1, .codehilite .s2 { color: #dddd25; } /* String - Yellow */
+.codehilite .k { color: #008000; font-weight: bold; } /* Keyword - New Green */
+.codehilite .s1, .codehilite .s2 { color: #7e7e15; } /* String - Yellow */
 .codehilite .c1 { color: #888888; font-style: italic; } /* Comment - Grey */
-.codehilite .nb { color: #00FFFF; } /* Name.Builtin - Cyan */
+.codehilite .nb { color: #019797; } /* Name.Builtin - Cyan */
 
 /* Footer */
 footer {
@@ -142,9 +146,3 @@ footer {
 footer p {
     font-size: 0.8em; /* Smaller font for footer paragraphs */
 }
-
-/* Specific adjustments for nav links if needed, to ensure brackets are spaced nicely */
-.index-page-list a:hover::before, 
-.index-page-list a:hover::after {
-    /* content: ''; Disable for hex list if needed, but current structure is <span>0xHEX</span> <a>Title</a> */
-} 
