@@ -1,6 +1,6 @@
 ---
 title: Vibe-code your own SSG
-subtitle: "Stop wrestling with frameworks. Build your own lean static site generator."
+subtitle: Stop wrestling with frameworks. Vibe code your own lean static site generator.
 tags: [vibe-code, ssg, python, minimalist, DIY]
 created_at: 2025-06-01
 ---
@@ -20,20 +20,22 @@ Honestly, pick your poison. Python, Node.js, Ruby, even a shell script if you're
 **1. The Generation Script: Your SSG's Heart**
 
 This is where the magic happens. At its core, your script will:
-*   **Scan for content:** Find all your Markdown files (your blog posts).
-*   **Parse metadata:** Extract frontmatter (title, date, tags, etc.) from each post. YAML or JSON are common choices here. Most Markdown libraries can handle this.
-*   **Convert Markdown to HTML:** Transform your post content into web-friendly HTML.
-*   **Apply templates:** Inject the generated HTML and metadata into your base HTML templates (e.g., one for a single post, one for the homepage).
-*   **Write output:** Save the final HTML files to a designated output directory (often `dist` or `public`).
+
+* **Scan for content:** Find all your Markdown files (your blog posts).
+* **Parse metadata:** Extract frontmatter (title, date, tags, etc.) from each post. YAML or JSON are common choices here. Most Markdown libraries can handle this.
+* **Convert Markdown to HTML:** Transform your post content into web-friendly HTML.
+* **Apply templates:** Inject the generated HTML and metadata into your base HTML templates (e.g., one for a single post, one for the homepage).
+* **Write output:** Save the final HTML files to a designated output directory (often `dist` or `public`).
 
 Keep it simple. You don't need a complex plugin architecture for version 0.1. Focus on the core transformation pipeline.
 
 **2. Templates Folder: The Skeleton of Your Site**
 
 These are your HTML blueprints. You'll likely want at least:
-*   `base.html`: The main site structure (header, footer, navigation). Other templates will extend this.
-*   `post.html`: How a single blog post is displayed.
-*   `index.html` (or `home.html`): Your homepage, probably listing recent posts.
+
+* `base.html`: The main site structure (header, footer, navigation). Other templates will extend this.
+* `post.html`: How a single blog post is displayed.
+* `index.html` (or `home.html`): Your homepage, probably listing recent posts.
 
 Templating engines like Jinja2 (Python), Handlebars (JavaScript), or Liquid (Ruby, and what Jekyll uses) are your friends here. They let you use variables, loops, and includes to keep your HTML DRY (Don't Repeat Yourself).
 
@@ -74,18 +76,20 @@ It feels good.
 **5. The "Extra Support" Goodies: Because Details Matter**
 
 Once you have the basics, these aren't hard to add and make your site a better web citizen:
+
 *   `atom.xml` / `rss.xml`: An XML feed for aggregators. Your script can generate this by looping through your posts.
 *   `robots.txt`: Tells search engine crawlers what they can and cannot index.
 *   `sitemap.xml`: Helps search engines discover all the pages on your site.
 *   `CNAME` (if using a custom domain with services like GitHub Pages): A file containing just your custom domain name.
-*   `llms.txt` (optional, emerging): If you want to give instructions to AI web crawlers.
+*   `llms.txt` (optional, emerging): If you want to serve your site as context for LLMs.
 
 ## Bonus: Kickstart with an LLM
 
 Feeling lazy or just want a quick starting point? Modern LLMs are surprisingly good at bootstrapping simple scripts. Try a prompt like this (tailor it to your preferences):
 
-```
+```text
 Create a simple static site generator in Python. It should:
+
 1. Read all `.md` files from a `posts` directory.
 2. Parse YAML frontmatter (title, date) from each file.
 3. Convert Markdown content to HTML.
@@ -100,7 +104,7 @@ Create a simple static site generator in Python. It should:
 Provide the Python script, example minimal `base.html` and `post.html` templates, and a basic `style.css`.
 ```
 
-**Pro tip:** This works even better with AI IDEs like Cursor, Windsurf, or Cline rather than standalone LLMs. These tools can actually create the entire file structure for you automatically – the Python script, template files, CSS, even a sample blog post to test with. No copy-pasting required.
+>**Pro tip:** This works even better with AI IDEs like Cursor, Windsurf, or Cline rather than standalone LLMs. These tools can actually create the entire file structure for you automatically – the Python script, template files, CSS, even a sample blog post to test with. No copy-pasting required.
 
 It may not give you a production-ready SSG, but it's a fantastic V0.0.1. You can then iterate, refactor, and add features as you see fit, truly making it your own.
 

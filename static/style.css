@@ -127,10 +127,12 @@ pre {
 
 code {
     font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
-    background-color: #1a1a1a;
-    padding: 2px 4px;
-    border-radius: 3px;
+    background-color: #2a2a2a;
+    color: #00AAAA;
+    padding: 2px 6px;
+    border-radius: 4px;
     font-size: 0.9em;
+    border: 1px solid #333333;
 }
 
 pre code {
