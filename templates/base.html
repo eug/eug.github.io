@@ -4,13 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site_title }} - {% block title %}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') if request else site_url + '/static/style.css' }}">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ url_for('static', filename='rss.xml') if request else site_url + '/rss.xml' }}">
     <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="{{ url_for('static', filename='atom.xml') if request else site_url + '/atom.xml' }}">
+    <style>
+        header h1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .glider-icon {
+            width: 32px;
+            height: 32px;
+        }
+        .glider-cell {
+            fill: currentColor;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1><a href="{{ url_for('index') if request else site_url + '/index.html' }}">{{ site_title }}</a></h1>
+        <h1>
+            <svg class="glider-icon" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="35" height="35" fill="none"/>
+                <!-- Step 0 -->
+                <g>
+                    <rect class="glider-cell" x="17" y="5" width="6" height="6">
+                        <animate attributeName="opacity" values="1;0;0;0;0;0;0;1" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="5" y="11" width="6" height="6">
+                        <animate attributeName="opacity" values="1;0;0;0;0;0;0;1" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="11" width="6" height="6">
+                        <animate attributeName="opacity" values="1;0;0;0;0;0;0;1" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="11" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="1;0;0;0;0;0;0;1" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="1;0;0;0;0;0;0;1" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                </g>
+                <!-- Step 1 -->
+                <g>
+                    <rect class="glider-cell" x="11" y="5" width="6" height="6">
+                        <animate attributeName="opacity" values="0;1;0;0;0;1;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="11" width="6" height="6">
+                        <animate attributeName="opacity" values="0;1;0;0;0;1;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="23" y="11" width="6" height="6">
+                        <animate attributeName="opacity" values="0;1;0;0;0;1;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="11" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;1;0;0;0;1;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;1;0;0;0;1;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                </g>
+                <!-- Step 2 -->
+                <g>
+                    <rect class="glider-cell" x="17" y="5" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="23" y="11" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="11" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="23" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;1;0;1;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                </g>
+                <!-- Step 3 -->
+                <g>
+                    <rect class="glider-cell" x="11" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;0;1;0;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="23" y="17" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;0;1;0;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="23" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;0;1;0;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="23" y="23" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;0;1;0;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                    <rect class="glider-cell" x="17" y="29" width="6" height="6">
+                        <animate attributeName="opacity" values="0;0;0;1;0;0;0" dur="6s" repeatCount="indefinite" />
+                    </rect>
+                </g>
+            </svg>
+            <a href="{{ url_for('index') if request else site_url + '/index.html' }}">{{ site_title }}</a>
+        </h1>
         <nav>
             <a href="{{ url_for('index') if request else site_url + '/index.html' }}">[Home]</a>
             <a href="{{ url_for('about') if request else site_url + '/about.html' }}">[About]</a >
