@@ -20,20 +20,20 @@ Honestly, pick your poison. Python, Node.js, Ruby, even a shell script if you're
 **1. The Generation Script: Your SSG's Heart**
 
 This is where the magic happens. At its core, your script will:
-*   **Scan for content:** Find all your Markdown files (your blog posts).
-*   **Parse metadata:** Extract frontmatter (title, date, tags, etc.) from each post. YAML or JSON are common choices here. Most Markdown libraries can handle this.
-*   **Convert Markdown to HTML:** Transform your post content into web-friendly HTML.
-*   **Apply templates:** Inject the generated HTML and metadata into your base HTML templates (e.g., one for a single post, one for the homepage).
-*   **Write output:** Save the final HTML files to a designated output directory (often `dist` or `public`).
+- **Scan for content:** Find all your Markdown files (your blog posts).
+- **Parse metadata:** Extract frontmatter (title, date, tags, etc.) from each post. YAML or JSON are common choices here. Most Markdown libraries can handle this.
+- **Convert Markdown to HTML:** Transform your post content into web-friendly HTML.
+- **Apply templates:** Inject the generated HTML and metadata into your base HTML templates (e.g., one for a single post, one for the homepage).
+- **Write output:** Save the final HTML files to a designated output directory (often `dist` or `public`).
 
 Keep it simple. You don't need a complex plugin architecture for version 0.1. Focus on the core transformation pipeline.
 
 **2. Templates Folder: The Skeleton of Your Site**
 
 These are your HTML blueprints. You'll likely want at least:
-*   `base.html`: The main site structure (header, footer, navigation). Other templates will extend this.
-*   `post.html`: How a single blog post is displayed.
-*   `index.html` (or `home.html`): Your homepage, probably listing recent posts.
+- `base.html`: The main site structure (header, footer, navigation). Other templates will extend this.
+- `post.html`: How a single blog post is displayed.
+- `index.html` (or `home.html`): Your homepage, probably listing recent posts.
 
 Templating engines like Jinja2 (Python), Handlebars (JavaScript), or Liquid (Ruby, and what Jekyll uses) are your friends here. They let you use variables, loops, and includes to keep your HTML DRY (Don't Repeat Yourself).
 
