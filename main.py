@@ -231,6 +231,10 @@ def main():
     os.makedirs(OUTPUT_DIR)
     os.makedirs(os.path.join(OUTPUT_DIR, "posts"), exist_ok=True)
 
+    # Create .nojekyll file to prevent GitHub Pages from processing with Jekyll
+    with open(os.path.join(OUTPUT_DIR, ".nojekyll"), "w") as f:
+        pass  # Create an empty file
+
     # Setup Jinja2 environment
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
 
