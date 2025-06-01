@@ -122,12 +122,8 @@
             <a href="{{ site_url }}/rss.xml">[rss.xml]</a>
             <a href="{{ site_url }}/atom.xml">[atom.xml]</a>
             <a href="mailto:{{ author_email }}">[mailto]</a>
-            {% if config.linkedin_url %}
-            <a href="{{ config.linkedin_url }}" target="_blank">[LinkedIn]</a>
-            {% endif %}
-            {% if config.github_url %}
-            <a href="{{ config.github_url }}" target="_blank">[GitHub]</a>
-            {% endif %}
+            {% if config.linkedin_url %}<a href="{{ config.linkedin_url }}" target="_blank" rel="noopener noreferrer">[LinkedIn]</a>{% endif %}
+            {% if config.github_url %}<a href="{{ config.github_url }}" target="_blank" rel="noopener noreferrer">[GitHub]</a>{% endif %}
         </p>
         <p>&copy; {{ current_year }} {{ site_title }}</p>
     </footer>
