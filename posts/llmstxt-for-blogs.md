@@ -77,6 +77,8 @@ I've been experimenting with ways to make my bookmarks more accessible to the ge
 
 I've been playing around with feeding my blog's [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt) into tools like Google's NotebookLM.
 
+The experience is quite revealing. For example, one could ask a general question like *"Can you list some articles about software engineering best practices?"* and the system can pull relevant links directly from that raw, unstructured list of bookmarks. Suddenly, there's potential to get insights and answers from saved links *without any upfront organization* – a task that used to consume considerable time. It's like having a research assistant that's already processed everything bookmarked. This could dramatically lower the barrier to actually *using* our digital breadcrumbs. 
+
 <img src="../static/imgs/20250602_1.png" width="800" alt="Bookmark general insights by NotebookLM">
 
 Going a step further, as shown in the second image, one might even explore more abstract queries. For instance, posing a question like, *"What can you say about the personality of this person based on their bookmarks?"* yielded a response that was, it's worth noting, quite accurate given the nature of the saved links. This hints at the potential for LLMs to draw higher-level inferences from curated data, moving beyond simple information retrieval into areas that feel more akin to understanding an individual's interests and perhaps even their thought patterns, all derived from their digital trail.
