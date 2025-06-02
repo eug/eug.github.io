@@ -14,6 +14,7 @@ But what if we explored taking this concept a step further? Could this approach,
 Imagine a scenario where your blog isn't just human-readable, but also intentionally LLM-optimized. By potentially extending the `llms.txt` concept, we could explore creating a manifest that points LLMs to the full text of our posts, curated bookmarks, and other relevant metadata.
 
 I've started experimenting with this concept on my own blog. Here's what my site currently generates:
+
 *   A main [llms.txt](https://eug.github.io/llms.txt) with blog metadata, about section, and pointers.
 *   [llms-posts-full.txt](https://eug.github.io/llms-posts-full.txt): All blog posts in raw Markdown, concatenated.
 *   [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt): All shared bookmarks in Markdown.
@@ -74,13 +75,13 @@ Ultimately, these are just a few initial thoughts. The core idea is that by maki
 
 I've been experimenting with ways to make my bookmarks more accessible to the general public, moving away from private silos – a journey I detailed in my post "[My bookmarks are public now](my-bookmarks-are-public-now.md)". Part of this exploration involves not just making them public, but also easier to query and gain insights from, even in their raw, unstructured form. We all have bookmarks, right? Traditionally, making them useful meant meticulous tagging, and revisiting them. But what if we could just... not, or at least, less so?
 
-I've been playing around with feeding my blog's `llms-bookmarks-full.txt` into tools like Google's NotebookLM.
+I've been playing around with feeding my blog's [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt) into tools like Google's NotebookLM.
 
-![Bookmark general insights by NotebookLM](../static/imgs/20250602_1.png)
+<img src="../static/imgs/20250602_1.png" width="800" alt="Bookmark general insights by NotebookLM">
 
-Going a step further, as shown in the second image, one might even explore more abstract queries. For instance, posing a question like, "What can you say about the personality of this person based on their bookmarks?" yielded a response that was, it's worth noting, quite accurate given the nature of the saved links. This hints at the potential for LLMs to draw higher-level inferences from curated data, moving beyond simple information retrieval into areas that feel more akin to understanding an individual's interests and perhaps even their thought patterns, all derived from their digital trail.
+Going a step further, as shown in the second image, one might even explore more abstract queries. For instance, posing a question like, *"What can you say about the personality of this person based on their bookmarks?"* yielded a response that was, it's worth noting, quite accurate given the nature of the saved links. This hints at the potential for LLMs to draw higher-level inferences from curated data, moving beyond simple information retrieval into areas that feel more akin to understanding an individual's interests and perhaps even their thought patterns, all derived from their digital trail.
 
-![Bookmark personal insights by NotebookLM](../static/imgs/20250602_2.png)
+<img src="../static/imgs/20250602_2.png" width="800" alt="Bookmark personal insights by NotebookLM">
 
 If you're curious to try it yourself, you can chat directly with my bookmarks by visiting [Google NotebookLM](https://notebooklm.google.com/notebook/65911a6f-ce1b-4604-bb7d-178aa88f67ea?original_referer=https%3A%2F%2Fwww.google.com%23&pli=1).
 
