@@ -1,6 +1,6 @@
 ---
 title: My bookmarks are public now
-subtitle: How I built a collaborative bookmarking feature into my static site
+subtitle: Rethinking bookmarks for the next decade
 tags: [vibe-code, ssg, python, bookmark]
 created_at: 2025-06-01
 ---
