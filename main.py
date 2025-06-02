@@ -354,7 +354,7 @@ def main():
             posts.append(post_data)
     
     # Sort posts by date (newest first)
-    posts.sort(key=lambda p: p["metadata"].get("created_at", datetime.min), reverse=False)
+    posts.sort(key=lambda p: p["metadata"].get("created_at", datetime.min), reverse=True)
 
     # Generate post pages
     for post in posts:
