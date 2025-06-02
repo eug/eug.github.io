@@ -230,28 +230,36 @@ def generate_llms_bookmarks_full(config):
         
         # Parse individual bookmark objects
         # Look for pattern: { url: "...", title: "..."}
-        bookmark_pattern = r'\{\s*url:\s*"([^"]+)",\s*title:\s*"([^"]+)"\s*\}'
+        # Handle escaped quotes in titles using proper regex
+        bookmark_pattern = r'\{\s*url:\s*"((?:[^"\\]|\\.)*)"\s*,\s*title:\s*"((?:[^"\\]|\\.)*)"\s*\}'
         bookmark_matches = re.findall(bookmark_pattern, bookmarks_js)
         
         if not bookmark_matches:
             print("Warning: Could not parse bookmark objects from bookmarks.html. Skipping llms-bookmarks-full.txt generation.")
             return
+
+        total_items = 0     
+        bookmarks_markdown_content = ""
+        for url, title in bookmark_matches:
+            # Unescape quotes in the title (convert \" back to ")
+            title_unescaped = title.replace('\\"', '"')
+            # Escape any problematic characters in title for markdown
+            title_escaped = title_unescaped.replace("]", "\\]").replace("[", "\\[")
+            if title_escaped:
+                bookmarks_markdown_content += f"- [{title_escaped}]({url})\n"
+                total_items += 1
         
         # Generate markdown content
         markdown_content = f"# Bookmarks\n\n"
-        markdown_content += f"A collection of {len(bookmark_matches)} bookmarks from the blog.\n\n"
-        
-        for url, title in bookmark_matches:
-            # Escape any problematic characters in title for markdown
-            title_escaped = title.replace("]", "\\]").replace("[", "\\[")
-            markdown_content += f"- [{title_escaped}]({url})\n"
-        
+        markdown_content += f"A collection of {total_items} bookmarks from the blog.\n\n"
+        markdown_content += bookmarks_markdown_content
+
         # Write to file
         llms_bookmarks_full_path = os.path.join(OUTPUT_DIR, "llms-bookmarks-full.txt")
         with open(llms_bookmarks_full_path, "w", encoding="utf-8") as f:
             f.write(markdown_content)
         
-        print(f"llms-bookmarks-full.txt generated at {llms_bookmarks_full_path} with {len(bookmark_matches)} bookmarks")
+        print(f"llms-bookmarks-full.txt generated at {llms_bookmarks_full_path} with {total_items} bookmarks")
         
     except Exception as e:
         print(f"Error generating llms-bookmarks-full.txt: {e}")
