@@ -4,6 +4,7 @@ from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 import shutil
 import json # Added for loading config
+import re # Added for parsing JavaScript bookmarks
 
 POSTS_DIR = "posts"
 TEMPLATES_DIR = "templates"
@@ -182,6 +183,79 @@ def generate_syndication(posts, config, env):
             f.write(rss_xml)
         print(f"RSS feed generated at {rss_path}")
 
+def generate_llms_posts_full(posts, config):
+    """Generate llms-posts-full.txt containing the full markdown content of all posts."""
+    llms_ctx_full_content_parts = []
+
+    for post in posts:
+        # Use the raw_markdown from post_data
+        if "raw_markdown" in post:
+            llms_ctx_full_content_parts.append(post["raw_markdown"])
+        else:
+            # Fallback if raw_markdown is somehow missing
+            post_slug = post.get("slug", "unknown")
+            print(f"Warning: raw_markdown not found for post {post_slug}. Skipping for llms-posts-full.txt.")
+
+    # Generate llms-posts-full.txt content
+    llms_posts_full_content = "\n___\n".join(llms_ctx_full_content_parts)
+    llms_posts_full_txt_path = os.path.join(OUTPUT_DIR, "llms-posts-full.txt")
+    
+    with open(llms_posts_full_txt_path, "w", encoding="utf-8") as f:
+        f.write(llms_posts_full_content)
+    
+    print(f"llms-posts-full.txt generated at {llms_posts_full_txt_path} with {len(llms_ctx_full_content_parts)} posts")
+
+def generate_llms_bookmarks_full(config):
+    """Generate llms-bookmarks-full.txt by parsing bookmarks from bookmarks.html template."""
+    bookmarks_template_path = os.path.join(TEMPLATES_DIR, "bookmarks.html")
+    
+    if not os.path.exists(bookmarks_template_path):
+        print(f"Warning: {bookmarks_template_path} not found. Skipping llms-bookmarks-full.txt generation.")
+        return
+    
+    try:
+        with open(bookmarks_template_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Extract the bookmarks array from the JavaScript
+        # Look for the pattern: const bookmarks = [
+        pattern = r'const bookmarks = \[(.*?)\];'
+        match = re.search(pattern, content, re.DOTALL)
+        
+        if not match:
+            print("Warning: Could not find bookmarks array in bookmarks.html. Skipping llms-bookmarks-full.txt generation.")
+            return
+        
+        bookmarks_js = match.group(1)
+        
+        # Parse individual bookmark objects
+        # Look for pattern: { url: "...", title: "..."}
+        bookmark_pattern = r'\{\s*url:\s*"([^"]+)",\s*title:\s*"([^"]+)"\s*\}'
+        bookmark_matches = re.findall(bookmark_pattern, bookmarks_js)
+        
+        if not bookmark_matches:
+            print("Warning: Could not parse bookmark objects from bookmarks.html. Skipping llms-bookmarks-full.txt generation.")
+            return
+        
+        # Generate markdown content
+        markdown_content = f"# Bookmarks\n\n"
+        markdown_content += f"A collection of {len(bookmark_matches)} bookmarks from the blog.\n\n"
+        
+        for url, title in bookmark_matches:
+            # Escape any problematic characters in title for markdown
+            title_escaped = title.replace("]", "\\]").replace("[", "\\[")
+            markdown_content += f"- [{title_escaped}]({url})\n"
+        
+        # Write to file
+        llms_bookmarks_full_path = os.path.join(OUTPUT_DIR, "llms-bookmarks-full.txt")
+        with open(llms_bookmarks_full_path, "w", encoding="utf-8") as f:
+            f.write(markdown_content)
+        
+        print(f"llms-bookmarks-full.txt generated at {llms_bookmarks_full_path} with {len(bookmark_matches)} bookmarks")
+        
+    except Exception as e:
+        print(f"Error generating llms-bookmarks-full.txt: {e}")
+
 def generate_llmstxt(posts, config, about_content_md):
     # llms.txt content
     blog_name = config.get("blog_name", "My Blog")
@@ -200,9 +274,11 @@ def generate_llmstxt(posts, config, about_content_md):
         llms_txt_content += f"{about_content_md.strip()}\n\n"
     # else: # If about_content_md is empty or whitespace, just leave a blank line or two already added
 
-    llms_txt_content += "## Posts\n\n"
+    llms_txt_content += "## Bookmarks\n\n"
+    llms_txt_content += f"For full bookmarks context please visit [llms-bookmarks-full.txt]({site_url}/llms-bookmarks-full.txt)\n\n"
 
-    llms_ctx_full_content_parts = []
+    llms_txt_content += "## Posts\n\n"
+    llms_txt_content += f"For full posts context please visit [llms-posts-full.txt]({site_url}/llms-posts-full.txt)\n\n"
 
     for post in posts:
         post_title = post["metadata"].get("title", "Untitled Post")
@@ -215,29 +291,11 @@ def generate_llmstxt(posts, config, about_content_md):
             llms_txt_content += f": {post_subtitle}\n"
         else:
             llms_txt_content += "\n"
-        
-        # For llms-ctx-full.txt, use the raw_markdown from post_data
-        # This was added to the return of parse_markdown_file earlier
-        if "raw_markdown" in post:
-             llms_ctx_full_content_parts.append(post["raw_markdown"])
-        else:
-            # Fallback if raw_markdown is somehow missing, though it shouldn't be
-            # This part of the logic assumes parse_markdown_file now returns raw_markdown
-            # For safety, we could re-read, but it's better to rely on the modified parse_markdown_file
-            print(f"Warning: raw_markdown not found for post {post_slug}. Skipping for llms-ctx-full.txt.")
-
 
     llms_txt_path = os.path.join(OUTPUT_DIR, "llms.txt")
     with open(llms_txt_path, "w", encoding="utf-8") as f:
         f.write(llms_txt_content)
     print(f"llms.txt generated at {llms_txt_path}")
-
-    # llms-ctx-full.txt content
-    llms_ctx_full_content = "\n___\n".join(llms_ctx_full_content_parts) # Corrected separator
-    llms_ctx_full_txt_path = os.path.join(OUTPUT_DIR, "llms-ctx-full.txt")
-    with open(llms_ctx_full_txt_path, "w", encoding="utf-8") as f:
-        f.write(llms_ctx_full_content)
-    print(f"llms-ctx-full.txt generated at {llms_ctx_full_txt_path}")
 
 def create_template_context(config, **kwargs):
     """Create a common template context with theme and other shared variables."""
@@ -259,6 +317,7 @@ def create_template_context(config, **kwargs):
     }
     context.update(kwargs)
     return context
+
 
 def main():
     # Load configuration
@@ -393,6 +452,12 @@ def main():
 
     # Generate LLMS.txt files
     generate_llmstxt(posts, config, about_section_content)
+
+    # Generate llms-posts-full.txt
+    generate_llms_posts_full(posts, config)
+
+    # Generate llms-bookmarks-full.txt
+    generate_llms_bookmarks_full(config)
 
     # Copy static files
     if os.path.exists(STATIC_DIR):
