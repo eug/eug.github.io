@@ -39,6 +39,6 @@ But just *having* them public is one thing. How about making them truly *interac
 
 ---
 
-This isn't just about replacing a tool; it's an experiment in open knowledge sharing. Will anyone else contribute? Maybe, maybe not. But the door's open. And either way, my digital breadcrumbs are now out in the open, hopefully leading others to some of the awesome corners of the web I've stumbled upon.
+This isn't just about replacing a tool; it's an experiment in open knowledge sharing. Will anyone else contribute or interact? Maybe, maybe not. But the door's open. And either way, my digital breadcrumbs are now out in the open, hopefully leading others to some of the awesome corners of the web I've stumbled upon.
 
 Let's see what the next decade of *open* bookmarking brings.
