@@ -17,11 +17,11 @@ Here are the details on how I'm pulling this off:
 
 **Public**
 
-First, liberation. I grabbed my Pocket data (shoutout to them for a clean CSV export). Then came the data-janitor phase (it took me several hours to finish it): I did some cleaning, replaced old links with updated ones, pruned the dead links, and removed articles that were well past their sell-by date. This newly-curated treasure trove of links is now living on a plain HTML `bookmarks.html` page on my site. Simple and effective.
+First, liberation. I grabbed my Pocket data (shoutout to them for a clean CSV export). Then came the data-janitor phase (it took me several hours to finish it): I did some cleaning, replaced old links with updated ones, pruned the dead links, and removed articles that were well past their sell-by date. This newly-curated treasure trove of links is now living on a plain HTML [bookmarks.html](https://eug.github.io/bookmarks.html) page on my site. Simple and effective.
 
 **Collaborative**
 
-Now, for the collaborative bit – this is where it gets fun (and very GitHub-y). I've added an "Add Bookmark" button. Clicking it doesn't pop up a sleek modal or hit a fancy API. Nope. It throws you straight into the GitHub editor for that `bookmarks.html` file.
+Now, for the collaborative bit – this is where it gets fun (and very GitHub-y). I've added an "Add Bookmark" button. Clicking it doesn't pop up a sleek modal or hit a fancy API. Nope. It throws you straight into the GitHub editor for that [templates/bookmarks.html](https://github.com/eug/eug.github.io/edit/main/templates/bookmarks.html#L14) file.
 
 The idea is beautifully simple:
 
