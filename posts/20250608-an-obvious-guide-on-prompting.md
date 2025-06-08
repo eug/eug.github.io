@@ -5,9 +5,9 @@ tags: [critical-thinking, prompting, discipline, ai]
 created_at: 2025-06-08
 ---
 
-Large Language Models (LLMs) are powerful, but their value depends on how you use them. It's easy to treat them like oracles or fall into the convenience trap, which is a waste of their potential and your brainpower. This is an obvious guide on how to think *with* AI, not just get answers *from* it.
+Large Language Models (LLMs) are powerful, but their value depends on how you use them. It's easy to treat them like oracles or fall into the convenience trap, which is a waste of their potential and your brainpower. This is not a guide about prompting tricks or clever techniques — it's about how to think *with* AI, not just get answers *from* it.
 
-I once thought this guide would be redundant — that its advice was obvious. But observing how many people misuse these tools, it's become clear that's not the case. This is my attempt to state these principles plainly, because it seems they need to be said.
+I once thought this guide would be redundant — that its advice was obvious. But observing how many people misuse these tools, it's become clear that's not the case. This is my attempt to state these principles plainly, because the real skill isn't in crafting the perfect prompt, but in maintaining intentional, critical thinking throughout the process.
 
 ### The Illusion of the Oracle
 
