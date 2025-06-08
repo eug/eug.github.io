@@ -7,6 +7,8 @@ created_at: 2025-06-08
 
 Large Language Models (LLMs) are powerful, but their value depends on how you use them. It's easy to treat them like oracles or fall into the convenience trap, which is a waste of their potential and your brainpower. This is not a guide about prompting tricks or clever techniques — it's about how to think *with* AI, not just get answers *from* it.
 
+This guide is for the everyday users: professionals, students, and curious minds who turn to LLMs to solve daily problems, get unstuck on projects, or explore new ideas. If you're an engineer designing AI systems or a researcher studying these models, this isn't for you. This is for those who believe that LLMs are perfect and risk-free.
+
 >I once thought this guide would be redundant — that its advice was obvious. But observing how many people misuse these tools, it's become clear that's not the case. This is my attempt to state these principles plainly, because the real skill isn't in crafting the perfect prompt, but in maintaining intentional, critical thinking throughout the process.
 
 ### The Illusion of the Oracle
