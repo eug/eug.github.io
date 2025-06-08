@@ -1,0 +1,27 @@
+# Euge's blog
+
+A cool blog about interesting things.
+
+Author Email: eugfcl@gmail.com
+Site URL: https://eug.github.io
+
+## About
+
+About Me
+I'm a Computer Scientist, still navigating the tech sea by the compass of the forgotten <a href="https://phrack.org/issues/7/3">Hacker Manifesto</a>. These days, you'll find me surfing the AI wave, trying to build something economically viable.
+About this site
+I vibe-coded this static website from scratch in Python. My main goal was to create a simple, LLM-friendly way to write and read blog posts. I found other options a bit bloated and not quite what I was looking for, so I decided to make my own - feel free to fork it! Now, I can vibe-code and vibe-blog in a safe place!
+This blog is where I share my ideas, experiments, and document some of my experiences. Do you want to interact with me? Drop me an <a href="mailto:{{ author_email }}">email</a>!
+
+## Bookmarks
+
+For full bookmarks context please visit [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt)
+
+## Posts
+
+For full posts context please visit [llms-posts-full.txt](https://eug.github.io/llms-posts-full.txt)
+
+[An Obvious Guide on Prompting](https://eug.github.io/posts/20250608-an-obvious-guide-on-prompting.html): Because apparently, this needed to be said.
+[llmstxt for blogs](https://eug.github.io/posts/20250602-llmstxt-for-blogs.html): Extending `llms.txt` for Blogs – Give Your LLM an All-Access Pass
+[Vibe-code your own SSG](https://eug.github.io/posts/20250601-vibe-code-your-own-ssg.html): Stop wrestling with frameworks. Vibe code your own lean static site generator.
+[My bookmarks are public now](https://eug.github.io/posts/20250601-my-bookmarks-are-public-now.html): Rethinking bookmarks for the next decade
