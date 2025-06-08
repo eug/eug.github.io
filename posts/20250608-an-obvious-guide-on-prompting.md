@@ -7,7 +7,7 @@ created_at: 2025-06-08
 
 Large Language Models (LLMs) are powerful, but their value depends on how you use them. It's easy to treat them like oracles or fall into the convenience trap, which is a waste of their potential and your brainpower. This is not a guide about prompting tricks or clever techniques — it's about how to think *with* AI, not just get answers *from* it.
 
-This guide is for the everyday users: professionals, students, and curious minds who turn to LLMs to solve daily problems, get unstuck on projects, or explore new ideas. If you're an engineer designing AI systems or a researcher studying these models, this isn't for you. This is for those who believe that LLMs are perfect and risk-free.
+This guide is for the everyday users: professionals, students, and curious minds who turn to LLMs to solve daily problems, get unstuck on projects, or explore new ideas. This is for those who haven't yet considered what happens when convenience becomes dependence.
 
 >I once thought this guide would be redundant — that its advice was obvious. But observing how many people misuse these tools, it's become clear that's not the case. This is my attempt to state these principles plainly, because the real skill isn't in crafting the perfect prompt, but in maintaining intentional, critical thinking throughout the process.
 
@@ -67,7 +67,7 @@ Knowing what you don't know is the key. It lets you switch between being a stude
 
 Using AI well isn't about learning secret tricks. It's about being intentional. Be clear in your questions, use the AI to explore ideas, and always, *always* question the output. It's a tool to help you think, not a replacement for thinking.
 
-The future is not about humans *versus* AI, but humans *with* AI. The nature of that partnership, however, is up to you. You can be passive consumers, letting your own critical skills take a backseat to the convenience of automated answers. Or you can be active, discerning collaborators, using these tools to push your own thinking further. This second path requires effort and intention, but it's how you transform prompting from a simple query into a core skill for the future. The choice is yours to make with every query you type.
+The future is not about humans *versus* AI, but humans *with* AI. The nature of that partnership, however, is up to you. You can be a passive consumer, letting your own critical skills take a backseat to the convenience of automated answers. Or you can be active, discerning collaborators, using these tools to push your own thinking further. This second path requires effort and intention, but it's how you transform prompting from a simple query into a core skill for the future. The choice is yours to make with every query you type.
 
 ### The Obvious Conclusion
 
