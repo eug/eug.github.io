@@ -37,22 +37,25 @@ Finally, you risk creating an **echo chamber** and degrading your social skills.
 
 Keep in the driver's seat. Use these systems consciously, and trade short-term ease for long-term growth and resilience.
 
-### How to Write Good Prompts: A Simple Framework
+### Strategic Prompting: Staying in Control of the Thinking Process
 
 So, how do you get better? Treat AI like a thinking partner, not an answer machine. Here's a simple framework to get you started. It will get you better results and keep your brain from turning to mush.
 
 **1. Decomposition:** Break down a complex request into a series of smaller, logical steps. Instead of "build me a website", a skilled prompter would start with "Outline a sitemap for a personal portfolio website for a software engineer. Include sections for a bio, projects, blog, and contact".
 
 **2. Context Scaffolding:** Provide the necessary context, constraints, and persona for the model. Don't just ask for a summary; specify the audience and purpose.
+
 *   **Weak Prompt:** "Summarize this scientific paper".
 *   **Strong Prompt:** "You are a science journalist. Summarize this paper for a technically literate but non-specialist audience. Focus on the core hypothesis, key findings, and their potential real-world implications. Explain the methodology in simple terms. The summary should be no more than 300 words".
 
 **3. Iterative Refinement:** Treat the AI's first response as a starting point, not a final product. Use follow-up prompts to challenge, refine, and deepen the output.
+
 *   **Follow-up:** "That's a good start. Now, expand on the 'potential real-world implications.' What specific industries could this research impact? Are there any ethical considerations the paper overlooks?"
 
 **4. Critical Evaluation:** This is the most crucial step. Always question the output. Is it accurate? Is it biased? Does it make logical sense? A [recent study](https://dl.acm.org/doi/pdf/10.1145/3701716.3715504) highlighted the dominant psychological traits embedded in these models. Understanding these inherent biases is key to knowing where to apply skepticism. Cross-reference claims with reliable sources. Use the LLM to generate ideas, but use your own intellect to validate and synthesize them.
 
 **5. [Know What You Don't Know](https://en.wikipedia.org/wiki/I_know_that_I_know_nothing):** The most important skill is knowing the limits of your own knowledge. How you use an LLM should change depending on how much you know about a topic.
+
 *   **When you are a novice:** On a subject you know little about, an LLM is an extraordinary tool for building a foundational understanding. It can explain complex topics, summarize new fields, and provide a scaffold for learning. Here, the skill is to acknowledge your ignorance and use the AI as a starting point, with the explicit understanding that you must verify this new knowledge against authoritative sources.
 *   **When you are an expert:** In your own domain, the AI's role shifts from a teacher to a somewhat unreliable intern. It can accelerate your work by generating boilerplate, brainstorming ideas, or summarizing adjacent information. However, it can also introduce subtle, critical errors that only an expert can detect. Here, the skill is to never fully trust the output. You must critically evaluate its work through the lens of your own deep knowledge, catching flaws and refining its output to meet your high standards.
 
