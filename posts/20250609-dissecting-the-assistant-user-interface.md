@@ -82,6 +82,15 @@ Taken together, the header, empty state, and input form a narrative about what t
 - **Perplexity:** A research-first engine leaning into ad-hoc inquiry; it maximizes direct questioning and source-seeking, and expects users who treat it like a focused search tool rather than a workspace.
 - **DeepSeek:** A lightweight utility shaping for quick, low-commitment exchanges; it maximizes speed and modality clarity, and expects brief, purposeful interactions.
 
+First, we decompose each assistant on its own terms: what it emphasizes, what it minimizes, and what it expects from the user. Next, we regroup those same characteristics from different angles to show how the patterns cluster across products. Each framing uses visible UI evidence (header controls, empty states, and input affordances) to explain the positioning.
+
+- **Relationship posture:** Claude and ChatGPT tilt toward ongoing partnership (temporary chat plus threaded navigation), Gemini and Grok toward guided/task-oriented use (visible mode switches and discovery/quickstarts), and Perplexity and DeepSeek toward ad-hoc utility (minimal empty state and lighter continuity cues).
+- **User intent expectation:** Claude assumes exploration and rapport (“Chat with Claude” plus temporary chat), ChatGPT assumes general-purpose tinkering (broad tool menu behind progressive disclosure), Gemini and Grok assume directed tasks (chips, explicit “ask/create” modes), while Perplexity and DeepSeek assume quick lookup and low-commitment queries (“just ask” stance and hold-to-speak).
+- **Control philosophy:** ChatGPT and Claude lean on progressive disclosure (single-row input or fewer exposed toggles), Gemini and Grok lean on visible guidance and explicit modes (options placed around the input), and Perplexity/DeepSeek keep the surface lean (sparser controls and empty states).
+- **Time horizon:** Claude and ChatGPT signal continuity (threads/history and temporary chat for safe long-term use), Gemini and Grok suggest session-scoped workflows (mode switching and quickstarts), and Perplexity/DeepSeek feel optimized for one-shot interactions (no visible threads in Perplexity, push-to-talk in DeepSeek).
+- **Persona metaphor:** Claude reads as a collaborator (relational copy and trust cues), ChatGPT as a workbench/platform (broad capabilities with hidden depth), Gemini as a coach/guide (structured onboarding and prompts), Grok as an operator with modes (explicit ask/create), Perplexity as a research engine (search posture and sources), and DeepSeek as a utility tool (fast, lightweight interaction).
+- **Cognitive load:** Claude aims for low friction and high trust (quiet header, minimal nudges), ChatGPT offers high capability with moderate complexity (hidden tool belt), Gemini and Grok invite more explicit choices (visible toggles and chips), while Perplexity and DeepSeek minimize structure and commitment (sparse surfaces and short interactions).
+
 These are not just UI decisions; they are product personas, each aiming at a different kind of user and a different definition of "assistance."
 
 ## Design Learnings
