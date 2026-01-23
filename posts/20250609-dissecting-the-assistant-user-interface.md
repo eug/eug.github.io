@@ -5,7 +5,7 @@ tags: [ai, ux, hci, product-design, system, psychology, trust, intent]
 created_at: 2026-01-23
 ---
 
-AI assistants are no longer judged by how impressive their demos look. The bar is shifting toward something more useful and more difficult: **dependable collaboration**. And you can see it in the UI. The interface is converging into a recognizable standard — a little boring, but very revealing.
+AI assistants are no longer judged by how impressive their demos look. The bar is shifting toward something more useful and more difficult: **dependable collaboration**. And you can see it in the mobile UI. The app interface is converging into a recognizable standard — a little boring, but very revealing.
 
 This is a look at the default landing UI on first load (empty state) across products. Here’s a grounded breakdown: header, content, input. Not to celebrate uniformity, but to ask what’s being optimized, what’s being sacrificed, and why this pattern keeps winning in real products.
 
@@ -25,6 +25,7 @@ Patterns worth noting:
 
 - Claude and ChatGPT make model choice and temporary chat visible.
 - Gemini and Perplexity emphasize account identity and product framing (profile, upgrade banners, discovery).
+- Perplexity is the only one without a visible threads/history button in the header, which positions it closer to a search engine posture (one-off queries) than a workspace posture (returning to threads over time).
 - Grok adds explicit mode switching between ask and create, acknowledging that intent is not singular.
 
 Claude, DeepSeek, Grok, and ChatGPT all expose temporary or ephemeral chats at the top level. That signals a clear demand: users want a low-stakes, privacy-respecting mode where exploration won’t pollute history or memory. It’s an admission that not every question wants to be remembered - at least to the end user.
@@ -69,6 +70,19 @@ Controls reveal what the product expects you to do. The plus menus cluster aroun
 Search is the other signal. Most assistants offer some form of deep research or web search, but Grok stands out as the exception in the default input controls. Perplexity goes further by breaking research into intent-specific modes (academic, financial, social), which makes the user pick a lens up front instead of hoping the model infers it — and it assumes a more savvy user than the others. The others keep research more general, a broad capability boost rather than a deliberate framing choice. The fact that most providers ship some version of this suggests it’s now table stakes for delivering value, and likely a default expectation going forward.
 
 Voice UI is its own intent signal. Most assistants use toggle recording (start/stop) and pair it with a live voice mode, which implies a continuous, conversational session. DeepSeek leans toward push-to-talk (“hold to speak”), which is closer to a walkie‑talkie model: short bursts, less commitment, fewer surprises. The emerging pattern is clear: voice is framed as either lightweight dictation or a real-time mode that feels more personal and intimate — and the chosen interaction model tells you which one they want you to use.
+
+## The Assistant Archetypes
+
+Taken together, the header, empty state, and input form a narrative about what the assistant is for. Each product is quietly signaling its direction — what it is becoming and who it is becoming for:
+
+- **Claude:** A trust-first collaborator evolving toward long-term partnership; it maximizes safety cues and low-stakes exploration, and expects a user who wants an ongoing, steady relationship.
+- **ChatGPT:** A general-purpose workbench scaling into a configurable platform; it maximizes breadth and capability while minimizing upfront choices, and expects users to unlock power through progressive discovery.
+- **Gemini:** A guided, multi-mode helper moving toward structured workflows; it maximizes onboarding and visible options, and expects users who want direction and clearly framed tasks.
+- **Grok:** A mode-driven, experiment-forward assistant headed toward explicit intent switching; it maximizes clarity of stance and feature signaling, and expects users to pick a mode before asking.
+- **Perplexity:** A research-first engine leaning into ad-hoc inquiry; it maximizes direct questioning and source-seeking, and expects users who treat it like a focused search tool rather than a workspace.
+- **DeepSeek:** A lightweight utility shaping for quick, low-commitment exchanges; it maximizes speed and modality clarity, and expects brief, purposeful interactions.
+
+These are not just UI decisions; they are product personas, each aiming at a different kind of user and a different definition of "assistance."
 
 ## Design Learnings
 
