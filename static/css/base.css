@@ -2,12 +2,14 @@
 
 /* Typography and layout */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     margin: 0 auto;
     padding: 20px;
     max-width: 800px;
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 /* Link base styles */
@@ -16,7 +18,9 @@ a {
     position: relative;
     padding-left: 0;
     padding-right: 0;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 }
 
 a:hover {
@@ -62,11 +66,13 @@ main {
 
 .post h2 {
     margin-top: 0;
+    margin-bottom: 0px;
 }
 
 .post .subtitle {
     font-style: italic;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
 .post .meta {
@@ -81,7 +87,7 @@ main {
 }
 
 .content {
-    margin-top: 20px;
+    margin-top: 28px;
 }
 
 /* Post list layout */
@@ -117,7 +123,7 @@ pre {
 
 /* Inline code layout */
 code {
-    font-family: 'Courier New', Courier, monospace !important;
+    font-family: "Courier New", Courier, monospace !important;
     padding: 2px 6px !important;
     border-radius: 4px !important;
     font-size: 0.9em !important;
@@ -168,7 +174,9 @@ footer p {
 
 .add-button {
     font-size: 1rem;
-    transition: color 0.2s, background-color 0.2s;
+    transition:
+        color 0.2s,
+        background-color 0.2s;
     text-decoration: none;
 }
 
@@ -196,4 +204,4 @@ footer p {
 
 .bookmarks-list a:hover {
     text-decoration: underline;
-} 
+}
