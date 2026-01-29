@@ -125,9 +125,7 @@ def generate_sitemap(posts, config):
     
     sitemap_content += '</urlset>'
 
-    sitemap_dir = os.path.join(OUTPUT_DIR, "sitemap")
-    os.makedirs(sitemap_dir, exist_ok=True)
-    sitemap_path = os.path.join(sitemap_dir, "sitemap.xml")
+    sitemap_path = os.path.join(OUTPUT_DIR, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(sitemap_content)
     print(f"Sitemap generated at {sitemap_path}")
@@ -139,7 +137,7 @@ def generate_robots_txt(config):
 
     robots_content = "User-agent: *\n"
     robots_content += "Allow: /\n\n"
-    robots_content += f"Sitemap: {site_url}/sitemap/sitemap.xml\n"
+    robots_content += f"Sitemap: {site_url}/sitemap.xml\n"
 
     robots_txt_path = os.path.join(OUTPUT_DIR, "robots.txt")
     with open(robots_txt_path, "w", encoding="utf-8") as f:
