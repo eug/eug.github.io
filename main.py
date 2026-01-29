@@ -5,6 +5,7 @@ from datetime import datetime
 import shutil
 import json # Added for loading config
 import re # Added for parsing JavaScript bookmarks
+import html
 
 POSTS_DIR = "posts"
 TEMPLATES_DIR = "templates"
@@ -313,6 +314,10 @@ def create_template_context(config, **kwargs):
     is_post_page = 'post' in kwargs
     css_base_path = "../static/css/" if is_post_page else "static/css/"
     
+    meta_description = kwargs.pop("meta_description", "").strip()
+    if not meta_description:
+        meta_description = config.get("blog_description", "My awesome blog")
+
     context = {
         "config": config,
         "theme": theme,
@@ -322,9 +327,21 @@ def create_template_context(config, **kwargs):
         "current_year": datetime.now().year,
         "static_base_css_path": f"{css_base_path}base.css",
         "static_theme_css_path": f"{css_base_path}{theme}.css",
+        "meta_description": meta_description,
     }
     context.update(kwargs)
     return context
+
+def build_meta_description(text, fallback, max_length=160):
+    if not text:
+        return fallback
+    # Strip HTML tags and collapse whitespace.
+    stripped = re.sub(r"<[^>]+>", " ", text)
+    stripped = html.unescape(stripped)
+    stripped = re.sub(r"\s+", " ", stripped).strip()
+    if not stripped:
+        return fallback
+    return stripped[:max_length].rstrip()
 
 
 def main():
@@ -358,10 +375,15 @@ def main():
 
     # Generate post pages
     for post in posts:
+        meta_description = build_meta_description(
+            post["metadata"].get("subtitle") or post.get("html_content", ""),
+            config.get("blog_description", "My awesome blog"),
+        )
         context = create_template_context(config,
             post=post,
             static_rss_path="../rss.xml",
-            static_atom_path="../atom.xml"
+            static_atom_path="../atom.xml",
+            meta_description=meta_description
         )
         post_html = render_template("post.html", context, env)
         output_path = os.path.join(OUTPUT_DIR, "posts", f"{post['slug']}.html")
@@ -369,10 +391,15 @@ def main():
             f.write(post_html)
 
     # Generate index page
+    index_description = build_meta_description(
+        config.get("blog_description", "My awesome blog"),
+        config.get("blog_description", "My awesome blog"),
+    )
     context = create_template_context(config,
         posts=posts,
         static_rss_path="rss.xml",
-        static_atom_path="atom.xml"
+        static_atom_path="atom.xml",
+        meta_description=index_description
     )
     index_html = render_template("index.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "index.html"), "w", encoding="utf-8") as f:
@@ -387,20 +414,30 @@ def main():
         about_metadata = about_data["metadata"]
     
     about_page_title = about_metadata.get("title", config.get("blog_name", "My Blog"))
+    about_description = build_meta_description(
+        about_content,
+        config.get("blog_description", "My awesome blog"),
+    )
     context = create_template_context(config,
         page_title=about_page_title,
         content=about_content,
         static_rss_path="rss.xml",
-        static_atom_path="atom.xml"
+        static_atom_path="atom.xml",
+        meta_description=about_description
     )
     about_html = render_template("about.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "about.html"), "w", encoding="utf-8") as f:
         f.write(about_html)
 
     # Generate bookmarks page
+    bookmarks_description = build_meta_description(
+        "Bookmarks curated from the blog.",
+        config.get("blog_description", "My awesome blog"),
+    )
     context = create_template_context(config,
         static_rss_path="rss.xml",
-        static_atom_path="atom.xml"
+        static_atom_path="atom.xml",
+        meta_description=bookmarks_description
     )
     bookmarks_html = render_template("bookmarks.html", context, env)
     with open(os.path.join(OUTPUT_DIR, "bookmarks.html"), "w", encoding="utf-8") as f:
