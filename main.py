@@ -479,6 +479,9 @@ def main():
                 shutil.copytree(s, d, dirs_exist_ok=True)
             else:
                 shutil.copy2(s, d)
+                # Also place verification files at the site root (e.g., Google Search Console).
+                if item.startswith("google") and item.endswith(".html"):
+                    shutil.copy2(s, os.path.join(OUTPUT_DIR, item))
 
     print("Static site generated successfully!")
 
