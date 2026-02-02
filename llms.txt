@@ -1,0 +1,22 @@
+# Euge's blog
+
+Sharing ideas, experiments, opinions about software and AI.
+
+Author Email: eugfcl@gmail.com
+Site URL: https://eug.github.io
+
+## About
+
+## Bookmarks
+
+For full bookmarks context please visit [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt)
+
+## Posts
+
+For full posts context please visit [llms-posts-full.txt](https://eug.github.io/llms-posts-full.txt)
+
+[Dissecting the Assistant User Interface](https://eug.github.io/posts/dissecting-the-assistant-user-interface.html): How converging structural patterns are shaping trust, agency, and intent
+[An Obvious Guide on Prompting](https://eug.github.io/posts/an-obvious-guide-on-prompting.html): Because apparently, this needed to be said.
+[llmstxt for blogs](https://eug.github.io/posts/llmstxt-for-blogs.html): Extending `llms.txt` for Blogs – Give Your LLM an All-Access Pass
+[My bookmarks are public now](https://eug.github.io/posts/my-bookmarks-are-public-now.html): Rethinking bookmarks for the next decade
+[Vibe-code your own SSG](https://eug.github.io/posts/vibe-code-your-own-ssg.html): Stop wrestling with frameworks. Vibe code your own lean static site generator.

@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="How converging structural patterns are shaping trust, agency, and intent" />
+        <title>Euge's blog - Dissecting the Assistant User Interface</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .hex-number {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .hex-number {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>Dissecting the Assistant User Interface</h2>
+        
+            <p class="subtitle">How converging structural patterns are shaping trust, agency, and intent</p>
+        
+        <p class="meta">
+            Published on 2026-01-23
+            
+                | Tags: 
+                
+                    <span class="tag">ai</span>, 
+                
+                    <span class="tag">ux</span>, 
+                
+                    <span class="tag">hci</span>, 
+                
+                    <span class="tag">product-design</span>, 
+                
+                    <span class="tag">system</span>, 
+                
+                    <span class="tag">psychology</span>, 
+                
+                    <span class="tag">trust</span>, 
+                
+                    <span class="tag">intent</span>
+                
+            
+        </p>
+        <div class="content">
+            <p>AI assistants are no longer judged by how impressive their demos look. The bar is shifting toward something more useful and more difficult: <strong>dependable collaboration</strong>. And you can see it in the mobile UI. The app interface is converging into a recognizable standard — a little boring, but very revealing.</p>
+<p>This is a look at the default landing UI on first load (empty state) across products. Here’s a grounded breakdown: header, content, input. Not to celebrate uniformity, but to ask what’s being optimized, what’s being sacrificed, and why this pattern keeps winning in real products.</p>
+<h2>Structural Patterns</h2>
+<p>At a glance, every major assistant follows the same scaffolding: <strong>three horizontal bands</strong> — header, content, input. This is not a cosmetic choice. It encodes the flow of control. The header anchors system and identity. The content area frames the conversation. The input is where intent is expressed and edited.</p>
+<p><a href="/static/imgs/20260123_assistant-layout.png" target="_blank" rel="noopener noreferrer"><img src="/static/imgs/20260123_assistant-layout.png" alt="Overall assistant layout" style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;"></a></p>
+<h3>Header: System, Identity, and Mode</h3>
+<p>The header is a compact control layer. Across products it holds some mix of settings, model selection, thread navigation, identity, and temporary chat. It is the quiet place where the system asserts its boundaries and the user chooses the tool’s stance.</p>
+<p><a href="/static/imgs/20260123_assistant-layout-header.png" target="_blank" rel="noopener noreferrer"><img src="/static/imgs/20260123_assistant-layout-header.png" alt="Header layout" style="max-height: 520px; width: auto; height: auto; display: block; margin: 0 auto;"></a></p>
+<p>Patterns worth noting:</p>
+<ul>
+<li>Claude and ChatGPT make model choice and temporary chat visible.</li>
+<li>Gemini and Perplexity emphasize account identity and product framing (profile, upgrade banners, discovery).</li>
+<li>Perplexity is the only one without a visible threads/history button in the header, which positions it closer to a search engine posture (one-off queries) than a workspace posture (returning to threads over time).</li>
+<li>Grok adds explicit mode switching between ask and create, acknowledging that intent is not singular.</li>
+</ul>
+<p>Claude, DeepSeek, Grok, and ChatGPT all expose temporary or ephemeral chats at the top level. That signals a clear demand: users want a low-stakes, privacy-respecting mode where exploration won’t pollute history or memory. It’s an admission that not every question wants to be remembered - at least to the end user.</p>
+<p>The header is the contract zone. It clarifies “what this tool is right now” before you type anything. That’s good design, and it’s also a subtle admission that the model itself is not the product. The system state is.</p>
+<h3>Content: The Empty State as Instruction</h3>
+<p>The center panel is a prompt in disguise. It orients the user with logos, greetings, and quickstart chips. This is where the system hints at how it wants to be used. The empty state is the first instruction, and it’s more influential than most teams admit.</p>
+<p><a href="/static/imgs/20260123_assistant-layout-content.png" target="_blank" rel="noopener noreferrer"><img src="/static/imgs/20260123_assistant-layout-content.png" alt="Content layout" style="max-width: 600px; width: 100%; height: auto; display: block; margin: 0 auto;"></a></p>
+<p>The range is telling:</p>
+<ul>
+<li>Claude and DeepSeek keep it minimal: a greeting and an invitation.</li>
+<li>Gemini and Grok inject quickstarts and upsells, steering toward specific actions.</li>
+<li>ChatGPT uses a centered banner to normalize image creation.</li>
+<li>Perplexity leaves it almost empty, implying “just ask.”</li>
+</ul>
+<p>The content area isn’t just decorative. It primes the first action and shapes the user’s mental model of what the assistant is for. It’s also where product strategy sneaks in: upsell chips, image creation nudges, or a pure “just ask” stance. Perplexity puts its upgrade banner in the header (not the content), while Grok surfaces upgrade calls in the first-view content. Gemini’s upgrade prompt is more hidden — it shows up when you open model selection.</p>
+<h3>Input: The True Power Surface</h3>
+<p>The input row is the most complex zone. It’s where every capability is exposed or hidden. Most assistants split it into two rows: text on top, tools below. ChatGPT is the exception with a single-row, maximum-minimal design, leaning into progressive disclosure.</p>
+<p><a href="/static/imgs/20260123_assisant-layout-input.png" target="_blank" rel="noopener noreferrer"><img src="/static/imgs/20260123_assisant-layout-input.png" alt="Input layout" style="max-height: 520px; width: auto; height: auto; display: block; margin: 0 auto;"></a></p>
+<p>Across products, the input reveals a shared pattern:</p>
+<ul>
+<li>A primary text field with a short placeholder (“Ask anything,” “Ask Gemini,” “Chat with Claude”).</li>
+<li>A plus menu for attachments and special modes.</li>
+<li>A right-side voice cluster (dictation, live voice), with DeepSeek notably missing live voice.</li>
+<li>Feature toggles: research, search, image generation, learning modes, projects, apps.</li>
+<li>Rounded input containers across products, softening the “command box” feel and signaling friendliness.</li>
+</ul>
+<p>This is where the assistant stops being a chat box and becomes a configurable system. The input is the power surface, and its design determines how much agency the user actually has.</p>
+<p>The placeholder copy is doing quiet positioning. Claude uses “Chat with Claude,” Gemini uses “Ask Gemini,” and ChatGPT/Grok/Perplexity all use variations of “Ask anything.” DeepSeek is the most explicit about modality with “Type a message or hold to speak,” signaling voice as a first-class option. These few words nudge the user toward a certain posture: explorer, collaborator, or operator.</p>
+<p>Controls reveal what the product expects you to do. The plus menus cluster around attachments and mode toggles, implying that the default interaction is not enough — you’re expected to bring files, switch modes, or enable research. ChatGPT’s single-row input hides the control surface until you open the menu, while Gemini and Grok keep more visible options around the input, effectively asking you to treat the assistant like a toolbelt. The more controls you see, the more the product assumes you’re ready to steer.</p>
+<p>Search is the other signal. Most assistants offer some form of deep research or web search, but Grok stands out as the exception in the default input controls. Perplexity goes further by breaking research into intent-specific modes (academic, financial, social), which makes the user pick a lens up front instead of hoping the model infers it — and it assumes a more savvy user than the others. The others keep research more general, a broad capability boost rather than a deliberate framing choice. The fact that most providers ship some version of this suggests it’s now table stakes for delivering value, and likely a default expectation going forward.</p>
+<p>Voice UI is its own intent signal. Most assistants use toggle recording (start/stop) and pair it with a live voice mode, which implies a continuous, conversational session. DeepSeek leans toward push-to-talk (“hold to speak”), which is closer to a walkie‑talkie model: short bursts, less commitment, fewer surprises. The emerging pattern is clear: voice is framed as either lightweight dictation or a real-time mode that feels more personal and intimate — and the chosen interaction model tells you which one they want you to use.</p>
+<h2>The Assistant Archetypes</h2>
+<p>Taken together, the header, empty state, and input form a narrative about what the assistant is for. Each product is quietly signaling its direction — what it is becoming and who it is becoming for:</p>
+<ul>
+<li><strong>Claude:</strong> A trust-first collaborator evolving toward long-term partnership; it maximizes safety cues and low-stakes exploration, and expects a user who wants an ongoing, steady relationship.</li>
+<li><strong>ChatGPT:</strong> A general-purpose workbench scaling into a configurable platform; it maximizes breadth and capability while minimizing upfront choices, and expects users to unlock power through progressive discovery.</li>
+<li><strong>Gemini:</strong> A guided, multi-mode helper moving toward structured workflows; it maximizes onboarding and visible options, and expects users who want direction and clearly framed tasks.</li>
+<li><strong>Grok:</strong> A mode-driven, experiment-forward assistant headed toward explicit intent switching; it maximizes clarity of stance and feature signaling, and expects users to pick a mode before asking.</li>
+<li><strong>Perplexity:</strong> A research-first engine leaning into ad-hoc inquiry; it maximizes direct questioning and source-seeking, and expects users who treat it like a focused search tool rather than a workspace.</li>
+<li><strong>DeepSeek:</strong> A lightweight utility shaping for quick, low-commitment exchanges; it maximizes speed and modality clarity, and expects brief, purposeful interactions.</li>
+</ul>
+<p>First, we decompose each assistant on its own terms: what it emphasizes, what it minimizes, and what it expects from the user. Next, we regroup those same characteristics from different angles to show how the patterns cluster across products. Each framing uses visible UI evidence (header controls, empty states, and input affordances) to explain the positioning.</p>
+<ul>
+<li><strong>Relationship posture:</strong> Claude and ChatGPT tilt toward ongoing partnership (temporary chat plus threaded navigation), Gemini and Grok toward guided/task-oriented use (visible mode switches and discovery/quickstarts), and Perplexity and DeepSeek toward ad-hoc utility (minimal empty state and lighter continuity cues).</li>
+<li><strong>User intent expectation:</strong> Claude assumes exploration and rapport (“Chat with Claude” plus temporary chat), ChatGPT assumes general-purpose tinkering (broad tool menu behind progressive disclosure), Gemini and Grok assume directed tasks (chips, explicit “ask/create” modes), while Perplexity and DeepSeek assume quick lookup and low-commitment queries (“just ask” stance and hold-to-speak).</li>
+<li><strong>Control philosophy:</strong> ChatGPT and Claude lean on progressive disclosure (single-row input or fewer exposed toggles), Gemini and Grok lean on visible guidance and explicit modes (options placed around the input), and Perplexity/DeepSeek keep the surface lean (sparser controls and empty states).</li>
+<li><strong>Time horizon:</strong> Claude and ChatGPT signal continuity (threads/history and temporary chat for safe long-term use), Gemini and Grok suggest session-scoped workflows (mode switching and quickstarts), and Perplexity/DeepSeek feel optimized for one-shot interactions (no visible threads in Perplexity, push-to-talk in DeepSeek).</li>
+<li><strong>Persona metaphor:</strong> Claude reads as a collaborator (relational copy and trust cues), ChatGPT as a workbench/platform (broad capabilities with hidden depth), Gemini as a coach/guide (structured onboarding and prompts), Grok as an operator with modes (explicit ask/create), Perplexity as a research engine (search posture and sources), and DeepSeek as a utility tool (fast, lightweight interaction).</li>
+<li><strong>Cognitive load:</strong> Claude aims for low friction and high trust (quiet header, minimal nudges), ChatGPT offers high capability with moderate complexity (hidden tool belt), Gemini and Grok invite more explicit choices (visible toggles and chips), while Perplexity and DeepSeek minimize structure and commitment (sparse surfaces and short interactions).</li>
+</ul>
+<p>These are not just UI decisions; they are product personas, each aiming at a different kind of user and a different definition of "assistance."</p>
+<h2>Design Learnings</h2>
+<p>When multiple companies converge on the same UI patterns, it’s rarely accidental. These structural choices are signals: what the system expects, what it’s optimizing, and what it’s willing to hide. The header centralizes state and identity, the content area frames intent with empty-state nudges, and the input concentrates power in a small, highly curated surface. Add in shared behaviors like mode toggles, quickstart chips, and voice controls that disappear when typing, and you start to see a consistent philosophy emerging. The aim here is to turn those patterns into learnings — not just what the UI shows, but what it’s teaching users to do and the kind of assistant each product is trying to become.</p>
+<h3>Header Learnings</h3>
+<p>Some of these are obvious (identity and mode clarity), others are more subtle (threads and temporary chats as trust signals). A few draw from classic UX patterns about orientation and system status, but the AI-specific twist is how much of the product’s posture gets encoded into a thin top bar.</p>
+<ul>
+<li><strong>Identity reduces confusion.</strong> Clear account identity and model context reduce the “What am I talking to?” ambiguity (e.g., Gemini and Perplexity foreground profile and account cues).</li>
+<li><strong>Threads create cognitive scaffolding.</strong> Visible conversation lists signal that work is ongoing and navigable, not one-off (e.g., ChatGPT, Gemini, Grok).</li>
+<li><strong>Mode switching clarifies intent.</strong> Grok’s explicit modes show that multiple intents need explicit toggles, not implicit inference.</li>
+<li><strong>Temporary chat is trust infrastructure.</strong> Its visibility signals privacy, experimentation, and low-stakes exploration (e.g., Claude, DeepSeek, Grok, ChatGPT).</li>
+</ul>
+<h3>Content Learnings</h3>
+<p>Here the obvious part is nudging: empty states guide behavior. The less obvious part is how product strategy and business goals sneak into what looks like pure UX. Some patterns are modern growth design; others feel like old-school onboarding disguised as a blank screen.</p>
+<ul>
+<li><strong>Empty states are persuasive.</strong> Quickstart chips, banners, and upgrade cues steer the first action more than users realize (e.g., Gemini and Grok surface quickstarts; Perplexity and Grok show upgrade cues immediately).</li>
+<li><strong>Quickstarts are product strategy.</strong> The suggested actions reveal what the product wants to be used for (e.g., Gemini’s “Help me learn” vs. Grok’s “Create videos”).</li>
+<li><strong>Minimalism is a stance.</strong> Perplexity’s empty center says “bring your own question,” which attracts experts but can alienate novices.</li>
+<li><strong>Temporal greetings humanize.</strong> Claude’s time-aware greeting builds warmth but also makes the system feel more present and personal.</li>
+</ul>
+<h3>Input Learnings</h3>
+<p>The input area blends obvious interaction patterns with less obvious behavioral shaping. Some choices are inherited from older UI conventions (placeholders, affordances), while others are unique to AI (mode switches, research toggles). Together they reveal what the system expects you to do, not just how to do it.</p>
+<ul>
+<li><strong>Two-row inputs scale better.</strong> They separate intent expression from tool configuration (e.g., Claude, Gemini, Grok, Perplexity).</li>
+<li><strong>Voice UI implies closeness.</strong> Live voice creates a more personal, intimate relationship than text alone (e.g., present in most, absent in DeepSeek).</li>
+<li><strong>Placeholders position the user.</strong> “Chat with Claude” feels relational, while “Ask Gemini” and “Ask anything” lean tool-like (Claude vs. Gemini/ChatGPT/Grok/Perplexity).</li>
+<li><strong>Feature overload needs discipline.</strong> The plus menu easily becomes a dumping ground; careful ordering matters more than adding toggles (e.g., ChatGPT hides many modes behind the menu, Gemini surfaces multiple options around it).</li>
+<li><strong>Modality favors text by default.</strong> Voice controls deactivate when typing, which quietly reinforces typing as the primary mode (observed across platforms).</li>
+<li><strong>Rounded inputs soften the system.</strong> The pill-shaped box signals friendliness and approachability across products, countering the “command box” feel.</li>
+</ul>
+<h2>Beyond the Screen</h2>
+<p>The structure of the UI is telling a story: <em>the assistant is a system, not a personality.</em> The header defines the contract, the content teaches the first move, and the input grants (or restricts) agency. This is a quiet but significant psychological shift. We’re watching the chat box turn into a thin layer over a workflow engine.</p>
+<p>Four consequences stand out to me:</p>
+<ol>
+<li><strong>Trust becomes procedural.</strong> When state, mode, and privacy controls are visible, users trust the system because they can audit it, not because it sounds confident (e.g., model selectors and temporary chat toggles in Claude/ChatGPT).</li>
+<li><strong>Agency moves to the edges.</strong> The most important decisions sit in small UI zones (header and input), while the content area mostly avoids leading or nudging, relying on user knowledge and intention — which means users who learn the interface (and its hidden configs) gain more power (e.g., ChatGPT’s hidden menu vs. Gemini’s visible controls).</li>
+<li><strong>The assistant becomes a mirror.</strong> The UI encourages users to reveal intent, context, and personal style. Over time, this can shape not just outcomes, but how people think and work (e.g., Claude’s “Chat with Claude” vs. Perplexity’s blank prompt and fine‑grained search modes).</li>
+<li><strong>Preconfigured usage loops.</strong> Defaults, quickstarts, and visible modes can steer less‑savvy users into narrow workflows (e.g., Gemini’s guided chips, Grok’s mode switching), making it harder to discover alternative uses.</li>
+</ol>
+<p>You can also read these UI choices as positioning. Claude feels like a calm, trust-first collaborator. ChatGPT reads as a general-purpose tool that scales with the user via progressive disclosure. Gemini frames itself as a guided, multi-mode assistant. Grok leans into explicit modes and upgrade cues, signaling experimentation and capability. Perplexity presents itself as a research-first system for savvy users with deliberate intent. DeepSeek stays minimal and modality-aware, optimized for quick, lightweight interactions.</p>
+<p>In short: the emerging design standard is not about making assistants more human. It is about making them more <strong>legible</strong>, more <strong>configurable</strong>, and more <strong>psychologically trustworthy</strong>. The interface is doing more of the work than the model alone — and that is the real design shift. This is the exciting part: once the UI stabilizes, real innovation can move to orchestration, memory, and workflow design.</p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>
+                <a href="https://eug.github.io/robots.txt">[robots.txt]</a>
+                <a href="https://eug.github.io/sitemap.xml">[sitemap.xml]</a>
+                <a href="https://eug.github.io/rss.xml">[rss.xml]</a>
+                <a href="https://eug.github.io/atom.xml">[atom.xml]</a>
+            </p>
+            <p>
+                <a href="https://eug.github.io/llms.txt">[llms.txt]</a>
+                <a href="https://eug.github.io/llms-posts-full.txt"
+                    >[llms-posts-full.txt]</a
+                >
+                <a href="https://eug.github.io/llms-bookmarks-full.txt"
+                    >[llms-bookmarks-full.txt]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>

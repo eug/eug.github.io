@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Stop wrestling with frameworks. Vibe code your own lean static site generator." />
+        <title>Euge's blog - Vibe-code your own SSG</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .hex-number {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .hex-number {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>Vibe-code your own SSG</h2>
+        
+            <p class="subtitle">Stop wrestling with frameworks. Vibe code your own lean static site generator.</p>
+        
+        <p class="meta">
+            Published on 2025-06-01
+            
+                | Tags: 
+                
+                    <span class="tag">vibe-code</span>, 
+                
+                    <span class="tag">ssg</span>, 
+                
+                    <span class="tag">python</span>, 
+                
+                    <span class="tag">minimalist</span>, 
+                
+                    <span class="tag">DIY</span>
+                
+            
+        </p>
+        <div class="content">
+            <p>So you want a simple blog. Just a place to jot down your experiments, share some thoughts. Static HTML is the obvious, robust choice. But writing raw HTML like it's 1999? Nah. You want Markdown, maybe a sprinkle of templating, a way to manage posts without pulling your hair out.</p>
+<p>The usual suspects – <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://astro.build/">Astro</a>, <a href="https://gohugo.io/">Hugo</a> – they're powerful, sure. But they can also feel like bringing a bazooka to a knife fight. Dependencies, complex configurations, a whole ecosystem to learn. What if you just want to get your words out there, with minimal fuss?</p>
+<p>I hit this point recently and decided to "vibe-code" my own Static Site Generator (SSG). Turns out, it's surprisingly straightforward and a great way to understand what these tools actually <em>do</em>. Forget the bloat; let's vibe-code something lean.</p>
+<h2>Here's the bare-bones recipe</h2>
+<p><strong>0. Programming Language: Your Choice</strong></p>
+<p>Honestly, pick your poison. Python, Node.js, Ruby, even a shell script if you're feeling particularly masochistic. The core logic is simple enough for any modern language. I went with Python because its standard library is packed with goodies for file manipulation, and excellent libraries for Markdown and templating (like <code>Markdown</code> and <code>Jinja2</code>) are a <code>pip install</code> away. The key is picking something you're comfortable with and that won't get in your way.</p>
+<p><strong>1. The Generation Script: Your SSG's Heart</strong></p>
+<p>This is where the magic happens. At its core, your script will:</p>
+<ul>
+<li><strong>Scan for content:</strong> Find all your Markdown files (your blog posts).</li>
+<li><strong>Parse metadata:</strong> Extract frontmatter (title, date, tags, etc.) from each post. YAML or JSON are common choices here. Most Markdown libraries can handle this.</li>
+<li><strong>Convert Markdown to HTML:</strong> Transform your post content into web-friendly HTML.</li>
+<li><strong>Apply templates:</strong> Inject the generated HTML and metadata into your base HTML templates (e.g., one for a single post, one for the homepage).</li>
+<li><strong>Write output:</strong> Save the final HTML files to a designated output directory (often <code>dist</code> or <code>public</code>).</li>
+</ul>
+<p>Keep it simple. You don't need a complex plugin architecture for version 0.1. Focus on the core transformation pipeline.</p>
+<p><strong>2. Templates Folder: The Skeleton of Your Site</strong></p>
+<p>These are your HTML blueprints. You'll likely want at least:</p>
+<ul>
+<li><code>base.html</code>: The main site structure (header, footer, navigation). Other templates will extend this.</li>
+<li><code>post.html</code>: How a single blog post is displayed.</li>
+<li><code>index.html</code> (or <code>home.html</code>): Your homepage, probably listing recent posts.</li>
+</ul>
+<p>Templating engines like Jinja2 (Python), Handlebars (JavaScript), or Liquid (Ruby, and what Jekyll uses) are your friends here. They let you use variables, loops, and includes to keep your HTML DRY (Don't Repeat Yourself).</p>
+<p>Example <code>post.html</code> (Jinja2-ish):</p>
+<div class="codehilite"><pre><span></span><code>{% extends &quot;base.html&quot; %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ post.title }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;date&quot;</span><span class="p">&gt;</span>Published on: {{ post.date }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;post-content&quot;</span><span class="p">&gt;</span>
+    {{ post.content_html | safe }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% endblock %}
+</code></pre></div>
+
+<p><strong>3. Assets Folder: The Style and Flair</strong></p>
+<p>This is where your CSS, JavaScript (if any), images, and fonts reside. Your generation script will likely just copy these files directly into the output directory, maintaining their structure.
+Start with a single <code>style.css</code>. You can always add more later. Resist the urge to install a massive CSS framework unless you <em>really</em> need it. A few well-crafted CSS rules can go a long way.</p>
+<p><strong>4. Posts Folder: Your Content Hub</strong></p>
+<p>A straightforward directory where each <code>.md</code> file is a blog post. A common convention is to name files like <code>YYYY-MM-DD-your-post-slug.md</code>. The frontmatter at the top of each file is key for your generation script.</p>
+<p>Example post (<code>2025-06-01-my-first-post.md</code>):</p>
+<div class="codehilite"><pre><span></span><code>---
+title: &quot;My First Awesome Post&quot;
+date: 2025-06-01
+<span class="gu">tags: [introduction, exciting-stuff]</span>
+<span class="gu">---</span>
+
+Hello world! This is my first post, generated by <span class="gs">**my own**</span> SSG.
+It feels good.
+</code></pre></div>
+
+<p><strong>5. The "Extra Support" Goodies: Because Details Matter</strong></p>
+<p>Once you have the basics, these aren't hard to add and make your site a better web citizen:</p>
+<ul>
+<li><code>atom.xml</code> / <code>rss.xml</code>: An XML feed for aggregators. Your script can generate this by looping through your posts.</li>
+<li><code>robots.txt</code>: Tells search engine crawlers what they can and cannot index.</li>
+<li><code>sitemap.xml</code>: Helps search engines discover all the pages on your site.</li>
+<li><code>CNAME</code> (if using a custom domain with services like GitHub Pages): A file containing just your custom domain name.</li>
+<li><code>llms.txt</code> (optional, emerging): If you want to serve your site as context for LLMs.</li>
+</ul>
+<h2>Bonus: Kickstart with an LLM</h2>
+<p>Feeling lazy or just want a quick starting point? Modern LLMs are surprisingly good at bootstrapping simple scripts. Try a prompt like this (tailor it to your preferences):</p>
+<div class="codehilite"><pre><span></span><code>Create a simple static site generator in Python. It should:
+
+1. Read all `.md` files from a `posts` directory.
+2. Parse YAML frontmatter (title, date) from each file.
+3. Convert Markdown content to HTML.
+4. Use Jinja2 templates from a `templates` directory: `base.html` and `post.html`.
+5. `base.html` should define blocks for `title` and `content`. It should link to a `style.css` file.
+6. `post.html` should extend `base.html` and display the post title and content.
+7. Generate an `index.html` in a `dist` directory, listing titles and links to all posts, sorted by date (newest first).
+8. Generate individual HTML files for each post in the `dist` directory (e.g., `dist/my-post-slug.html`).
+9. Copy an `assets` directory (which should contain the `style.css`) to `dist/assets`.
+10. The `style.css` should implement a clean, minimalist, responsive design with a dark theme. Use a sans-serif font for readability.
+
+Provide the Python script, example minimal `base.html` and `post.html` templates, and a basic `style.css`.
+</code></pre></div>
+
+<blockquote>
+<p><strong>Pro tip:</strong> This works even better with AI IDEs like Cursor, Windsurf, or Cline rather than standalone LLMs. These tools can actually create the entire file structure for you automatically – the Python script, template files, CSS, even a sample blog post to test with. No copy-pasting required.</p>
+</blockquote>
+<p>It may not give you a production-ready SSG, but it's a fantastic V0.0.1. You can then iterate, refactor, and add features as you see fit, truly making it your own.</p>
+<p><em>P.S. I used Cursor with Claude 4 Sonnet for the initial version, and it handled this prompt beautifully – complete with working templates and surprisingly decent CSS.</em></p>
+<h2>The Payoff? Control and Understanding.</h2>
+<p>Building your own SSG isn't just a technical exercise. It gives you complete control over your site, zero opaque dependencies, and a deeper understanding of how web content is structured and served. When something breaks, you know exactly where to look (or ask the LLM to do so). When you want a new feature, you're not fighting a framework; you're just adding a bit more code to <em>your</em> script.</p>
+<p>So, before you reach for that heavy-duty SSG framework, ask yourself: could I just vibe-code this? You might be surprised how far a little bit of scripting can take you.</p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>
+                <a href="https://eug.github.io/robots.txt">[robots.txt]</a>
+                <a href="https://eug.github.io/sitemap.xml">[sitemap.xml]</a>
+                <a href="https://eug.github.io/rss.xml">[rss.xml]</a>
+                <a href="https://eug.github.io/atom.xml">[atom.xml]</a>
+            </p>
+            <p>
+                <a href="https://eug.github.io/llms.txt">[llms.txt]</a>
+                <a href="https://eug.github.io/llms-posts-full.txt"
+                    >[llms-posts-full.txt]</a
+                >
+                <a href="https://eug.github.io/llms-bookmarks-full.txt"
+                    >[llms-bookmarks-full.txt]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>

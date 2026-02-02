@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Sharing ideas, experiments, opinions about software and AI." />
+        <title>Euge's blog - Home</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .hex-number {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .hex-number {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <ul class="post-list index-page-list">
+        
+            <li>
+                <span class="hex-number">0x6972BA00</span> <a href="posts/dissecting-the-assistant-user-interface.html">[Dissecting the Assistant User Interface]</a>
+            </li>
+        
+            <li>
+                <span class="hex-number">0x6844D280</span> <a href="posts/an-obvious-guide-on-prompting.html">[An Obvious Guide on Prompting]</a>
+            </li>
+        
+            <li>
+                <span class="hex-number">0x683CE980</span> <a href="posts/llmstxt-for-blogs.html">[llmstxt for blogs]</a>
+            </li>
+        
+            <li>
+                <span class="hex-number">0x683B9800</span> <a href="posts/my-bookmarks-are-public-now.html">[My bookmarks are public now]</a>
+            </li>
+        
+            <li>
+                <span class="hex-number">0x683B9800</span> <a href="posts/vibe-code-your-own-ssg.html">[Vibe-code your own SSG]</a>
+            </li>
+        
+    </ul>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>
+                <a href="https://eug.github.io/robots.txt">[robots.txt]</a>
+                <a href="https://eug.github.io/sitemap.xml">[sitemap.xml]</a>
+                <a href="https://eug.github.io/rss.xml">[rss.xml]</a>
+                <a href="https://eug.github.io/atom.xml">[atom.xml]</a>
+            </p>
+            <p>
+                <a href="https://eug.github.io/llms.txt">[llms.txt]</a>
+                <a href="https://eug.github.io/llms-posts-full.txt"
+                    >[llms-posts-full.txt]</a
+                >
+                <a href="https://eug.github.io/llms-bookmarks-full.txt"
+                    >[llms-bookmarks-full.txt]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>

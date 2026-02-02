@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Euge's blog</title>
+    <link>https://eug.github.io</link>
+    <description>Sharing ideas, experiments, opinions about software and AI.</description>
+    <atom:link href="https://eug.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+        <title>Dissecting the Assistant User Interface</title>
+        <link>https://eug.github.io/posts/dissecting-the-assistant-user-interface.html</link>
+        <pubDate>Fri, 23 Jan 2026 00:00:00 GMT</pubDate>
+        <guid>https://eug.github.io/posts/dissecting-the-assistant-user-interface.html</guid>
+        <description>How converging structural patterns are shaping trust, agency, and intent</description>
+    </item>
+    
+    <item>
+        <title>An Obvious Guide on Prompting</title>
+        <link>https://eug.github.io/posts/an-obvious-guide-on-prompting.html</link>
+        <pubDate>Sun, 08 Jun 2025 00:00:00 GMT</pubDate>
+        <guid>https://eug.github.io/posts/an-obvious-guide-on-prompting.html</guid>
+        <description>Because apparently, this needed to be said.</description>
+    </item>
+    
+    <item>
+        <title>llmstxt for blogs</title>
+        <link>https://eug.github.io/posts/llmstxt-for-blogs.html</link>
+        <pubDate>Mon, 02 Jun 2025 00:00:00 GMT</pubDate>
+        <guid>https://eug.github.io/posts/llmstxt-for-blogs.html</guid>
+        <description>Extending `llms.txt` for Blogs – Give Your LLM an All-Access Pass</description>
+    </item>
+    
+    <item>
+        <title>My bookmarks are public now</title>
+        <link>https://eug.github.io/posts/my-bookmarks-are-public-now.html</link>
+        <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
+        <guid>https://eug.github.io/posts/my-bookmarks-are-public-now.html</guid>
+        <description>Rethinking bookmarks for the next decade</description>
+    </item>
+    
+    <item>
+        <title>Vibe-code your own SSG</title>
+        <link>https://eug.github.io/posts/vibe-code-your-own-ssg.html</link>
+        <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
+        <guid>https://eug.github.io/posts/vibe-code-your-own-ssg.html</guid>
+        <description>Stop wrestling with frameworks. Vibe code your own lean static site generator.</description>
+    </item>
+    
+</channel>
+</rss> 

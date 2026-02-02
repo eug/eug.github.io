@@ -1,0 +1,214 @@
+/* Light theme colors and styles */
+
+/* Main colors */
+body {
+    background-color: #ffffff;
+    color: #2a2a2a;
+}
+
+/* Link colors */
+a {
+    color: #0066cc;
+}
+
+a:hover {
+    background-color: #f0f0f0;
+    color: #004499;
+}
+
+/* Header colors */
+header {
+    border-bottom-color: #cccccc;
+}
+
+header h1 a {
+    color: #006600;
+}
+
+header h1 a:hover {
+    color: #004400;
+}
+
+/* Post colors */
+.post h2 {
+    color: #1a1a1a;
+}
+
+.post .subtitle {
+    color: #666666;
+}
+
+.post .meta {
+    color: #777777;
+}
+
+.post .meta .tag {
+    background-color: #e8e8e8;
+    color: #006600;
+}
+
+/* Post list colors */
+.post-list li {
+    border-bottom: 1px dashed #cccccc;
+}
+
+.post-list h3 a {
+    color: #1a1a1a;
+}
+
+.index-page-list .hex-number {
+    color: #666666;
+}
+
+.index-page-list a {
+    color: #1a1a1a;
+}
+
+/* Code colors */
+pre {
+    background-color: #f8f8f8;
+    border-color: #dddddd;
+    color: #2a2a2a;
+}
+
+code {
+    background-color: #f0f0f0 !important;
+    color: #d14 !important;
+    border-color: #dddddd !important;
+}
+
+/* Syntax highlighting colors for light theme */
+.codehilite { 
+    background: #f8f8f8; 
+}
+
+/* Error */
+.codehilite .err { color: #a61717; background-color: #e3d2d2 }
+
+/* Keyword */
+.codehilite .k { color: #000080; font-weight: bold }
+
+/* Literal */
+.codehilite .l { color: #008080 }
+
+/* Name */
+.codehilite .n { color: #2a2a2a }
+
+/* Operator */
+.codehilite .o { color: #666666 }
+
+/* Punctuation */
+.codehilite .p { color: #666666 }
+
+/* Comment */
+.codehilite .c { color: #999988; font-style: italic }
+.codehilite .cm { color: #999988; font-style: italic }
+.codehilite .cp { color: #999999; font-style: italic }
+.codehilite .c1 { color: #999988; font-style: italic }
+.codehilite .cs { color: #999999; font-style: italic }
+
+/* Generic */
+.codehilite .gd { color: #000000; background-color: #ffdddd }
+.codehilite .ge { font-style: italic }
+.codehilite .gr { color: #aa0000 }
+.codehilite .gh { color: #999999; font-weight: bold }
+.codehilite .gi { color: #000000; background-color: #ddffdd }
+.codehilite .go { color: #888888 }
+.codehilite .gp { color: #555555 }
+.codehilite .gs { font-weight: bold }
+.codehilite .gu { color: #aaaaaa; font-weight: bold }
+.codehilite .gt { color: #aa0000 }
+
+/* Keyword variations */
+.codehilite .kc { color: #000080; font-weight: bold }
+.codehilite .kd { color: #000080; font-weight: bold }
+.codehilite .kn { color: #000080; font-weight: bold }
+.codehilite .kp { color: #000080 }
+.codehilite .kr { color: #000080; font-weight: bold }
+.codehilite .kt { color: #445588; font-weight: bold }
+
+/* Literal variations */
+.codehilite .ld { color: #008080 }
+
+/* Number */
+.codehilite .m { color: #009999 }
+.codehilite .mf { color: #009999 }
+.codehilite .mh { color: #009999 }
+.codehilite .mi { color: #009999 }
+.codehilite .mo { color: #009999 }
+
+/* Name variations */
+.codehilite .na { color: #008080 }
+.codehilite .nb { color: #0086b3 }
+.codehilite .nc { color: #445588; font-weight: bold }
+.codehilite .no { color: #008080 }
+.codehilite .nd { color: #3c5d5d; font-weight: bold }
+.codehilite .ni { color: #800080 }
+.codehilite .ne { color: #990000; font-weight: bold }
+.codehilite .nf { color: #990000; font-weight: bold }
+.codehilite .nl { color: #990000; font-weight: bold }
+.codehilite .nn { color: #555555 }
+.codehilite .nt { color: #000080 }
+.codehilite .nv { color: #008080 }
+
+/* Operator variations */
+.codehilite .ow { color: #000080; font-weight: bold }
+
+/* String */
+.codehilite .s { color: #d14 }
+.codehilite .sa { color: #d14 }
+.codehilite .sb { color: #d14 }
+.codehilite .sc { color: #d14 }
+.codehilite .sd { color: #d14 }
+.codehilite .s2 { color: #d14 }
+.codehilite .se { color: #d14 }
+.codehilite .sh { color: #d14 }
+.codehilite .si { color: #d14 }
+.codehilite .sx { color: #d14 }
+.codehilite .sr { color: #009926 }
+.codehilite .s1 { color: #d14 }
+.codehilite .ss { color: #990073 }
+
+/* Variable */
+.codehilite .vc { color: #008080 }
+.codehilite .vg { color: #008080 }
+.codehilite .vi { color: #008080 }
+
+/* Whitespace */
+.codehilite .w { color: #bbbbbb }
+
+/* Language-specific improvements */
+.codehilite .nt { color: #000080; font-weight: bold } /* Tag names */
+.codehilite .na { color: #008080 } /* Attribute names */
+.codehilite .s { color: #d14 } /* Attribute values */
+
+/* Python-specific */
+.codehilite .bp { color: #999999 } /* Built-in pseudo */
+.codehilite .fm { color: #900; font-weight: bold } /* Function magic */
+
+/* JavaScript/CSS specific */
+.codehilite .nx { color: #2a2a2a } /* Name other */
+
+/* Footer colors */
+footer {
+    color: #4a4a4a;
+}
+
+/* Bookmarks colors */
+.add-button {
+    color: #0066cc;
+}
+
+.add-button:hover {
+    color: #004499;
+    background-color: #f0f0f0;
+}
+
+.bookmarks-list a {
+    color: #0066cc;
+}
+
+.bookmarks-list a:hover {
+    color: #004499;
+    background-color: #f0f0f0;
+} 

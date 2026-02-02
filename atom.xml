@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Euge's blog</title>
+  <link href="https://eug.github.io/atom.xml" rel="self"/>
+  <link href="https://eug.github.io/"/>
+  <updated>2026-01-23T00:00:00Z</updated>
+  <id>https://eug.github.io/</id>
+  <author>
+    <name>Eugenio Cabral</name>
+  </author>
+
+  
+  <entry>
+    <title>Dissecting the Assistant User Interface</title>
+    <link href="https://eug.github.io/posts/dissecting-the-assistant-user-interface.html"/>
+    <id>https://eug.github.io/posts/dissecting-the-assistant-user-interface.html</id>
+    <updated>2026-01-23T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;AI assistants are no longer judged by how impre</content>
+  </entry>
+  
+  <entry>
+    <title>An Obvious Guide on Prompting</title>
+    <link href="https://eug.github.io/posts/an-obvious-guide-on-prompting.html"/>
+    <id>https://eug.github.io/posts/an-obvious-guide-on-prompting.html</id>
+    <updated>2025-06-08T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;Large Language Models (LLMs) are powerful, but </content>
+  </entry>
+  
+  <entry>
+    <title>llmstxt for blogs</title>
+    <link href="https://eug.github.io/posts/llmstxt-for-blogs.html"/>
+    <id>https://eug.github.io/posts/llmstxt-for-blogs.html</id>
+    <updated>2025-06-02T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;The &lt;code&gt;llms.txt&lt;/code&gt; proposal (&lt;a href=&#34;ht</content>
+  </entry>
+  
+  <entry>
+    <title>My bookmarks are public now</title>
+    <link href="https://eug.github.io/posts/my-bookmarks-are-public-now.html"/>
+    <id>https://eug.github.io/posts/my-bookmarks-are-public-now.html</id>
+    <updated>2025-06-01T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;So, &lt;a href=&#34;https://getpocket.com/farewell&#34;&gt;Po</content>
+  </entry>
+  
+  <entry>
+    <title>Vibe-code your own SSG</title>
+    <link href="https://eug.github.io/posts/vibe-code-your-own-ssg.html"/>
+    <id>https://eug.github.io/posts/vibe-code-your-own-ssg.html</id>
+    <updated>2025-06-01T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;So you want a simple blog. Just a place to jot </content>
+  </entry>
+  
+</feed> 
