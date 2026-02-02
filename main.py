@@ -367,7 +367,9 @@ def main():
         if filename.endswith(".md"):
             file_path = os.path.join(POSTS_DIR, filename)
             post_data = parse_markdown_file(file_path)
-            post_data["slug"] = filename.replace(".md", "")
+            slug = filename.replace(".md", "")
+            slug = re.sub(r"^\d{8}-", "", slug)  # Remove date prefix from slug
+            post_data["slug"] = slug
             posts.append(post_data)
     
     # Sort posts by date (newest first)
