@@ -6,10 +6,10 @@
     <ul class="post-list index-page-list">
         {% for post in posts %}
             <li>
-                <span class="hex-number">0x{{ "%X"|format(post.metadata.created_at.timestamp()|int) }}</span> <a href="posts/{{ post.slug }}.html">[{{ post.metadata.title }}]</a>
+                <span class="post-date">{{ post.metadata.created_at.strftime('%Y%m%d') }}</span> <a href="posts/{{ post.slug }}.html">[{{ post.metadata.title }}]</a>
             </li>
         {% else %}
             <li>No posts yet.</li>
         {% endfor %}
     </ul>
-{% endblock %} 
+{% endblock %}
