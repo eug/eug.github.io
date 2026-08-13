@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Lessons, mistakes, and wins from shipping my first app" />
+        <meta name="google-site-verification" content="eSHd_5CwIKwbwqKlUIXU15XMqeZkdDkwvFFS2SdGNKs" />
+        <title>Euge's blog - Developing my first mobile app</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .post-date {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .post-date {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>Developing my first mobile app</h2>
+        
+            <p class="subtitle">Lessons, mistakes, and wins from shipping my first app</p>
+        
+        <p class="meta">
+            Published on 2026-02-13
+            
+                | Tags: 
+                
+                    <span class="tag">mobile</span>, 
+                
+                    <span class="tag">app-development</span>, 
+                
+                    <span class="tag">learning</span>, 
+                
+                    <span class="tag">product</span>
+                
+            
+        </p>
+        <div class="content">
+            <p>Building my first mobile app, <strong>Ordr</strong>, has been one of the most challenging (and fun) projects I’ve done—and as I write this, it’s under review on both the Apple App Store and Google Play.</p>
+<p>This is a write-up of how I’m hacking my way through it: what I believed going in, what I copied, what I built, and what surprised me.</p>
+<h2>1) The constraint: I only build in proven markets</h2>
+<p>My personal rule: I don’t try to invent a new category on my first app. I want a market where:</p>
+<ul>
+<li>people are already searching for solutions,</li>
+<li>people already pay (or at least understand the “pay for productivity” pitch),</li>
+<li>I can market by comparison (“like X, but with less friction”).</li>
+</ul>
+<p>The downside is obvious: churn is real. People bounce between apps constantly. But that’s also the opportunity—if you solve a sharp pain, you can keep capturing new users.</p>
+<h2>2) The market: productivity apps (because demand never stops)</h2>
+<p>After some research, I landed on a productivity app. Not because it’s “blue ocean”, but because demand is continuous—and honestly because a lot of apps looked interchangeable.</p>
+<p>The pain I kept coming back to: many task apps create <em>task administration</em>. Instead of brain-dumping and doing the next thing, you end up:</p>
+<ul>
+<li>labeling,</li>
+<li>setting dates,</li>
+<li>marking urgent,</li>
+<li>moving tasks between “today” and “tomorrow”,</li>
+<li>reorganizing lists endlessly.</li>
+</ul>
+<p>And if you don’t nail that flow, a lot of people just go back to pen and paper.</p>
+<h2>3) The bet: “brain dump in, structure out”</h2>
+<p>I wanted an app that feels less like “manage your tasks” and more like “talk to a helpful organizer”.</p>
+<p>The simple version of the idea:</p>
+<ul>
+<li>you type/speak a messy brain dump,</li>
+<li>the app proposes structured tasks/lists/dates/priority,</li>
+<li>you approve/adjust,</li>
+<li>repeat until it looks right. (Longer-term, I want it to learn your preferences so you have to correct it less.)</li>
+</ul>
+<p>One concrete example: the “daily planner” use case.</p>
+<p>Most people don’t want to do the nightly ritual of dragging tasks from “today” to “tomorrow”. They want to wake up and ask: “What do I have today?” Then negotiate: “Not in the morning”, “push this three days”, “I can only do quick wins”, etc.</p>
+<p>I also wanted the app to accept more than plain text. The current MVP takes:</p>
+<ul>
+<li>plain text,</li>
+<li>links,</li>
+<li>YouTube videos,</li>
+<li>and images,</li>
+</ul>
+<p>so the system can extract tasks without you manually copying notes into a todo item. Link/video/image extraction is in the current version; “learn my preferences over time” is not (yet).</p>
+<p>One practical example: recipes.</p>
+<p>Say you find a recipe on a website and you want a shopping list. Or you have a meal plan in a notes app and you just want “everything I need to buy this week”. Today I’d normally copy/paste ingredients, miss half of them, then re-check the page in the grocery store.</p>
+<p>With this approach, you can drop in the recipe link, send screenshots, or even share a YouTube video you watched. The app turns that into a clean list (ingredients grouped, quantities preserved when possible) and, if you want, a checklist of steps you can follow while cooking.</p>
+<h2>4) What I copied: teardown of the top apps</h2>
+<p>Before building anything, I did the most honest thing you can do as a beginner: I copied patterns.</p>
+<p>I picked the top ~10 downloaded apps in the App Store and looked at:</p>
+<ul>
+<li>logos,</li>
+<li>screenshots,</li>
+<li>onboarding,</li>
+<li>paywalls,</li>
+<li>core loop,</li>
+<li>feature checklist,</li>
+<li>and how they describe value.</li>
+</ul>
+<p>A few observations:</p>
+<ul>
+<li><strong>Logos</strong>: minimal, usually a checkmark-ish shape, light colors.</li>
+<li><strong>Screenshots</strong>: extremely polished, “award-winning UI” energy.</li>
+<li><strong>Onboarding</strong>: top downloaded apps often do longer onboarding; it felt correlated with revenue (not because longer is better, but because it signals “we understand your workflow”).</li>
+<li><strong>Core loop</strong>: basically the same everywhere: create tasks → reminders → organize → repeat.</li>
+<li><strong>Keywords</strong>: I spent time hunting for popular keywords that looked both relevant and rankable. “AI daily planner / AI personal assistant” kept popping up as a sweet spot, and it matched the direction I was already heading.</li>
+</ul>
+<h2>5) Naming + branding (a surprisingly non-trivial time sink)</h2>
+<p>I started without a name, then used a generic working title (“smart todo”), then renamed mid-stream to <strong>ordr</strong> (as in: putting life in order).</p>
+<p>The logo idea came from origami: fold a rectangular strip of paper and you get a checkmark shape. Done.</p>
+<h2>6) MVP scope: 3 features (plus 2 “oops I added it” features)</h2>
+<p>The first three core features I scoped:</p>
+<ol>
+<li><strong>Input capture</strong>: dump anything in; the system proposes adds/deletes/renames/completions; show a diff for the user to approve.</li>
+<li><strong>Task sort</strong>: instead of sorting by date/alphabetical, the user provides criteria (“impact”, “effort”, “dependencies”), and the system sorts accordingly.</li>
+<li><strong>Task breakdown</strong>: turn a scary task into smaller actionable steps, because “I don’t know where to start” is the real blocker.</li>
+</ol>
+<p>Then I noticed some apps use <strong>flashcards</strong> instead of lists to reduce the anxiety of “choosing the right task”. That felt more engaging, so I added it. I also added a <strong>timer / distraction blocker</strong> flow. One future idea I want to link to the flashcards is a “feeling lucky” mode that just picks a task for you so you can start immediately.</p>
+<h2>7) Stack choices (aka: speed over purity)</h2>
+<p>I optimized for “ship something real”:</p>
+<ul>
+<li><strong>Flutter</strong>: cross-platform from a single codebase (I had zero Dart experience).</li>
+<li><strong>Supabase</strong>: auth + database + edge functions, because I wanted fewer moving parts.</li>
+<li><strong>RevenueCat</strong>: centralized subscription/payment plumbing.</li>
+<li><strong>PostHog</strong>: analytics to understand what people actually do.</li>
+<li><strong>Gemini</strong>: the model behind the “organize my brain dump” flows.</li>
+<li><strong>Coding assistants</strong>: Claude Code, Codex, Kimi CLI (rotating when I hit daily limits).</li>
+</ul>
+<h2>8) What surprised me (the unsexy parts)</h2>
+<ul>
+<li><strong>App store mechanics</strong>: configurations and “store-specific weirdness”. Conceptually similar across stores, but the dev experience is different enough that it slowed me down.</li>
+<li><strong>Screenshots</strong>: multiple experienced devs told me to spend ~a week here. I get why—after studying competitor screenshots, the bar is high. For a first version (with missing features and evolving UX), it felt risky to over-invest… but you still need something decent. I spent ~3 days and produced 8 screenshots. Not perfect, but clear enough to communicate benefits.</li>
+<li><strong>Payments were simpler than I expected</strong>: I assumed subscriptions would be a minefield, but the integration path felt pretty straightforward. I’m still not 100% confident the current implementation is correct until real transactions go through, but it was less scary than I imagined.</li>
+<li><strong>Push notifications are more centralized than I realized</strong>: I had no idea how much of it is “talk to Apple/Google’s systems” rather than bespoke infrastructure. Flutter also smooths over a lot of the platform-specific glue here.</li>
+</ul>
+<p>If you’re building your first mobile app (or have shipped a dozen), I’d love feedback—especially on the “AI organizer” flow and how to keep it from turning into <em>more</em> task admin.</p>
+<p>For the next few weeks, my focus is simple: fix bugs based on early feedback, tighten the UX, and start running a few growth experiments to see what actually moves the needle.</p>
+<p>The part I’m happiest about right now is less visible: I finally have a workflow I can reuse—research → teardown → build → ship—so the next app should start from a much better place than this first one did.</p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>
+                <a href="https://eug.github.io/robots.txt">[robots.txt]</a>
+                <a href="https://eug.github.io/sitemap.xml">[sitemap.xml]</a>
+                <a href="https://eug.github.io/rss.xml">[rss.xml]</a>
+                <a href="https://eug.github.io/atom.xml">[atom.xml]</a>
+            </p>
+            <p>
+                <a href="https://eug.github.io/llms.txt">[llms.txt]</a>
+                <a href="https://eug.github.io/llms-posts-full.txt"
+                    >[llms-posts-full.txt]</a
+                >
+                <a href="https://eug.github.io/llms-bookmarks-full.txt"
+                    >[llms-bookmarks-full.txt]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>
