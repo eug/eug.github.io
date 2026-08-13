@@ -89,7 +89,7 @@ Review alone is not a replacement for the old convergence point. Several teams c
 
 An integration gap does not by itself kill a program; organizations have always survived missed context. The more provocative possibility is that software production can begin and continue through such gaps before an answerable network ever forms. That program may be **born dead** in Naur's sense—not because an LLM touched it, or because no individual understands every line, but because software intended to evolve was created without a network capable of discovering why it behaves as it does, integrating affected perspectives, and identifying who has authority to answer for its consequences. It may be tested, typed, documented, and executable while remaining unintelligibly modifiable when the world asks an unexpected question.
 
-## From gatekeeping to plumbing
+## From gatekeepers to plumbers
 
 Keeping all software production behind engineering is not the answer. It would preserve the bottleneck along with its accidental benefit. People closest to a problem should be able to act on their knowledge, and engineers were never reliable custodians of every business, legal, or operational concern.
 
