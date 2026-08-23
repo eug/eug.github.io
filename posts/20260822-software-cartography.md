@@ -46,6 +46,10 @@ The code describes what can happen. Runtime evidence tells us some of what does 
 
 None of these is the system by itself.
 
+The [parable of the blind men and the elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) captures this problem well. One person touches the trunk and describes a snake. Another touches a leg and describes a pillar. Another finds the side and describes a wall. None is simply wrong. The mistake is promoting a locally accurate observation into a complete account of the animal.
+
+We do something similar with software. Static analysis touches dependencies. A trace touches one execution. Version history touches evolution. An operator touches lived failure. Each can produce valid evidence and still describe a different system. Software cartography is not the sighted observer who finally reveals the whole elephant. It is the practice of locating these partial observations relative to one another without pretending that any one of them is the whole.
+
 This resembles a problem cartographers have always had: the territory contains more detail than a useful map can show. A map that attempted to reproduce everything would not be a better map. It would be another territory.
 
 A road map omits elevation and soil composition. A topographic map ignores most restaurants. A transit map distorts physical distance to make connections legible. Each is inaccurate in a deliberate way because each is designed for a question.
