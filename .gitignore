@@ -11,6 +11,8 @@ __pycache__/
 # IDE / Editor specific
 .vscode/
 .idea/
+.obsidian/
+Untitled.base
 
 # OS specific
 .DS_Store
