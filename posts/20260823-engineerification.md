@@ -51,6 +51,22 @@ These are engineering-shaped questions even when the underlying subject is mathe
 
 The code may be generated. The need to reason about boundaries, feedback, failure, and consequences remains.
 
+## Software engineers went first
+
+I had seen an earlier version of this shift inside software development itself.
+
+The first coding assistants mostly completed the code in front of you. By 2024, the unit of delegation was becoming much larger: give a model an issue, let it explore a repository, review its plan, and judge the changes through tests.
+
+[GitHub Copilot Workspace](https://github.blog/news-insights/product-news/github-copilot-workspace/), announced in April 2024, made this explicit. It turned a task into an editable specification, plan, implementation, and test cycle. GitHub described the developer as a “systems thinker”: someone stating intent, constraining the solution, and validating what happened.
+
+Research prototypes followed the same direction. [SWE-agent](https://arxiv.org/abs/2405.15793) asked agents to solve GitHub issues across real repositories. [SWT-Bench](https://arxiv.org/abs/2406.12952) translated issues into tests that could check generated code. Aider's [Architect/Editor workflow](https://aider.chat/2024/09/26/architect.html) separated reasoning about a solution from making the edits.
+
+In GitHub's [2024 survey of 2,000 enterprise workers on software development teams](https://github.blog/news-insights/research/survey-ai-wave-grows/), most respondents said their organizations used AI-generated test cases at least sometimes. They also reported spending some of the time saved on collaboration, learning, and system design.
+
+This does not prove that most engineers had reorganized their work around agents. The survey was self-reported, and product announcements describe aspirations as much as established practice. But 2024 looks like a visible hinge: autocomplete was giving way to delegation, with tests, specifications, and architecture becoming the interface between the engineer and the implementation.
+
+Engineerification may have happened inside engineering first. As programming became more delegable, engineers moved toward designing and supervising the system that produced the code. Other domains may now be repeating that movement.
+
 ## The same motion elsewhere
 
 The most explicit example may be go-to-market work. In the manual version described by [Clay's guide to GTM engineering](https://www.clay.com/guides/gtm-engineering), a representative researches accounts across many tabs, exports and cleans lists, qualifies leads, and prepares outreach one record at a time. A GTM engineer tries to turn that motion into a system: signals enter, records are enriched and scored, actions are routed, results are measured, and the workflow is revised. The unit of work moves from the account to the mechanism that processes accounts.
