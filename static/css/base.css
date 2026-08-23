@@ -86,8 +86,56 @@ main {
     font-size: 0.8em;
 }
 
+.post-audio {
+    margin-top: 20px;
+    padding: 14px 0;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.post-audio__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.post-audio__title {
+    margin: 0;
+    font-weight: 500;
+}
+
+.post-audio__speed {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85em;
+}
+
+.post-audio__speed select {
+    min-height: 32px;
+    padding: 3px 8px;
+    border: 1px solid;
+    border-radius: 3px;
+    font: inherit;
+}
+
+.post-audio audio {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
 .content {
     margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+    .post-audio__header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
 }
 
 /* Post list layout */

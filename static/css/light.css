@@ -47,6 +47,16 @@ header h1 a:hover {
     color: #006600;
 }
 
+.post-audio {
+    border-color: #cccccc;
+}
+
+.post-audio__speed select {
+    background-color: #ffffff;
+    border-color: #999999;
+    color: #2a2a2a;
+}
+
 /* Post list colors */
 .post-list li {
     border-bottom: 1px dashed #cccccc;

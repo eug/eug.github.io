@@ -33,6 +33,17 @@ The blog uses a Python script (`main.py`) to generate static HTML files from Mar
 2.  Make your changes to the frontmatter or content.
 3.  Save the file.
 
+### Adding an Audio Version
+
+Place an MP3 beside its Markdown post using the exact same filename stem. For example:
+
+```text
+posts/20260823-engineerification.md
+posts/20260823-engineerification.mp3
+```
+
+The generated post will include an audio player with playback-speed controls. Posts without a matching MP3 will not display the player.
+
 ### Deleting a Post
 
 1.  Delete the Markdown file for the post you want to remove from the `posts/` directory.
@@ -136,4 +147,4 @@ The blog's functionality can be extended by modifying the `main.py` script and/o
 Remember to regenerate the blog by running `python main.py` after making any changes to see them reflected in the `dist/` directory.
 
 ## Deployment
-This site is automatically deployed to GitHub Pages using GitHub Actions. The site is built and deployed to the `gh-pages` branch. 
+This site is automatically deployed to GitHub Pages using GitHub Actions. The site is built and deployed to the `gh-pages` branch.

@@ -14,6 +14,17 @@ STATIC_DIR = "static"
 CONFIG_FILE = "config.json" # Added for config file path
 
 
+def find_post_audio(markdown_filename, posts_dir=POSTS_DIR):
+    """Return the matching MP3 filename when one exists beside a post."""
+    post_stem, extension = os.path.splitext(markdown_filename)
+    if extension != ".md":
+        return None
+
+    audio_filename = f"{post_stem}.mp3"
+    audio_path = os.path.join(posts_dir, audio_filename)
+    return audio_filename if os.path.isfile(audio_path) else None
+
+
 def parse_markdown_file(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         content = f.read()
@@ -370,6 +381,7 @@ def main():
             slug = filename.replace(".md", "")
             slug = re.sub(r"^\d{8}-", "", slug)  # Remove date prefix from slug
             post_data["slug"] = slug
+            post_data["audio_filename"] = find_post_audio(filename)
             posts.append(post_data)
     
     # Sort posts by date (newest first)
@@ -391,6 +403,12 @@ def main():
         output_path = os.path.join(OUTPUT_DIR, "posts", f"{post['slug']}.html")
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(post_html)
+
+        if post.get("audio_filename"):
+            shutil.copy2(
+                os.path.join(POSTS_DIR, post["audio_filename"]),
+                os.path.join(OUTPUT_DIR, "posts", post["audio_filename"]),
+            )
 
     # Generate index page
     index_description = build_meta_description(

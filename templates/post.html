@@ -17,8 +17,31 @@
                 {% endfor %}
             {% endif %}
         </p>
+        {% if post.audio_filename %}
+            <section class="post-audio" data-audio-player aria-label="Audio version">
+                <div class="post-audio__header">
+                    <p class="post-audio__title">Listen to this post</p>
+                    <label class="post-audio__speed">
+                        <span>Speed</span>
+                        <select data-playback-speed>
+                            <option value="0.75">0.75×</option>
+                            <option value="1" selected>1×</option>
+                            <option value="1.25">1.25×</option>
+                            <option value="1.5">1.5×</option>
+                            <option value="2">2×</option>
+                        </select>
+                    </label>
+                </div>
+                <audio controls preload="metadata" data-post-audio>
+                    <source src="{{ post.audio_filename }}" type="audio/mpeg" />
+                    Your browser does not support audio playback.
+                    <a href="{{ post.audio_filename }}">Download the audio version</a>.
+                </audio>
+            </section>
+            <script src="../static/js/audio-player.js" defer></script>
+        {% endif %}
         <div class="content">
             {{ post.html_content|safe }}
         </div>
     </article>
-{% endblock %} 
+{% endblock %}
