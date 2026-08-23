@@ -1,13 +1,7 @@
 ---
 title: Software Cartography
 subtitle: A tentative idea for understanding systems that no person or model can hold in full
-tags:
-  - software-engineering
-  - ai
-  - llm
-  - maintenance
-  - observability
-  - code-understanding
+tags: [software-engineering, ai, llm, maintenance, observability, code-understanding]
 created_at: 2026-08-22
 ---
 
