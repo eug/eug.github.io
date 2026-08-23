@@ -9,7 +9,7 @@ created_at: 2026-08-23
 
 I recently watched a lecture for mathematicians that spent a surprising amount of time on the terminal.
 
-The speakers recommended working in local directories, giving coding agents carefully limited permissions, keeping projects in repositories, committing changes, writing instruction files, running tests, and using Lean to check formal proofs. They demonstrated Claude Code and Codex, discussed which models were better for long sessions, and explained why a mathematician might move work out of Overleaf and onto a local machine.
+The speakers recommended working in local directories, giving coding agents carefully limited permissions, keeping projects in repositories, committing changes, writing instruction files, running tests, and using [Lean](https://lean-lang.org/) to check formal proofs. They demonstrated Claude Code and Codex, discussed which models were better for long sessions, and explained why a mathematician might move work out of Overleaf and onto a local machine.
 
 This was not a software engineering conference. It was a [special lecture on LLMs and mathematics](https://www.youtube.com/watch?v=2hkXQKCh1cE) at Brazil's Institute for Pure and Applied Mathematics.
 
