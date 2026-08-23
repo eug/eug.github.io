@@ -103,6 +103,24 @@ The better this machinery becomes, the more variation the edge can tolerate. A b
 
 The edge can improvise because the core rehearses.
 
+## Local software, shared consequences
+
+There is another kind of verification problem that tests cannot fully solve.
+
+Malleable software moves authorship toward the person closest to the need. That is part of its appeal. A domain expert no longer has to translate a specific workflow into a ticket, wait for an engineering team to interpret it, and accept the generic version that fits a shared roadmap. Local knowledge can become local software directly.
+
+But software may be created locally while its consequences remain shared.
+
+A generated workflow can satisfy the person who requested it and still violate a constraint held somewhere else in the organization: a partner agreement remembered by operations, a risk decision made after an old incident, or a regulatory interpretation that never reached the repository. The implementation may pass every test because nobody knew to write the missing test.
+
+In [*From Gatekeepers to Plumbers?*](https://eug.github.io/posts/from-gatekeepers-to-plumbers.html), I described this as an **integration gap**: the knowledge required for a sound decision exists, but its fragments do not meet before that decision becomes executable. Engineering used to provide an imperfect meeting point because most changes had to pass through it. Malleable software removes that gate, along with both its friction and its accidental integrating function.
+
+This suggests that the hard core needs two different capabilities. It needs mechanical verification for constraints the organization has already formalized: tests, schemas, permissions, policies, and evaluators. It also needs plumbing that can route consequential changes toward knowledge that has not yet become a rule—and may never be reducible to one.
+
+The factory, then, cannot only be a production line. It must become an integration point. It needs some way to recognize when a local change crosses a shared boundary, carry evidence with that change, and find the people able to judge what the machinery cannot.
+
+The softer software becomes locally, the more carefully its consequences must be integrated globally.
+
 ## When the factory turns inward
 
 The far end of this trajectory is not a factory that only produces applications. It is a factory that improves the machinery doing the production.
