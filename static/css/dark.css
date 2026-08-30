@@ -48,13 +48,57 @@ header h1 a:hover {
 }
 
 .post-audio {
-    border-color: #555555;
+    --audio-accent: oklch(69% 0.16 135);
+    --audio-accent-ink: oklch(20% 0.035 145);
+    --audio-background: oklch(18% 0.008 145);
+    --audio-rule: oklch(39% 0.02 145);
+    --audio-track: oklch(31% 0.018 145);
+    --audio-surface: oklch(23% 0.018 145);
+    --audio-muted: oklch(72% 0.018 145);
+    border-color: var(--audio-rule);
 }
 
-.post-audio__speed select {
-    background-color: #0f0f0f;
-    border-color: #777777;
-    color: #dddddd;
+.post-audio__play {
+    background-color: var(--audio-accent);
+    border-color: var(--audio-accent);
+    color: var(--audio-accent-ink);
+}
+
+.post-audio__rate {
+    border-color: var(--audio-rule);
+    color: var(--audio-muted);
+}
+
+.post-audio__rate:hover {
+    background-color: var(--audio-surface);
+    color: var(--audio-accent);
+}
+
+.post-audio__rail {
+    background-color: var(--audio-track);
+}
+
+.post-audio__progress {
+    background-color: var(--audio-accent);
+}
+
+.post-audio__seek::-webkit-slider-thumb {
+    background-color: var(--audio-surface);
+    border-color: var(--audio-accent);
+}
+
+.post-audio__seek::-moz-range-thumb {
+    background-color: var(--audio-surface);
+    border-color: var(--audio-accent);
+}
+
+.post-audio__time {
+    color: var(--audio-muted);
+}
+
+.post-audio button:focus-visible,
+.post-audio__seek:focus-visible {
+    outline-color: var(--audio-accent);
 }
 
 /* Post list colors */

@@ -19,24 +19,64 @@
         </p>
         {% if post.audio_filename %}
             <section class="post-audio" data-audio-player aria-label="Audio version">
-                <div class="post-audio__header">
-                    <p class="post-audio__title">Listen to this post</p>
-                    <label class="post-audio__speed">
-                        <span>Speed</span>
-                        <select data-playback-speed>
-                            <option value="0.75">0.75×</option>
-                            <option value="1" selected>1×</option>
-                            <option value="1.25">1.25×</option>
-                            <option value="1.5">1.5×</option>
-                            <option value="2">2×</option>
-                        </select>
-                    </label>
-                </div>
                 <audio controls preload="metadata" data-post-audio>
                     <source src="{{ post.audio_filename }}" type="audio/mpeg" />
                     Your browser does not support audio playback.
                     <a href="{{ post.audio_filename }}">Download the audio version</a>.
                 </audio>
+                <div class="post-audio__controls" data-audio-controls hidden>
+                    <button
+                        class="post-audio__play"
+                        type="button"
+                        data-audio-toggle
+                        aria-label="Play audio"
+                    >
+                        <svg
+                            class="post-audio__icon post-audio__icon--play"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M8 5.75 18 12 8 18.25Z" />
+                        </svg>
+                        <svg
+                            class="post-audio__icon post-audio__icon--pause"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M7.5 5.5h3v13h-3zm6 0h3v13h-3z" />
+                        </svg>
+                    </button>
+                    <div class="post-audio__body">
+                        <div class="post-audio__timeline">
+                            <div class="post-audio__rail" aria-hidden="true">
+                                <span class="post-audio__progress" data-audio-progress></span>
+                            </div>
+                            <input
+                                class="post-audio__seek"
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="0"
+                                step="0.01"
+                                data-audio-seek
+                                disabled
+                                aria-label="Seek audio"
+                                aria-valuetext="0:00 of unknown duration"
+                            />
+                        </div>
+                        <div class="post-audio__time" aria-hidden="true">
+                            <time data-audio-current>0:00</time>
+                            <time data-audio-duration>--:--</time>
+                        </div>
+                        <span class="visually-hidden" data-audio-status aria-live="polite">Audio ready</span>
+                    </div>
+                    <button
+                        class="post-audio__rate"
+                        type="button"
+                        data-playback-rate
+                        aria-label="Playback speed: 1×. Change speed"
+                    >1×</button>
+                </div>
             </section>
             <script src="../static/js/audio-player.js" defer></script>
         {% endif %}

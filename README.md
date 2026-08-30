@@ -42,7 +42,7 @@ posts/20260823-engineerification.md
 posts/20260823-engineerification.mp3
 ```
 
-The generated post will include an audio player with playback-speed controls. Posts without a matching MP3 will not display the player.
+The generated post will include a custom audio player with seeking and playback-speed controls. Playback position and speed are saved locally so readers can resume after refreshing the page. Without JavaScript, it falls back to the browser's native player. Posts without a matching MP3 will not display the player.
 
 ### Deleting a Post
 
