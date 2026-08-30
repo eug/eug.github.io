@@ -29,13 +29,17 @@ If an agent can inspect a repository, implement a feature, run tests, and prepar
 
 That environment includes the prompt, but prompt writing is a small part of it. It also includes which tools the agent can use, how the repository is structured, which dependencies are permitted, how behavior is tested, what evidence reviewers receive, how changes are deployed, and what happens when something fails.
 
-This is why the management analogy only goes so far. An engineer coordinating agents may look like a manager assigning work, but the distinctive work is executable. A good decision can become a test. A recurring warning can become a lint rule. A fragile convention can become an interface that makes misuse difficult. A production failure can change what the next agent is allowed to do.
+The management analogy is useful here. If you do not trust a contributor, you micromanage: inspect every step, verify every choice, and keep the work effectively serial. That is as true for agents as it is for human teams. The purpose of the production system is not to assume trust, but to earn enough of it through evidence that delegation becomes safe.
+
+The analogy only goes so far because the engineer's response is executable. A good decision can become a test. A recurring warning can become a lint rule. A fragile convention can become an interface that makes misuse difficult. A production failure can change what the next agent is allowed to do.
 
 The engineer is not only supervising workers. The engineer is redesigning the workplace after every important lesson.
 
 This is the part that makes the factory metaphor useful. A factory is not merely a collection of workers. Its output depends on the arrangement around them: tools, stations, inputs, tolerances, inspections, and the path a product takes through the system.
 
 Agent performance has the same property. The effective worker is not the model alone. It is the model plus the environment in which it operates.
+
+This machinery is not necessary because agents are uniquely unreliable. Human teams have always produced incoherent code and needed architecture, tests, and review. Agents change the rate at which both useful work and local mistakes accumulate.
 
 ## A factory assumes that the recipe is known
 
