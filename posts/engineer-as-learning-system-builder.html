@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Agent-driven engineering is shifting the work from producing code to improving the system that produces it" />
+        <meta name="google-site-verification" content="eSHd_5CwIKwbwqKlUIXU15XMqeZkdDkwvFFS2SdGNKs" />
+        <title>Euge's blog - The Engineer as a Learning-System Builder</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .post-date {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .post-date {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>The Engineer as a Learning-System Builder</h2>
+        
+            <p class="subtitle">Agent-driven engineering is shifting the work from producing code to improving the system that produces it</p>
+        
+        <p class="meta">
+            Published on 2026-08-29
+            
+                | Tags: 
+                
+                    <span class="tag">software-engineering</span>, 
+                
+                    <span class="tag">ai</span>, 
+                
+                    <span class="tag">agents</span>, 
+                
+                    <span class="tag">systems-thinking</span>, 
+                
+                    <span class="tag">software-factories</span>, 
+                
+                    <span class="tag">learning-systems</span>
+                
+            
+        </p>
+        
+        <div class="content">
+            <blockquote>
+<p><strong>TL;DR:</strong> As agents take on more implementation, engineers are moving toward building the system that produces software: its architecture, tools, constraints, verification, and feedback loops. “Software factory” captures the hard machinery this requires, but I think the more useful model is a learning system—one that can revise its own production process without quietly taking consequential choices away from people.</p>
+</blockquote>
+<p>I have been writing around this shift for a while without having a precise name for it.</p>
+<p>In <a href="https://eug.github.io/posts/engineerification.html"><em>Engineerification</em></a>, I described people moving from producing an output to shaping a system that repeatedly produces it. In <a href="https://eug.github.io/posts/soft-software-needs-hard-factories.html"><em>Soft Software Needs Hard Factories</em></a>, I argued that cheap, malleable software may require a much harder production core underneath: tests, constraints, permissions, evaluators, and feedback.</p>
+<p>Recently I watched three interviews that approached the same change from different levels.</p>
+<p><a href="https://youtu.be/NYFGCESmikA?t=5558">DHH described</a> moving from deep concentration on one implementation problem to coordinating many agent threads across terminals and machines. <a href="https://youtu.be/Cmoh-yR-usA?t=2725">Lauren Tan described</a> restructuring a codebase so that architecture, static analysis, CI, skills, and review systems constrain how agents can change it. <a href="https://youtu.be/DdbCtAScTsk?t=1747">Guillermo Rauch described</a> the new engineering meta-skill as building the machine that produces software rather than working directly on each output.</p>
+<p>DHH's factory is personal: models, harnesses, machines, notifications, and review. Tan's is the repository: its architecture, verification, and executable rules. Rauch's is the organization: shared agents, institutional knowledge, cost allocation, and carefully placed human choke points.</p>
+<p>They are describing different layers of the same motion. Implementation is becoming delegable, so engineering attention moves toward the conditions under which implementation happens.</p>
+<p>“Factory builder” is a good name for part of this. But I do not think it is quite enough.</p>
+<h2>When the production system becomes the artifact</h2>
+<p>The obvious story about coding agents is that they make programmers faster. The more interesting story is that they change what programmers work on.</p>
+<p>If an agent can inspect a repository, implement a feature, run tests, and prepare a pull request, manually producing that change is no longer necessarily the highest-leverage task. The engineer can instead improve the environment through which every later change will pass.</p>
+<p>That environment includes the prompt, but prompt writing is a small part of it. It also includes which tools the agent can use, how the repository is structured, which dependencies are permitted, how behavior is tested, what evidence reviewers receive, how changes are deployed, and what happens when something fails.</p>
+<p>The management analogy is useful here. If you do not trust a contributor, you micromanage: inspect every step, verify every choice, and keep the work effectively serial. That is as true for agents as it is for human teams. The purpose of the production system is not to assume trust, but to earn enough of it through evidence that delegation becomes safe.</p>
+<p>The analogy only goes so far because the engineer's response is executable. A good decision can become a test. A recurring warning can become a lint rule. A fragile convention can become an interface that makes misuse difficult. A production failure can change what the next agent is allowed to do.</p>
+<p>The engineer is not only supervising workers. The engineer is redesigning the workplace after every important lesson.</p>
+<p>This is the part that makes the factory metaphor useful. A factory is not merely a collection of workers. Its output depends on the arrangement around them: tools, stations, inputs, tolerances, inspections, and the path a product takes through the system.</p>
+<p>Agent performance has the same property. The effective worker is not the model alone. It is the model plus the environment in which it operates.</p>
+<p>This machinery is not necessary because agents are uniquely unreliable. Human teams have always produced incoherent code and needed architecture, tests, and review. Agents change the rate at which both useful work and local mistakes accumulate.</p>
+<h2>A factory assumes that the recipe is known</h2>
+<p>The metaphor becomes less convincing when we ask what the factory is producing.</p>
+<p>A conventional factory is designed to repeat a process whose desired output is relatively stable. Software rarely works that way. We often discover what a program should do by using it. Requirements change because the environment changes, because users reveal something we did not understand, or because the first implementation makes a better question visible.</p>
+<p>The production system therefore cannot only become better at enforcing yesterday's recipe. It needs to learn whether the recipe is still correct.</p>
+<p>I have encountered a smaller version of this repeatedly while working with agents. An agent solves the local task and produces a plausible change, but the change damages the larger system. It introduces a second pattern where one should exist, crosses a boundary that was carrying more meaning than the code revealed, or satisfies the immediate request by weakening an assumption elsewhere.</p>
+<p>Correcting the prompt may fix that attempt. It does not make the correction durable.</p>
+<p>The durable response is to ask what the production system failed to represent. Perhaps the boundary should become an explicit interface. Perhaps a test should exercise the wider behavior. Perhaps the agent needs runtime evidence rather than another paragraph of instructions. Perhaps the relevant organizational constraint never reached the repository at all.</p>
+<p>This is iterative systems thinking. The object being improved is not just the software. It is the system that produces, observes, and corrects the software.</p>
+<p>By “learning,” I do not mean that the model must retrain itself or that an agent should be free to rewrite its own controls. The learning can be distributed across people and machinery. A failure becomes a test. A repeated correction becomes an interface. Runtime evidence changes an evaluator. A constraint whose original context has disappeared is revised or removed. The next attempt happens in a different environment because of what the previous attempt taught us.</p>
+<p>None of this is entirely new. Continuous delivery, DevOps, and SRE already treat software as something improved through operational feedback. What agents change is the balance. Implementation capacity can now expand much faster than human verification capacity, even inside a small team. The feedback system moves from supporting software production to becoming its primary control surface.</p>
+<h2>Closing the larger loop</h2>
+<p>A useful agent workflow now spans something like this:</p>
+<ol>
+<li>A person states an intent or problem.</li>
+<li>An agent gathers context and proposes or implements a change.</li>
+<li>Architecture and permissions limit which paths are available.</li>
+<li>Tests, evaluators, and reviewers produce evidence about the result.</li>
+<li>The change reaches a real environment where its behavior can be observed.</li>
+<li>That evidence changes the context, constraints, or machinery used for the next change.</li>
+</ol>
+<p>Imagine an agent adding a bulk-import feature. The feature works and its local tests pass, but it writes directly to a shared table, bypassing the service that normally applies permissions and records an audit trail. Fixing the pull request is necessary, but the learning-system response goes further. The write path becomes an explicit interface, direct access becomes mechanically restricted, and the reason for the boundary travels with the constraint.</p>
+<p>Months later, another change needs a faster import path. The agent encounters the boundary. It should not silently bypass it, but neither should the old rule block the new requirement forever. The system surfaces the affected permission and audit constraints to the people responsible for them. They may reject the change, preserve the rule, or design a new audited batch interface. The original failure has improved future production without turning one contextual decision into an unquestionable law.</p>
+<p>Most current workflows are strongest in the middle. We can generate code, run tests, and review diffs. The weaker connection is from observed consequence back into the production system.</p>
+<p>A failed check may stop one pull request without teaching the next agent why the check matters. A reviewer may leave the same comment on twenty changes. A production incident may result in a document that is never available when a similar decision is made. A rule may remain in CI long after the situation that justified it has disappeared.</p>
+<p>A learning system needs more than feedback. It needs a way for feedback to alter future behavior.</p>
+<p>Evidence is layered. Tests establish mechanical properties, telemetry reveals operational behavior, users reveal outcomes, and humans judge whether those outcomes are desirable. Without all four, the system can become better at producing the wrong thing.</p>
+<p>That makes verification part of production rather than a gate after it. It also changes the role of architecture. Architecture is no longer only about making a system elegant or understandable to its human maintainers. It becomes the terrain through which agents act. Good paths should be obvious and local. Harmful dependencies should be difficult to introduce. Important invariants should be executable where possible.</p>
+<p>This does not mean encoding every preference as a permanent prohibition. That would produce a factory that is consistent, fast, and increasingly wrong.</p>
+<p>The constraints have to learn too.</p>
+<h2>Hard constraints need a lifecycle</h2>
+<p>I still believe in a hard core and a soft edge.</p>
+<p>The soft edge is the product solution: what form an idea takes, which alternatives are explored, and what we learn by putting something in front of a person. This part benefits from ambiguity. Exhaustively specifying the implementation upfront can prevent an agent from finding a better route.</p>
+<p>The hard core contains what must remain true: safety properties, permissions, shared data contracts, legal obligations, and architectural boundaries whose violation would affect other people or systems.</p>
+<p>This resolves some of the apparent disagreement between DHH's preference for describing outcomes and Tan's heavily constrained codebase. The requested solution can remain open-ended while the consequential invariants remain strict. We can be vague about what should emerge and precise about what it must not break.</p>
+<p>But a hard constraint is also a frozen decision. It was created in a particular context, usually after somebody learned something. If the context changes, enforcing it forever is not learning. It is institutional memory without institutional reconsideration.</p>
+<p>So constraints need ownership, explanations, and a path to revision. When a proposed change may alter, bypass, or invalidate an existing constraint, the system should surface that constraint explicitly. It should explain why the change touches it and route the decision to the people responsible for that domain.</p>
+<p>This is where I want the human in the loop.</p>
+<p>Not reading every generated line. Not approving every low-risk action. Those practices turn cheap implementation into an expensive review queue. The meaningful human control point is the moment when the system's governing assumptions may need to change.</p>
+<h2>The factory is also a governance system</h2>
+<p>Once constraints become executable, they stop being only technical details. They determine which actions are easy, which are forbidden, which evidence counts, and which outcomes the system can produce.</p>
+<p>Control over software therefore moves toward whoever controls the factory.</p>
+<p>This creates an uncomfortable possibility. Agent-driven organizations may become flatter at the visible layer while becoming more centralized underneath. A designer or product manager can ship without waiting for an engineering team, but only inside an environment whose permissions, models, interfaces, and acceptable patterns were chosen elsewhere. A single internal agent can remove many handoffs while becoming an unusually powerful point of control.</p>
+<p>The surface feels more malleable. The infrastructure becomes more authoritative.</p>
+<p>That does not make shared factories undesirable. Personal collections of prompts and tools are difficult to govern and expensive to reproduce. Shared infrastructure can make good practices available to everyone rather than only to the most sophisticated agent users.</p>
+<p>But the constraints in that infrastructure need to be visible and contestable. People affected by them should be able to understand why they exist, challenge them, and participate in changing them. Engineers may maintain the machinery, but they should not silently become the sole authors of organizational policy because policy happened to become code.</p>
+<p>The amount of governance should depend on consequence. A temporary local tool can delegate far more to an agent than a system moving money, exposing private data, or changing a shared workflow. The point is not to keep a human attached to every operation. It is to preserve legitimate human authority over the value choices that matter.</p>
+<p>Organizations also remain responsible for the systems they deploy. Autonomy changes the mechanism of action; it does not dissolve accountability.</p>
+<h2>A role, not necessarily a destination</h2>
+<p>I think the engineer as a learning-system builder describes a real shift happening now.</p>
+<p>The craft moves from producing every implementation toward building boundaries, making outcomes observable, converting repeated failures into reusable controls, and improving the loop through which intent becomes software. This is more than prompt engineering and more than managing a fleet of artificial programmers. It is systems stewardship under a new production model.</p>
+<p>I am less certain that it describes a stable profession.</p>
+<p>Agents can already help write tests, create evaluators, revise instructions, review architecture, and build the tools used by other agents. If they become capable of improving most of the factory, the human role will move upward again—to choosing objectives, judging unusual consequences, or deciding what should not be optimized.</p>
+<p>Perhaps agents will eventually participate deeply in those decisions too.</p>
+<p>The factory metaphor suggests that our durable achievement is a machine that produces software. I suspect the more durable achievement is a system capable of changing how it produces software as evidence changes—without quietly taking consequential choices away from the people who must live with the result.</p>
+<p>If implementation is no longer the center of engineering, and factory building is only the next delegable layer, what exactly are we trying to keep human?</p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>

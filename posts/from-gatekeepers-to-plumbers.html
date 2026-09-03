@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="What happens when engineering is no longer where an organization's knowledge comes together" />
+        <meta name="google-site-verification" content="eSHd_5CwIKwbwqKlUIXU15XMqeZkdDkwvFFS2SdGNKs" />
+        <title>Euge's blog - From Gatekeepers to Plumbers?</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .post-date {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .post-date {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>From Gatekeepers to Plumbers?</h2>
+        
+            <p class="subtitle">What happens when engineering is no longer where an organization's knowledge comes together</p>
+        
+        <p class="meta">
+            Published on 2026-08-13
+            
+                | Tags: 
+                
+                    <span class="tag">ai</span>, 
+                
+                    <span class="tag">software-engineering</span>, 
+                
+                    <span class="tag">llm</span>, 
+                
+                    <span class="tag">maintenance</span>, 
+                
+                    <span class="tag">ownership</span>, 
+                
+                    <span class="tag">theory-building</span>
+                
+            
+        </p>
+        
+        <div class="content">
+            <blockquote>
+<p><strong>TL;DR:</strong> The knowledge needed to understand software is already spread across organizations. Because most production changes passed through engineers, they became an accidental meeting point for that knowledge. Agents may automate the translation from intent to code without reproducing the conversations that translation forced. Engineers may move from approving changes to building the plumbing that routes consequential decisions to the right constraints and people.</p>
+</blockquote>
+<p>Imagine a payment system fails in production.</p>
+<p>An operations analyst recognizes the rejected request as part of a manual settlement process. She asks an engineer, who understands the service's state machine but not the partner procedure. Together they direct a coding agent. It adds a fallback and tests. Operations confirms the workflow; engineering confirms the implementation. The fix is locally correct.</p>
+<p>It ships. A week later, the risk team discovers that the fallback bypasses a control introduced after an old fraud incident. That decision never appeared in the repository or settlement procedure. It lived in another meeting, another escalation, and another group's memory.</p>
+<p>Nobody in this story was simply ignorant. Operations knew the process. Engineering knew the system. Risk knew the control. The agent knew enough of the repository to produce a working change. The failure was that these fragments did not meet before becoming executable.</p>
+<p>That problem is older than AI. What AI may change is the mechanism that used to make some of those fragments meet.</p>
+<h2>The accidental integration point</h2>
+<p>The knowledge needed to understand software is already distributed across the organization. Product knows what should happen. Operations knows what happens under pressure. Support knows where users struggle. Legal and risk know the constraints. Engineers know how these realities are encoded. No individual understands the whole.</p>
+<p>Historically, engineers were the primary gate through which this knowledge became software. Requests could originate anywhere, but changing production behavior required someone who could turn them into data models, failure modes, and code that fit the existing system. Implementation made engineers gatekeepers, whether or not the organization gave them that title.</p>
+<p>The translation was often terrible. Operational practice became a thin ticket. Domain distinctions disappeared inside generic requirements. The gate was slow and lossy.</p>
+<p>Yet it had a useful side effect. Because changes converged on engineering, someone had to consider each request against the surrounding system. Engineers did not always find the right people or ask the right questions, but implementation created pressure for partial views to meet. Engineering became an accidental integration point.</p>
+<p>AI may remove that bottleneck before we replace its integrating function.</p>
+<p>A domain expert can increasingly move from intent to working software through conversation. An engineer may remain a co-author, or a business team may build and deploy the result itself. Both reduce the distance between the person who knows the problem and the system's behavior.</p>
+<p>That is a real improvement. It may preserve knowledge that translation would distort. But it also lets a locally valid view become executable without passing through the place where other views used to meet.</p>
+<p>AI does not make software understanding collective. It may make software production as distributed as the understanding already is.</p>
+<p>If engineering stops being the gate, its replacement may look like plumbing: systems that let teams act locally while routing consequential changes toward the knowledge they depend on.</p>
+<h2>Haven't we seen this before?</h2>
+<p>People outside engineering have built software for decades. Spreadsheets, macros, Microsoft Access, workflow builders, and low-code platforms already created shadow systems throughout organizations. Citizen development is not an invention of large language models.</p>
+<p>The difference is not absolute. It is a combination of range and rate.</p>
+<p>Earlier tools often constrained either what authors could build or where it could run. Spreadsheets and macros could become general programs, but usually stayed within workbook or application boundaries. Workflow platforms exposed predefined triggers and actions. Shadow systems still became critical, but what they could do and where they could reach were often more bounded.</p>
+<p>Coding agents can generate open-ended implementations. A request to "make retries safe" may produce a uniqueness constraint, cache, token table, or distributed lock. The answer silently decides questions about time, storage, failure, and ownership. The requester may specify the outcome without noticing how many other choices arrived with it.</p>
+<p>Agents also work faster and cross more boundaries. In one session they can inspect repositories, change schemas, add dependencies, write deployment configuration, and produce a pull request. The old citizen-development problem gains reach and a much higher production rate.</p>
+<p>Evidence of this acceleration still comes mainly from engineering. A <a href="https://arxiv.org/abs/2607.01418">July 2026 study of Microsoft engineers</a> found that command-line-agent adopters merged roughly 24% more pull requests. The researchers cautioned that pull requests measure output, not value.</p>
+<p>A <a href="https://about.gitlab.com/press/releases/2026-06-23-gitlab-research-reveals-organizations-are-generating-ai-code-faster-than-they-can-control-it/">June 2026 GitLab survey</a> reported faster code output for 78% of respondents, while 85% said the bottleneck had moved to review and validation. It was a vendor-sponsored survey based on self-reports, but the mismatch is plausible: generation scales more easily than attention.</p>
+<p>The broader organizational shift remains a hypothesis. The interesting question is what happens if it continues.</p>
+<h2>Naur's theory, beyond the programming team</h2>
+<p>Peter Naur's 1985 essay <a href="https://gist.github.com/eug/6d4f2e1dccedc4874979eb41e87b99e8"><em>Programming as Theory Building</em></a> argued that programming is not primarily the production of source code and documentation. Its essential activity is building a theory in the programmers' minds.</p>
+<p>"Theory" here means the working understanding that connects a program to the world: what it does, why it is shaped that way, and which changes would preserve its integrity. It includes the distinctions that matter, the invariants that protect money or trust, and the reasons behind ugly exceptions.</p>
+<p>Naur placed theory in individual minds while describing programming teams that possessed and sustained it collectively. A program remained alive while such a team controlled its modification. It died when the team dissolved: the code might continue running, but demands for meaningful change could no longer be answered intelligently from the text alone.</p>
+<p>For modern systems, the relevant team may extend beyond programmers. Engineers, operators, product managers, support staff, lawyers, and auditors each hold part of the connection between code and the world. Tests, incident records, documentation, and agents can help this network remember, search, and communicate. They do not make it answerable by themselves. No participant needs the whole theory; the needed views must be able to meet when a consequential question appears.</p>
+<p>An agent can form a useful local theory. It can search a large repository, test hypotheses, diagnose a failure, and explain how nearby components interact. Longer contexts and persistent memory may improve this technical understanding.</p>
+<p>But the full connection between code and the world is not in the repository. A model knows about a support escalation, budget compromise, or regulatory fear only through the traces it can access. Persistent memory can preserve an explanation, but it cannot decide whose interests should prevail or who must answer for the result. The risk is not that AI can never understand code. It is that a local understanding can now become implementation before the wider views have met.</p>
+<h2>The integration gap</h2>
+<p>Call this an <strong>integration gap</strong>: the knowledge required for a sound decision exists somewhere in the organization, but the relevant fragments do not meet before that decision becomes executable.</p>
+<p>This is not technical integration between services, nor is it solved by approval alone. A company can restrict who may deploy, require five reviewers, and record a name in <code>CODEOWNERS</code> without finding the team whose constraint the change violates. Those controls can assign authority without bringing the needed knowledge together.</p>
+<p>Most engineering plumbing enforces what is already known: permissions, schemas, tests, architectural boundaries, and deployment policies. A platform can reject a forbidden database operation. It cannot know that a fallback conflicts with an agreement remembered only by the risk team. The harder task is helping a change find the knowledge it needs before every dependency has been written as a rule.</p>
+<p>Nor does integration require everyone to understand every generated line.</p>
+<blockquote>
+<p>We may not need to understand how every part of a system works. But someone must understand why the system exists, what it must preserve, and what happens when it is wrong.</p>
+</blockquote>
+<p>That "someone" can be an answerable network rather than one person. Operations may know the operational invariants, legal the regulatory boundaries, product the intended behavior, and engineering the architectural constraints. Agents may translate among them. Before a consequential change ships, it must reach the people whose knowledge it depends on.</p>
+<p>Humans will need to focus more on intent, invariants, and consequences as machines produce more implementation. But the organization must still be able to inspect the code when risk, novelty, or uncertainty demands it. Engineering cannot become a ceremonial approval layer for a volume of changes it cannot realistically examine.</p>
+<p>Neither review nor documentation replaces the old convergence point. Several teams can approve a change without their knowledge ever meeting. A document records only what someone knew and chose to write, and may flatten a real disagreement into one account.</p>
+<p>A missed connection does not kill a program; organizations have always survived lost context. The stronger possibility is that software can be built through repeated gaps before an answerable network ever forms. Such a program may be <strong>born dead</strong> in Naur's sense.</p>
+<p>This is not because an LLM touched it or because no individual understands every line. It is because software intended to evolve was created without a network able to explain its behavior, bring affected perspectives together, and answer for its consequences. The program may be tested, typed, documented, and executable yet hard to modify intelligently when the world asks an unexpected question.</p>
+<h2>From gatekeepers to plumbers</h2>
+<p>Keeping all software production behind engineering is not the answer. It would preserve the bottleneck along with its accidental benefit. People closest to a problem should be able to act on their knowledge, and engineers were never reliable custodians of every business, legal, or operational concern.</p>
+<p>One possible future is shared authorship: domain experts direct agents while engineers remain involved in consequential changes. Another is direct modification, with engineering building the plumbing—platforms, visible boundaries, architectural constraints, and paths to expertise—instead of approving every diff. Persistent agents may help carry incident history and design rationale across teams and sessions.</p>
+<p>This would not demote engineers to maintaining pipes after the important decisions have been made. Designing the plumbing is itself systems work: deciding which boundaries must be hard, which decisions need human negotiation, what evidence should travel with a change, and where local autonomy must stop.</p>
+<p>The metaphor does not solve the problem. Who decides which changes are consequential? How can a system find a conflict rooted in an undocumented partner agreement? How can engineers guard system-wide invariants without becoming the same overwhelmed gate under a new name?</p>
+<p>The scarce skill may no longer be writing the implementation. It may be discovering whose knowledge a decision depends on—and bringing those people in before it becomes software.</p>
+<p>The shift from gatekeeping to plumbing is not inevitable, and the metaphor is imperfect. But it points at the missing function more clearly than "review":</p>
+<p><strong>Can the organization bring together the knowledge a consequential change depends on without making every change pass through the same gate?</strong></p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>

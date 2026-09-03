@@ -1,0 +1,28 @@
+# Euge's blog
+
+Sharing ideas, experiments, opinions about software and AI.
+
+Author Email: eugfcl@gmail.com
+Site URL: https://eug.github.io
+
+## About
+
+## Bookmarks
+
+For full bookmarks context please visit [llms-bookmarks-full.txt](https://eug.github.io/llms-bookmarks-full.txt)
+
+## Posts
+
+For full posts context please visit [llms-posts-full.txt](https://eug.github.io/llms-posts-full.txt)
+
+[The Engineer as a Learning-System Builder](https://eug.github.io/posts/engineer-as-learning-system-builder.html): Agent-driven engineering is shifting the work from producing code to improving the system that produces it
+[Engineerification](https://eug.github.io/posts/engineerification.html): Why more professions are becoming engineer-shaped just as engineering itself may be automated
+[Soft Software Needs Hard Factories](https://eug.github.io/posts/soft-software-needs-hard-factories.html): As interfaces become fluid and code becomes disposable, the machinery underneath may need to become much more rigid
+[Software Cartography](https://eug.github.io/posts/software-cartography.html): A tentative idea for understanding systems that no person or model can hold in full
+[From Gatekeepers to Plumbers?](https://eug.github.io/posts/from-gatekeepers-to-plumbers.html): What happens when engineering is no longer where an organization's knowledge comes together
+[Developing my first mobile app](https://eug.github.io/posts/developing-my-first-mobile-app.html): Lessons, mistakes, and wins from shipping my first app
+[Dissecting the Assistant User Interface](https://eug.github.io/posts/dissecting-the-assistant-user-interface.html): How converging structural patterns are shaping trust, agency, and intent
+[An Obvious Guide on Prompting](https://eug.github.io/posts/an-obvious-guide-on-prompting.html): Because apparently, this needed to be said.
+[llmstxt for blogs](https://eug.github.io/posts/llmstxt-for-blogs.html): Extending `llms.txt` for Blogs – Give Your LLM an All-Access Pass
+[My bookmarks are public now](https://eug.github.io/posts/my-bookmarks-are-public-now.html): Rethinking bookmarks for the next decade
+[Vibe-code your own SSG](https://eug.github.io/posts/vibe-code-your-own-ssg.html): Stop wrestling with frameworks. Vibe code your own lean static site generator.

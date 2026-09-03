@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Why more professions are becoming engineer-shaped just as engineering itself may be automated" />
+        <meta name="google-site-verification" content="eSHd_5CwIKwbwqKlUIXU15XMqeZkdDkwvFFS2SdGNKs" />
+        <title>Euge's blog - Engineerification</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+            />
+        </noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/base.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/base.css" /></noscript>
+        <link
+            rel="preload"
+            as="style"
+            href="../static/css/light.css"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript><link rel="stylesheet" href="../static/css/light.css" /></noscript>
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="https://eug.github.io/static/favicon.svg"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="https://eug.github.io/static/favicon.ico"
+        />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed"
+            href="../rss.xml"
+        />
+        <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="Atom Feed"
+            href="../atom.xml"
+        />
+        <style>
+            /* Critical CSS to avoid render-blocking on first paint */
+            body {
+                font-family: "Roboto", Arial, sans-serif;
+                margin: 0 auto;
+                padding: 20px;
+                max-width: 800px;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+            }
+            header {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid;
+            }
+            header h1 {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 15px;
+                padding: 2px 0px;
+            }
+            main {
+                margin-bottom: 20px;
+            }
+            .post-list {
+                list-style: none;
+                padding: 0;
+            }
+            .post-list li {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+            .post-list h3,
+            .post h2 {
+                margin-top: 0;
+                margin-bottom: 0px;
+            }
+            .post .subtitle {
+                font-style: italic;
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .post .meta {
+                font-size: 0.8em;
+                margin-bottom: 0px;
+            }
+            .content {
+                margin-top: 28px;
+            }
+            .index-page-list .post-date {
+                margin-right: 10px;
+                font-size: 0.9em;
+            }
+            .glider-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .glider-cell {
+                fill: currentColor;
+            }
+            
+            body {
+                background-color: #ffffff;
+                color: #2a2a2a;
+            }
+            a {
+                color: #0066cc;
+            }
+            header h1 a,
+            .post-list h3 a,
+            .index-page-list a {
+                color: #1a1a1a;
+            }
+            header {
+                border-bottom-color: #cccccc;
+            }
+            .post-list li {
+                border-bottom: 1px dashed #cccccc;
+            }
+            .post .subtitle {
+                color: #666666;
+            }
+            .post .meta {
+                color: #777777;
+            }
+            .index-page-list .post-date {
+                color: #666666;
+            }
+            
+        </style>
+    </head>
+    <body data-theme="light">
+        <header>
+            <h1>
+                <svg
+                    class="glider-icon"
+                    viewBox="0 0 35 35"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect x="0" y="0" width="35" height="35" fill="none" />
+                    <!-- Step 0 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="5"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="1;0;0;0;0;0;0;1"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 1 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;1;0;0;0;1;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 2 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="5"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="11"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;1;0;1;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                    <!-- Step 3 -->
+                    <g>
+                        <rect
+                            class="glider-cell"
+                            x="11"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="17"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="23"
+                            y="23"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                        <rect
+                            class="glider-cell"
+                            x="17"
+                            y="29"
+                            width="6"
+                            height="6"
+                        >
+                            <animate
+                                attributeName="opacity"
+                                values="0;0;0;1;0;0;0"
+                                dur="6s"
+                                repeatCount="indefinite"
+                            />
+                        </rect>
+                    </g>
+                </svg>
+                <a href="https://eug.github.io/index.html">Euge's blog</a>
+            </h1>
+            <nav>
+                <a href="https://eug.github.io/index.html">[Home]</a>
+                <a href="https://eug.github.io/bookmarks.html">[Bookmarks]</a>
+                <a href="https://eug.github.io/about.html">[About]</a>
+            </nav>
+        </header>
+        <main>
+    <article class="post">
+        <h2>Engineerification</h2>
+        
+            <p class="subtitle">Why more professions are becoming engineer-shaped just as engineering itself may be automated</p>
+        
+        <p class="meta">
+            Published on 2026-08-23
+            
+                | Tags: 
+                
+                    <span class="tag">ai</span>, 
+                
+                    <span class="tag">work</span>, 
+                
+                    <span class="tag">engineering</span>, 
+                
+                    <span class="tag">systems-thinking</span>, 
+                
+                    <span class="tag">agents</span>, 
+                
+                    <span class="tag">mathematics</span>
+                
+            
+        </p>
+        
+            <section class="post-audio" data-audio-player aria-label="Audio version">
+                <audio controls preload="metadata" data-post-audio>
+                    <source src="20260823-engineerification.mp3" type="audio/mpeg" />
+                    Your browser does not support audio playback.
+                    <a href="20260823-engineerification.mp3">Download the audio version</a>.
+                </audio>
+                <div class="post-audio__controls" data-audio-controls hidden>
+                    <button
+                        class="post-audio__play"
+                        type="button"
+                        data-audio-toggle
+                        aria-label="Play audio"
+                    >
+                        <svg
+                            class="post-audio__icon post-audio__icon--play"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M8 5.75 18 12 8 18.25Z" />
+                        </svg>
+                        <svg
+                            class="post-audio__icon post-audio__icon--pause"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M7.5 5.5h3v13h-3zm6 0h3v13h-3z" />
+                        </svg>
+                    </button>
+                    <div class="post-audio__body">
+                        <div class="post-audio__timeline">
+                            <div class="post-audio__rail" aria-hidden="true">
+                                <span class="post-audio__progress" data-audio-progress></span>
+                            </div>
+                            <input
+                                class="post-audio__seek"
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="0"
+                                step="0.01"
+                                data-audio-seek
+                                disabled
+                                aria-label="Seek audio"
+                                aria-valuetext="0:00 of unknown duration"
+                            />
+                        </div>
+                        <div class="post-audio__time" aria-hidden="true">
+                            <time data-audio-current>0:00</time>
+                            <time data-audio-duration>--:--</time>
+                        </div>
+                        <span class="visually-hidden" data-audio-status aria-live="polite">Audio ready</span>
+                    </div>
+                    <button
+                        class="post-audio__rate"
+                        type="button"
+                        data-playback-rate
+                        aria-label="Playback speed: 1×. Change speed"
+                    >1×</button>
+                </div>
+            </section>
+            <script src="../static/js/audio-player.js" defer></script>
+        
+        <div class="content">
+            <blockquote>
+<p><strong>TL;DR:</strong> I have been noticing professionals in very different fields adopting workflows that look increasingly like engineering: repositories, agents, tests, automation, formal specifications, and feedback loops. The deeper change is not that everyone is learning to code. It is that domain experts are becoming responsible for systems that perform parts of their work. I have been calling this <strong>engineerification</strong>. I do not know whether it is desirable, or even durable. The strange possibility is that many of us may become engineer-like just before agents become capable of doing much of the engineering too.</p>
+</blockquote>
+<p>I recently watched a lecture for mathematicians that spent a surprising amount of time on the terminal.</p>
+<p>The speakers recommended working in local directories, giving coding agents carefully limited permissions, keeping projects in repositories, committing changes, writing instruction files, running tests, and using <a href="https://lean-lang.org/">Lean</a> to check formal proofs. They demonstrated Claude Code and Codex, discussed which models were better for long sessions, and explained why a mathematician might move work out of Overleaf and onto a local machine.</p>
+<p>This was not a software engineering conference. It was a <a href="https://www.youtube.com/watch?v=2hkXQKCh1cE">special lecture on LLMs and mathematics</a> at Brazil's Institute for Pure and Applied Mathematics.</p>
+<p>The practical advice was concrete enough to feel ordinary. A mathematician described starting the day by entering a project directory and launching an agent. Another described numerical experiments that once required learning an unfamiliar programming language and can now be assembled by asking a model for subroutines, testing them, and using the results to develop intuition.</p>
+<p>Something about this caught my attention.</p>
+<p>Mathematicians have used computers for a long time. Numerical methods, symbolic systems, LaTeX, and proof assistants are not new. But this looked like more than adopting another tool. The shape of the work was changing. A mathematical project was becoming a software project: a collection of files with dependencies, permissions, executable checks, version history, and an agent operating inside it.</p>
+<p>After that lecture, I started noticing the same shape elsewhere.</p>
+<h2>A profession changing shape</h2>
+<p>The other talks I had been watching were less instructional and more existential.</p>
+<p>In <a href="https://www.youtube.com/watch?v=6uIJdXmB4vE"><em>The Last Generation of Mathematicians</em></a>, Jacob Tsimerman distinguishes concern for mathematics from concern for mathematicians. Mathematics may continue to expand even if the familiar working life of a mathematician does not. He imagines a period in which people solve problems partly by directing language models, while remaining careful about forecasting what comes after it.</p>
+<p>In his <a href="https://www.youtube.com/watch?v=M0--ZH1lOzg">ICM 2026 public lecture</a>, Terence Tao approaches the disruption through the values of mathematical practice. Producing a valid argument is not the whole activity. Results must also be verified, explained, digested, connected to existing knowledge, and judged interesting enough to pursue. A machine may accelerate some of these stages without settling what the community should value in the others.</p>
+<p>The three lectures seemed to describe different layers of the same transition.</p>
+<p>One showed a profession reconsidering its purpose. Another showed anxiety about its identity. The practical lecture showed what people do on Monday morning: open a terminal, navigate to a repository, start an agent, inspect its changes, and decide whether the result can be trusted.</p>
+<p>That last layer may be the most revealing. Large changes in work often arrive first as small changes in routine.</p>
+<h2>More than learning to code</h2>
+<p>I have been calling this pattern <strong>engineerification</strong>.</p>
+<p>The word is intentionally a little awkward. I do not mean that every mathematician, designer, analyst, or lawyer is becoming a software engineer. I also do not mean that engineering owns systems thinking, or that other professions lacked rigor before Git appeared.</p>
+<p>What seems to be spreading is a particular responsibility: domain experts are increasingly expected to create, supervise, and improve systems that perform parts of their domain work.</p>
+<p>The important shift is not from natural language to programming language. An agent may hide most of the code. The shift is from doing a task to shaping a process that repeatedly does the task.</p>
+<p>That requires a different kind of attention. What information enters the system? Which dependencies does it rely on? How does it behave when the input is strange? What can it modify? How do we know whether its output is correct? How can a change be reviewed, reversed, or reproduced? Who is responsible when a locally reasonable result causes a wider failure?</p>
+<p>These are engineering-shaped questions even when the underlying subject is mathematics, design, sales, science, or law.</p>
+<p>The code may be generated. The need to reason about boundaries, feedback, failure, and consequences remains.</p>
+<h2>Software engineers went first</h2>
+<p>I had seen an earlier version of this shift inside software development itself.</p>
+<p>The first coding assistants mostly completed the code in front of you. By 2024, the unit of delegation was becoming much larger: give a model an issue, let it explore a repository, review its plan, and judge the changes through tests.</p>
+<p><a href="https://github.blog/news-insights/product-news/github-copilot-workspace/">GitHub Copilot Workspace</a>, announced in April 2024, made this explicit. It turned a task into an editable specification, plan, implementation, and test cycle. GitHub described the developer as a “systems thinker”: someone stating intent, constraining the solution, and validating what happened.</p>
+<p>Research prototypes followed the same direction. <a href="https://arxiv.org/abs/2405.15793">SWE-agent</a> asked agents to solve GitHub issues across real repositories. <a href="https://arxiv.org/abs/2406.12952">SWT-Bench</a> translated issues into tests that could check generated code. Aider's <a href="https://aider.chat/2024/09/26/architect.html">Architect/Editor workflow</a> separated reasoning about a solution from making the edits.</p>
+<p>In GitHub's <a href="https://github.blog/news-insights/research/survey-ai-wave-grows/">2024 survey of 2,000 enterprise workers on software development teams</a>, most respondents said their organizations used AI-generated test cases at least sometimes. They also reported spending some of the time saved on collaboration, learning, and system design.</p>
+<p>This does not prove that most engineers had reorganized their work around agents. The survey was self-reported, and product announcements describe aspirations as much as established practice. But 2024 looks like a visible hinge: autocomplete was giving way to delegation, with tests, specifications, and architecture becoming the interface between the engineer and the implementation.</p>
+<p>Engineerification may have happened inside engineering first. As programming became more delegable, engineers moved toward designing and supervising the system that produced the code. Other domains may now be repeating that movement.</p>
+<h2>The same motion elsewhere</h2>
+<p>The most explicit example may be go-to-market work. In the manual version described by <a href="https://www.clay.com/guides/gtm-engineering">Clay's guide to GTM engineering</a>, a representative researches accounts across many tabs, exports and cleans lists, qualifies leads, and prepares outreach one record at a time. A GTM engineer tries to turn that motion into a system: signals enter, records are enriched and scored, actions are routed, results are measured, and the workflow is revised. The unit of work moves from the account to the mechanism that processes accounts.</p>
+<p>Analytics went through a related transition earlier. Analysts who once produced queries and dashboards now increasingly maintain transformation pipelines as versioned software. The role called <a href="https://www.getdbt.com/blog/what-is-analytics-engineering">analytics engineering</a> brought modularity, documentation, testing, deployment, and code review into work that still depends on understanding the business meaning of the data.</p>
+<p>Design is moving across the old handoff boundary too. At Vercel, <a href="https://vercel.com/blog/design-engineering-at-vercel">design engineers</a> may sketch in Figma or code, build reusable components, inspect browser performance, handle accessibility, and ship the result. Anthropic describes product designers using Claude Code to implement visual and state changes directly, replacing some cycles of specification and translation with <a href="https://www.anthropic.com/news/how-anthropic-teams-use-claude-code">working prototypes and code changes</a>.</p>
+<p>The pattern extends beyond product companies. Research software engineering treats scripts that might once have been disposable by-products as durable scientific infrastructure, bringing version control, continuous integration, testing, and documentation into research. Legal teams are experimenting with agents to build routing and review tools around their own processes. Technical writers practice <a href="https://www.writethedocs.org/guide/docs-as-code/">docs as code</a>, working through Markdown, issues, pull requests, reviews, and automated checks. Compliance rules that once lived only in documents can become <a href="https://www.openpolicyagent.org/docs/philosophy">policy as code</a>, versioned and evaluated automatically inside a system.</p>
+<p>These examples are not equally mature, and some come from vendors with an interest in presenting their tools as transformative. I do not think they prove that every profession is moving in one direction. Many people in these fields will never open a terminal, nor should they need to.</p>
+<p>But the recurrence seems meaningful. Artifacts become repositories. Procedures become workflows. Rules become tests. Repeated tasks become systems. The professional moves one level up, from producing each output to defining and supervising the conditions under which outputs are produced.</p>
+<h2>When everything becomes a system</h2>
+<p>There is an optimistic interpretation of this.</p>
+<p>People closest to a problem can finally change the machinery around it. A mathematician can test a numerical intuition without waiting for a programmer. A designer can explore the real interaction instead of describing it through a static mockup. A lawyer can prototype a routing tool without competing for a place on an engineering roadmap. Domain knowledge can become executable without crossing as many translation layers.</p>
+<p>This may make systems thinking a general form of literacy. Not everyone needs to understand every generated line, but more people can inspect inputs and outputs, identify dependencies, make constraints explicit, and build feedback into their own work.</p>
+<p>There is also a less comfortable interpretation.</p>
+<p>Engineering is powerful partly because it makes parts of the world formal enough to operate on. Inputs need schemas. Success needs signals. Rules need expressions. Failures need categories. Once a workflow becomes a system, the system begins to privilege what it can represent.</p>
+<p>That is useful when the omitted detail is noise. It is dangerous when the omitted detail contains the point.</p>
+<p>A mathematical proof can be formally correct and still fail to communicate why an idea matters. A sales system can optimize replies while damaging relationships it cannot measure. A legal workflow can route known categories efficiently while missing the unusual case that required judgment. A scientific pipeline can be reproducible and still encode a bad assumption. A design system can make interfaces consistent while making them consistently wrong for someone it did not model.</p>
+<p>Engineerification therefore does not merely give a profession new tools. It imports an engineering temptation: to treat what has not been formalized as if it were outside the system, and then to forget that the system is smaller than the world.</p>
+<p>Tao's distinction between generating mathematics and digesting it feels relevant here. Verification can tell us that an argument satisfies formal rules. It cannot by itself decide whether the argument created understanding, whether it is worth teaching, or what new questions it should make us ask. Those judgments are not defects waiting to be compiled away. They are part of the practice.</p>
+<p>The engineering mindset is most valuable when it includes stewardship rather than only optimization: knowing that a system has boundaries, looking for what falls outside them, and remaining answerable for the consequences.</p>
+<h2>The temporary engineer</h2>
+<p>There is a paradox in the timing of all this.</p>
+<p>AI is reducing the amount of implementation skill required to build a working system. That should make engineering less central. Instead, at least for now, it appears to be distributing engineering responsibilities across more professions.</p>
+<p>When building becomes cheap, more things become buildable. When more things become systems, more people must decide how those systems should behave. The implementation may arrive through a prompt, but somebody still has to shape the environment, choose the evidence, define the checks, inspect failures, and recognize when the machinery has misunderstood the work.</p>
+<p>In <a href="https://eug.github.io/posts/from-gatekeepers-to-plumbers.html"><em>From Gatekeepers to Plumbers?</em></a>, I wondered whether engineers might move from approving every change to building the infrastructure that lets domain experts act safely. Engineerification looks like the corresponding movement from the other side. Domain experts gain the ability to act, but they also inherit responsibility for the systems through which they act.</p>
+<p>I do not know whether this arrangement lasts.</p>
+<p>The same agents that make engineering workflows accessible are becoming better at navigating repositories, running tests, tracing dependencies, responding to failures, and improving their own instructions. If systems stewardship can be described as a loop, agents may take over more of that loop too.</p>
+<p>Perhaps engineerification names a stable future in which systems thinking becomes part of almost every profession. Perhaps it names a brief period in which humans learn to supervise machinery that soon requires much less supervision. Or perhaps the work keeps moving upward: from writing outputs, to building systems, to choosing purposes and accepting responsibility for what the systems do.</p>
+<p>I am not sure which of these futures is desirable. Making domain experts more capable seems good. Turning every profession into a collection of pipelines, metrics, and evaluators does not obviously seem good. Removing tedious implementation seems good. Losing the forms of understanding that tedious work sometimes produced may not be.</p>
+<p>For now, the pattern is easier to see than its destination.</p>
+<p>Are we all becoming engineers because engineering is the future of knowledge work, or because it is the temporary interface between our professions and the systems that may eventually perform them?</p>
+        </div>
+    </article>
+</main>
+        <footer>
+            <p>
+                <a href="mailto:eugfcl@gmail.com">[mailto]</a>
+                <a
+                    href="https://www.linkedin.com/in/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[LinkedIn]</a
+                > <a
+                    href="https://github.com/eug"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[GitHub]</a
+                >
+                <a
+                    href="https://x.com/iam_eugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >[X]</a
+                >
+            </p>
+            <p>&copy; 2026 Euge's blog</p>
+        </footer>
+    </body>
+</html>
